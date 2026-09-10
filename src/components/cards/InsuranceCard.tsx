@@ -18,11 +18,11 @@ export const InsuranceCard: React.FC<InsuranceCardProps> = ({ provider }) => {
     >
       <div>
         {/* Logo Container */}
-        <div className="h-24 w-full bg-slate-50 rounded-lg p-2 flex items-center justify-center border border-slate-100 overflow-hidden mb-4">
+        <div className="h-24 w-full bg-white rounded-lg p-2.5 flex items-center justify-center border border-slate-200/70 shadow-sm overflow-hidden mb-4">
           <img
             src={provider.logo}
             alt={`${provider.name} Logo`}
-            className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200"
+            className={`max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200 ${provider.id === 'galaxy' ? 'rounded' : ''}`}
             loading="lazy"
             onError={(e) => {
               const target = e.target as HTMLElement;

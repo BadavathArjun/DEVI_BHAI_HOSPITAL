@@ -7,7 +7,7 @@ export const INSURANCE_PROVIDERS: InsuranceProvider[] = [
     id: "aarogyasri",
     name: "Rajiv Aarogyasri",
     teluguName: "రాజీవ్ ఆరోగ్యశ్రీ",
-    logo: "/assets/insurance/aarogyasri.jpg",
+    logo: "/assets/insurance/aarogyasri.png",
     type: "government",
     notes: "Flagship Telangana Government community health scheme shown on hospital panel. Coverage and eligibility subject to active card status and scheme guidelines."
   },
@@ -15,7 +15,7 @@ export const INSURANCE_PROVIDERS: InsuranceProvider[] = [
     id: "aditya-birla",
     name: "Aditya Birla Health",
     teluguName: "ఆదిత్య బిర్లా హెల్త్",
-    logo: "/assets/insurance/aditya-birla.jpg",
+    logo: "/assets/insurance/aditya-birla.png",
     type: "private",
     notes: "Private health insurance partner displayed in hospital network. Pre-authorization required for cashless hospitalization."
   },
@@ -23,7 +23,7 @@ export const INSURANCE_PROVIDERS: InsuranceProvider[] = [
     id: "ericson",
     name: "Ericson Insurance TPA Pvt. Ltd.",
     teluguName: "ఎరిక్సన్ ఇన్సూరెన్స్ టిపిఎ",
-    logo: "/assets/insurance/ericson.jpg",
+    logo: "/assets/insurance/ericson.png",
     type: "tpa",
     notes: "Authorized Third Party Administrator (TPA) for cashless medical claims processing."
   },
@@ -39,7 +39,7 @@ export const INSURANCE_PROVIDERS: InsuranceProvider[] = [
     id: "galaxy",
     name: "Galaxy Health Insurance",
     teluguName: "గెలాక్సీ హెల్త్ ఇన్సూరెన్స్",
-    logo: "/assets/insurance/galaxy.jpg",
+    logo: "/assets/insurance/galaxy.png",
     type: "private",
     notes: "Health insurance partner recognized on the hospital panel."
   },
@@ -47,7 +47,7 @@ export const INSURANCE_PROVIDERS: InsuranceProvider[] = [
     id: "volo",
     name: "Volo Health",
     teluguName: "వోలో హెల్త్",
-    logo: "/assets/insurance/volo.jpg",
+    logo: "/assets/insurance/volo.png",
     type: "tpa",
     notes: "TPA & healthcare administration network displayed in hospital brochure."
   },

@@ -50,7 +50,7 @@ export const AarogyasriPage: React.FC = () => {
               <div className="flex items-center space-x-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
                 <div className="w-20 h-20 bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-center flex-shrink-0">
                   <img
-                    src="/assets/insurance/aarogyasri.jpg"
+                    src="/assets/insurance/aarogyasri.png"
                     alt="Rajiv Aarogyasri Logo"
                     className="max-h-full max-w-full object-contain"
                   />
