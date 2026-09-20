@@ -9,6 +9,13 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: "Modern multi-speciality hospital building with 24/7 ambulance emergency services, maternity & pediatric care in Nirmal."
   },
   {
+    id: "gal-about-overview",
+    title: "Clinical Departments, OT, ICU & Patient Care Facilities",
+    category: "Hospital",
+    image: "/assets/branding/about-hospital.jpg",
+    caption: "Comprehensive medical facilities: Modern reception lobby, advanced surgical operation theatre, maternity suites, pediatrics, 24/7 emergency response, and diagnostic pathology laboratory."
+  },
+  {
     id: "gal-1",
     title: "Devibai Super Speciality Hospital Main Facility Board",
     category: "Hospital",
@@ -24,45 +31,73 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "gal-3",
-    title: "Dr. K. Chandrika - Fertility & Laparoscopic Specialist",
+    title: "Dr. K. Chandrika - Obstetrics, Gynecology & Fertility Specialist",
     category: "Doctors",
     image: "/assets/doctors/dr-k-chandrika.jpg",
-    caption: "Consultant Obstetrician, Gynecologist & Fertility Specialist (Diploma in ART, Germany)."
+    caption: "MBBS, DNB - OBGY (Fernandez), Fellow in Infertility (IMA), Diploma in ART (Germany). Specialist in IVF, high-risk pregnancy & maternal care."
   },
   {
     id: "gal-4",
     title: "Dr. K. Avinash Kasamwar - General & Laparoscopic Surgeon",
     category: "Doctors",
     image: "/assets/doctors/dr-k-avinash-kasamwar.jpg",
-    caption: "Consultant General & Laparoscopic Surgeon (MS General Surgery)."
+    caption: "MS - General Surgery. Consultant General & Laparoscopic Surgeon specializing in minimally invasive procedures, appendectomy, hernia & acute surgical care."
   },
   {
     id: "gal-5",
-    title: "Dr. Prashant Kumar Waghmare - Consultant Physician & Diabetologist",
+    title: "Dr. Prashant Kumar Waghmare - Physician, Diabetologist & Critical Care",
     category: "Doctors",
     image: "/assets/doctors/dr-prashant-kumar-waghmare.jpg",
-    caption: "MD Physician, Consultant Physician & Diabetologist, Critical Care Specialist."
+    caption: "MD - General Medicine. Consultant Physician, Diabetologist & Critical Care Specialist overseeing Adult ICU and internal medicine."
   },
   {
     id: "gal-6",
     title: "Dr. Sudheer Kumar G - Pediatrician & Neonatologist",
     category: "Doctors",
     image: "/assets/doctors/dr-sudheer-kumar-g.jpg",
-    caption: "Consultant Pediatrician & Neonatologist (Fellowship in Neonatology, IAP Delhi)."
+    caption: "MBBS, MD Pediatrics, Fellowship in Neonatology (IAP Delhi). Consultant Pediatrician & Neonatologist leading pediatric & neonatal intensive care."
   },
   {
     id: "gal-7",
     title: "Dr. K. Ravichandra - Visiting Consultant Urologist",
     category: "Doctors",
     image: "/assets/doctors/dr-k-ravichandra.jpg",
-    caption: "Visiting Consultant Urologist (MBBS, MS, MCh Urology)."
+    caption: "MBBS, MS, MCh - Urology. Visiting Consultant Urologist providing advanced kidney stone management, prostate care, and urological interventions."
   },
   {
     id: "gal-8",
-    title: "24/7 Emergency & Acute Trauma Care Unit",
+    title: "24/7 Emergency Department & Immediate Triage Bay",
     category: "Emergency",
     image: "/assets/facilities/emergency-trauma-care.jpg",
-    caption: "Equipped for 24/7 accident triage, poisoning resuscitation, cardiac emergencies, and ventilator support."
+    caption: "Modern emergency department with dedicated ambulance arrival bay, triage station, paramedics, and immediate life-support resuscitation."
+  },
+  {
+    id: "gal-icu",
+    title: "Smart ICU & Critical Care Unit",
+    category: "Emergency",
+    image: "/assets/facilities/smart-icu.jpg",
+    caption: "Advanced multiparameter vitals monitoring, invasive mechanical ventilators, and round-the-clock critical care under Dr. Prashant Kumar Waghmare."
+  },
+  {
+    id: "gal-pharmacy",
+    title: "24/7 In-House Hospital Pharmacy",
+    category: "Facilities",
+    image: "/assets/facilities/pharmacy-24-7.jpg",
+    caption: "Fully stocked hospital pharmacy providing genuine prescription medicines, emergency injectables, and surgical consumables 24 hours a day."
+  },
+  {
+    id: "gal-fertility-lab",
+    title: "Fertility & IVF Centre Consultation Suite & Embryology Lab",
+    category: "Fertility & IVF",
+    image: "/assets/facilities/fertility-ivf-centre.jpg",
+    caption: "Specialist consultation with real-time ultrasound monitoring, IVF/ICSI embryology workstation, and individualized reproductive planning."
+  },
+  {
+    id: "gal-10",
+    title: "Maternal & Delivery Suites",
+    category: "Fertility & IVF",
+    image: "/assets/facilities/maternal-fetal-monitoring.jpg",
+    caption: "Comfortable maternal recovery suites equipped with infant crib, continuous CTG fetal monitoring, and compassionate nursing care."
   },
   {
     id: "gal-9",
@@ -70,13 +105,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Surgery",
     image: "/assets/facilities/laparoscopic-surgery-ot.jpg",
     caption: "Modern surgical theatre with optical laparoscopy towers for minimally invasive keyhole procedures."
-  },
-  {
-    id: "gal-10",
-    title: "Fetal Monitoring & Maternal Care Suite",
-    category: "Fertility & IVF",
-    image: "/assets/facilities/maternal-fetal-monitoring.jpg",
-    caption: "Cardiotocography (CTG) and maternal ultrasound facilities for high-risk and routine prenatal care."
   },
   {
     id: "gal-11",

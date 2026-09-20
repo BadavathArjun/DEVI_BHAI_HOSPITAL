@@ -23,7 +23,7 @@ export const SERVICES: HospitalService[] = [
       "Hormonal Imbalances & Thyroid-related Infertility",
       "Luteal Phase Defect"
     ],
-    image: "/assets/branding/fertility-emblem.jpg"
+    image: "/assets/facilities/fertility-ivf-centre.jpg"
   },
   {
     id: "maternity",
@@ -172,6 +172,6 @@ export const SERVICES: HospitalService[] = [
       "Coma and Severe Neurological Impairment",
       "Severe Metabolic Acidosis & Organ Collapse"
     ],
-    image: "/assets/facilities/emergency-trauma-care.jpg"
+    image: "/assets/facilities/smart-icu.jpg"
   }
 ];

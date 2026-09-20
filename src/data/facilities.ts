@@ -27,7 +27,7 @@ export const FACILITIES: Facility[] = [
       "Septic shock resuscitation protocols",
       "Post-operative high-dependency observation"
     ],
-    image: "/assets/facilities/emergency-trauma-care.jpg"
+    image: "/assets/facilities/smart-icu.jpg"
   },
   {
     id: "24-7-pharmacy",
@@ -41,7 +41,7 @@ export const FACILITIES: Facility[] = [
       "Strict temperature-controlled medication storage",
       "Direct coordination with hospital doctors and nursing staff"
     ],
-    image: "/assets/branding/hospital-board.jpg"
+    image: "/assets/facilities/pharmacy-24-7.jpg"
   },
   {
     id: "24-7-laboratory",
@@ -69,7 +69,7 @@ export const FACILITIES: Facility[] = [
       "Advanced ART guidance and care protocols",
       "Compassionate, confidential patient environment"
     ],
-    image: "/assets/branding/fertility-emblem.jpg"
+    image: "/assets/facilities/fertility-ivf-centre.jpg"
   },
   {
     id: "maternity-suite",

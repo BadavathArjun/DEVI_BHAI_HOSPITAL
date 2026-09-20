@@ -32,9 +32,9 @@ export const AboutPage: React.FC = () => {
       <section className="bg-navy-950 text-white py-14 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/branding/hospital-board.jpg"
+            src="/assets/branding/homepage-hero.jpg"
             alt="Devibai Hospital Facility"
-            className="w-full h-full object-cover opacity-20 filter blur-sm"
+            className="w-full h-full object-cover opacity-25 filter blur-[1px]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-900/80"></div>
         </div>

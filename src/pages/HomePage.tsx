@@ -267,12 +267,12 @@ export const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Hospital Image / Visual */}
-            <div className="relative">
+            <div className="relative group">
               <div className="rounded-2xl overflow-hidden shadow-medical border border-slate-200 bg-white">
                 <img
-                  src="/assets/branding/hospital-board.jpg"
-                  alt="Devibai Super Speciality Hospital Nirmal"
-                  className="w-full h-auto object-cover"
+                  src="/assets/branding/about-hospital.jpg"
+                  alt="Devibai Super Speciality Hospital Clinical Departments & Facilities"
+                  className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
                 />
               </div>
               <div className="absolute -bottom-5 -right-4 sm:-bottom-6 sm:-right-6 bg-navy-900 text-white p-4 sm:p-5 rounded-xl shadow-xl border border-navy-700 max-w-[240px]">
