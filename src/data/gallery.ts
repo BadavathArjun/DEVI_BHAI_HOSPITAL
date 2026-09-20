@@ -2,6 +2,13 @@ import { GalleryItem } from '../types';
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
+    id: "gal-hero",
+    title: "Devibai Super Speciality Hospital Modern Campus",
+    category: "Hospital",
+    image: "/assets/branding/homepage-hero.jpg",
+    caption: "Modern multi-speciality hospital building with 24/7 ambulance emergency services, maternity & pediatric care in Nirmal."
+  },
+  {
     id: "gal-1",
     title: "Devibai Super Speciality Hospital Main Facility Board",
     category: "Hospital",

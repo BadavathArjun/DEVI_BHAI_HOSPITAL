@@ -10,23 +10,17 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-navy-800/80">
           {/* Col 1: Hospital Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-lg overflow-hidden bg-white p-0.5 border border-navy-700">
-                <img
-                  src="/assets/branding/db-logo.jpg"
-                  alt="Devibai Hospital Logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div>
-                <h3 className="text-white font-heading font-extrabold text-lg tracking-tight">
-                  DEVIBAI
-                </h3>
-                <div className="text-xs uppercase tracking-wider text-teal-400 font-semibold">
-                  Super Speciality Hospital
-                </div>
-              </div>
-            </div>
+            <Link
+              to="/"
+              className="inline-block bg-white px-3.5 py-2 rounded-xl shadow-md border border-slate-100/10 group hover:opacity-95 transition-opacity"
+              aria-label="Devibai Super Speciality Hospital Homepage"
+            >
+              <img
+                src="/assets/branding/hospital-logo.png"
+                alt="Devibai Super Speciality Hospital"
+                className="h-11 sm:h-12 w-auto object-contain"
+              />
+            </Link>
 
             <p className="text-sm text-slate-300 italic">
               "{HOSPITAL_INFO.tagline}"

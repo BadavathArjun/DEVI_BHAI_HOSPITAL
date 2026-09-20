@@ -49,37 +49,14 @@ export const Navbar: React.FC = () => {
           {/* Logo & Hospital Brand */}
           <Link
             to="/"
-            className="flex items-center space-x-3 group focus-visible:ring-2 focus-visible:ring-teal-600 rounded-lg p-1"
+            className="flex items-center group focus-visible:ring-2 focus-visible:ring-teal-600 rounded-lg py-0.5"
             aria-label="Devibai Super Speciality Hospital Homepage"
           >
-            {/* Real Logo Crop */}
-            <div className="relative flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm flex items-center justify-center p-0.5">
-              <img
-                src="/assets/branding/db-logo.jpg"
-                alt="DB Logo"
-                className="w-full h-full object-contain"
-                onError={(e) => {
-                  // Fallback to text initials if image fails
-                  const target = e.target as HTMLElement;
-                  target.style.display = 'none';
-                }}
-              />
-              <span className="sr-only">DB Logo</span>
-            </div>
-
-            <div>
-              <div className="flex items-baseline space-x-1.5">
-                <span className="font-heading font-extrabold text-navy-900 text-base sm:text-lg tracking-tight group-hover:text-teal-700 transition-colors">
-                  DEVIBAI
-                </span>
-                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-teal-700 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200/50">
-                  Super Speciality
-                </span>
-              </div>
-              <div className="text-[11px] sm:text-xs font-medium text-slate-500 tracking-wide">
-                Hospital • Nirmal, Telangana
-              </div>
-            </div>
+            <img
+              src="/assets/branding/hospital-logo.png"
+              alt="Devibai Super Speciality Hospital"
+              className="h-11 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+            />
           </Link>
 
           {/* Desktop Navigation Links */}
