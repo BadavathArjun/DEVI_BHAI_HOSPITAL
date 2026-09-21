@@ -116,10 +116,10 @@ export const AarogyasriPage: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-2 flex flex-wrap gap-3">
+              <div className="pt-2 flex flex-col xs:flex-row flex-wrap gap-3">
                 <a
                   href={HOSPITAL_INFO.links.callPrimary}
-                  className="btn-primary text-xs sm:text-sm py-3 px-5 font-bold"
+                  className="btn-primary text-xs sm:text-sm py-3 px-5 font-bold w-full xs:w-auto text-center justify-center"
                 >
                   <Phone className="w-4 h-4 mr-2" />
                   Call Hospital: {HOSPITAL_INFO.phones.primary}
@@ -129,7 +129,7 @@ export const AarogyasriPage: React.FC = () => {
                   href={`https://wa.me/919092915222?text=Hello%20Devibai%20Hospital,%20I%20would%20like%20to%20enquire%20about%20Rajiv%20Aarogyasri%20scheme%20services.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-teal text-xs sm:text-sm py-3 px-5 font-bold"
+                  className="btn-teal text-xs sm:text-sm py-3 px-5 font-bold w-full xs:w-auto text-center justify-center"
                 >
                   <MessageSquare className="w-4 h-4 mr-2" />
                   Aarogyasri WhatsApp Inquiry

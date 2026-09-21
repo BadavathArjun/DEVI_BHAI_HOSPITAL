@@ -38,7 +38,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3.5 text-base sm:text-lg text-slate-600 leading-relaxed">
+        <p className="mt-3 text-sm sm:text-lg text-slate-600 leading-relaxed">
           {subtitle}
         </p>
       )}

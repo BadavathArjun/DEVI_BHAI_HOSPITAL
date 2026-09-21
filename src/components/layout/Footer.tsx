@@ -193,19 +193,19 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Rights & Admin Link */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4 text-center sm:text-left">
           <div>
             © 2026 Devibai Super Speciality Hospital, Nirmal. All rights reserved.
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
             <Link to="/privacy-policy" className="hover:text-slate-300 transition-colors">
               Privacy Policy
             </Link>
-            <span>•</span>
+            <span className="hidden xs:inline">•</span>
             <Link to="/terms" className="hover:text-slate-300 transition-colors">
               Terms & Conditions
             </Link>
-            <span>•</span>
+            <span className="hidden xs:inline">•</span>
             <Link to="/admin/login" className="hover:text-teal-400 text-slate-500 transition-colors" title="Hospital Staff / CMS Portal">
               Staff Portal
             </Link>

@@ -78,7 +78,7 @@ export const AppointmentPage: React.FC = () => {
                     <div className="pt-3">
                       <a
                         href={HOSPITAL_INFO.links.callEmergency}
-                        className="btn-emergency text-xs py-2 px-4 inline-flex items-center font-bold"
+                        className="btn-emergency text-xs py-2.5 px-4 w-full text-center justify-center font-bold"
                       >
                         Call 24/7 Emergency: {HOSPITAL_INFO.phones.primary}
                       </a>

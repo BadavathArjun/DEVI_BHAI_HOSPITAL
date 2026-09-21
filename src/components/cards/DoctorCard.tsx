@@ -36,7 +36,7 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
       </div>
 
       {/* Content */}
-      <div className="p-5 flex-1 flex flex-col justify-between">
+      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
         <div>
           <div className="flex items-baseline justify-between gap-2">
             <h3 className="font-heading font-bold text-lg sm:text-xl text-navy-900 group-hover:text-teal-700 transition-colors">

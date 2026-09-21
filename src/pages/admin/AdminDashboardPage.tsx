@@ -56,24 +56,27 @@ export const AdminDashboardPage: React.FC = () => {
       <SEOHead title="Staff Admin Dashboard | Devibai Hospital" />
 
       {/* Admin Top Navigation */}
-      <header className="bg-navy-950 text-white py-3.5 px-4 sm:px-8 border-b border-navy-800">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <span className="font-heading font-extrabold text-base sm:text-lg tracking-tight text-white">
-              DEVIBAI HOSPITAL <span className="text-teal-400 text-xs font-semibold uppercase px-2 py-0.5 rounded bg-teal-500/20 ml-2">Admin Portal</span>
+      <header className="bg-navy-950 text-white py-3 px-4 sm:px-8 border-b border-navy-800">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            <span className="font-heading font-extrabold text-sm sm:text-lg tracking-tight text-white">
+              DEVIBAI HOSPITAL
+            </span>
+            <span className="text-teal-400 text-[10px] sm:text-xs font-semibold uppercase px-2 py-0.5 rounded bg-teal-500/20">
+              Admin Portal
             </span>
           </div>
 
-          <div className="flex items-center space-x-4 text-xs">
-            <Link to="/" className="text-slate-300 hover:text-white flex items-center">
-              <span>View Website</span>
-              <ChevronRight className="w-3.5 h-3.5 ml-1" />
+          <div className="flex items-center space-x-3 sm:space-x-4 text-xs">
+            <Link to="/" className="text-slate-300 hover:text-white flex items-center min-h-[36px]">
+              <span>Website</span>
+              <ChevronRight className="w-3.5 h-3.5 ml-0.5" />
             </Link>
             <button
               onClick={handleLogout}
-              className="inline-flex items-center px-3 py-1.5 rounded-lg bg-navy-900 hover:bg-navy-800 text-red-300 hover:text-red-200 border border-navy-700"
+              className="inline-flex items-center px-3 py-1.5 rounded-lg bg-navy-900 hover:bg-navy-800 text-red-300 hover:text-red-200 border border-navy-700 min-h-[36px]"
             >
-              <LogOut className="w-3.5 h-3.5 mr-1.5" />
+              <LogOut className="w-3.5 h-3.5 mr-1" />
               Sign Out
             </button>
           </div>
@@ -83,8 +86,8 @@ export const AdminDashboardPage: React.FC = () => {
       {/* Main Dashboard Container */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-6">
         {/* KPI Metric Summary Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="medical-card p-5 bg-white border-l-4 border-l-teal-600">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="medical-card p-4 sm:p-5 bg-white border-l-4 border-l-teal-600">
             <div className="text-xs font-semibold text-slate-500 uppercase">Total Appointments</div>
             <div className="text-2xl font-bold font-heading text-navy-900 mt-1">{appointments.length}</div>
             <div className="text-[11px] text-teal-700 mt-0.5">
@@ -92,19 +95,19 @@ export const AdminDashboardPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="medical-card p-5 bg-white border-l-4 border-l-blue-600">
+          <div className="medical-card p-4 sm:p-5 bg-white border-l-4 border-l-blue-600">
             <div className="text-xs font-semibold text-slate-500 uppercase">Inquiries Received</div>
             <div className="text-2xl font-bold font-heading text-navy-900 mt-1">{messages.length}</div>
             <div className="text-[11px] text-blue-700 mt-0.5">Via Website Forms</div>
           </div>
 
-          <div className="medical-card p-5 bg-white border-l-4 border-l-purple-600">
+          <div className="medical-card p-4 sm:p-5 bg-white border-l-4 border-l-purple-600">
             <div className="text-xs font-semibold text-slate-500 uppercase">Consultant Doctors</div>
             <div className="text-2xl font-bold font-heading text-navy-900 mt-1">{DOCTORS.length}</div>
             <div className="text-[11px] text-purple-700 mt-0.5">5 Specialists Active</div>
           </div>
 
-          <div className="medical-card p-5 bg-white border-l-4 border-l-emerald-600">
+          <div className="medical-card p-4 sm:p-5 bg-white border-l-4 border-l-emerald-600">
             <div className="text-xs font-semibold text-slate-500 uppercase">Emergency Coverage</div>
             <div className="text-2xl font-bold font-heading text-navy-900 mt-1">24/7</div>
             <div className="text-[11px] text-emerald-700 mt-0.5">Smart ICU & Lab Active</div>
@@ -112,7 +115,7 @@ export const AdminDashboardPage: React.FC = () => {
         </div>
 
         {/* Tab Selection */}
-        <div className="flex border-b border-slate-200 bg-white rounded-t-xl px-4 pt-2 space-x-4 text-xs sm:text-sm font-semibold">
+        <div className="flex border-b border-slate-200 bg-white rounded-t-xl px-2 sm:px-4 pt-2 space-x-2 sm:space-x-4 text-xs sm:text-sm font-semibold overflow-x-auto whitespace-nowrap scrollbar-none touch-pan-x">
           <button
             onClick={() => setActiveTab('appointments')}
             className={`py-3 px-3 border-b-2 transition-colors ${
@@ -184,8 +187,8 @@ export const AdminDashboardPage: React.FC = () => {
                 No appointment requests found. Try booking a test appointment through the website form.
               </div>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs border-collapse">
+              <div className="overflow-x-auto -mx-2 sm:mx-0">
+                <table className="w-full min-w-[650px] text-left text-xs border-collapse">
                   <thead>
                     <tr className="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
                       <th className="py-3 px-3">Ref ID</th>
