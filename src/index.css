@@ -13,16 +13,21 @@
   html {
     scroll-behavior: smooth;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
     @apply bg-slate-50 text-slate-800 antialiased;
     overflow-x: hidden;
+    max-width: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', 'Inter', system-ui, sans-serif;
     letter-spacing: -0.02em;
+    word-break: break-word;
   }
 
   /* Accessibility focus indicators */
@@ -33,19 +38,19 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-white bg-navy-900 hover:bg-navy-800 transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98] disabled:opacity-60 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center min-h-[44px] px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-medium text-white bg-navy-900 hover:bg-navy-800 transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98] disabled:opacity-60 disabled:pointer-events-none;
   }
 
   .btn-teal {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-white bg-teal-600 hover:bg-teal-700 transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98] disabled:opacity-60 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center min-h-[44px] px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-medium text-white bg-teal-600 hover:bg-teal-700 transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98] disabled:opacity-60 disabled:pointer-events-none;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-navy-900 border border-slate-300 hover:border-navy-900 hover:bg-navy-50/50 transition-all duration-200 active:scale-[0.98];
+    @apply inline-flex items-center justify-center min-h-[44px] px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-medium text-navy-900 border border-slate-300 hover:border-navy-900 hover:bg-navy-50/50 transition-all duration-200 active:scale-[0.98];
   }
 
   .btn-emergency {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-white bg-emergency-600 hover:bg-emergency-700 transition-all duration-200 shadow-emergency hover:shadow-lg active:scale-[0.98];
+    @apply inline-flex items-center justify-center min-h-[44px] px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold text-white bg-emergency-600 hover:bg-emergency-700 transition-all duration-200 shadow-emergency hover:shadow-lg active:scale-[0.98];
   }
 
   .medical-card {
@@ -63,6 +68,25 @@
   .badge-emergency {
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200;
   }
+
+  /* Safe area utility for modern notch & gesture phones */
+  .pb-safe {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+
+  .pt-safe {
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 /* Custom subtle scrollbar */
