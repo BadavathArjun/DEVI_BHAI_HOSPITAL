@@ -31,7 +31,7 @@ export const INSURANCE_PROVIDERS: InsuranceProvider[] = [
     id: "akna",
     name: "AKNA Health Insurance TPA Pvt. Ltd.",
     teluguName: "అక్నా హెల్త్ ఇన్సూరెన్స్ టిపిఎ",
-    logo: "/assets/insurance/akna.jpg",
+    logo: "/assets/insurance/akna.png",
     type: "tpa",
     notes: "Third Party Administrator partner facilitating health claim authorizations."
   },
@@ -55,7 +55,7 @@ export const INSURANCE_PROVIDERS: InsuranceProvider[] = [
     id: "icici-lombard",
     name: "ICICI Lombard",
     teluguName: "ఐసిఐసిఐ లాంబార్డ్",
-    logo: "/assets/insurance/icici-lombard.jpg",
+    logo: "/assets/insurance/icici-lombard.png",
     type: "private",
     notes: "Major health insurance provider on hospital cashless facilitation panel."
   },
@@ -63,7 +63,7 @@ export const INSURANCE_PROVIDERS: InsuranceProvider[] = [
     id: "telangana-ehs",
     name: "Telangana Government Employees Health Scheme (EHS)",
     teluguName: "తెలంగాణ స్టేట్ గవర్నమెంట్ ఎంప్లాయీస్ హెల్త్ స్కీమ్ (EHS)",
-    logo: "/assets/insurance/telangana-ehs.jpg",
+    logo: "/assets/insurance/telangana-ehs.png",
     type: "government",
     notes: "Government health scheme for state employees and pensioners, subject to government guidelines and hospital empanelment criteria."
   }

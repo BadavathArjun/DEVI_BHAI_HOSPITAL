@@ -173,5 +173,30 @@ export const SERVICES: HospitalService[] = [
       "Severe Metabolic Acidosis & Organ Collapse"
     ],
     image: "/assets/facilities/smart-icu.jpg"
+  },
+  {
+    id: "laboratory",
+    slug: "diagnostic-laboratory",
+    title: "24/7 Diagnostic Laboratory",
+    category: "Pathology & Diagnostics",
+    shortDesc: "Round-the-clock pathology, biochemistry, and clinical diagnostics with rapid test reporting.",
+    fullDesc: "Devibai Super Speciality Hospital houses a modern, 24/7 diagnostic laboratory equipped with automated analyzers and supervised by experienced medical pathologists. We deliver fast, accurate, and dependable testing for emergency stabilization, inpatient monitoring, routine screening, and specialized diagnostic panels.",
+    features: [
+      "24/7 sample collection and rapid emergency reporting",
+      "Complete Blood Count (CBC), ESR, and Hematology",
+      "Biochemistry panels (Liver, Kidney, Lipid profiles)",
+      "Cardiac enzymes, Troponin I, and acute emergency markers",
+      "Infection serology (Dengue NS1, Typhoid, Malaria)",
+      "Hormone assays, Thyroid profiling, and Fertility investigations",
+      "Same-day reports and home sample collection support"
+    ],
+    conditionsTreated: [
+      "Acute Infections, Sepsis & Fever Panels",
+      "Diabetic Metabolic Monitoring (HbA1c, Fasting/PP Glucose)",
+      "Renal & Hepatic Function Disorders",
+      "Thyroid & Endocrine Imbalances",
+      "Electrolyte Imbalances & Blood Disorders"
+    ],
+    image: "/assets/facilities/diagnostic-laboratory-24-7.jpg"
   }
 ];

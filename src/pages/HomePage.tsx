@@ -748,34 +748,76 @@ export const HomePage: React.FC = () => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="medical-card p-8 border-navy-200/80">
-              <div className="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6" />
+            <div className="medical-card overflow-hidden border-navy-200/80 flex flex-col group hover:-translate-y-1 transition-all duration-300">
+              <div className="h-48 sm:h-56 overflow-hidden bg-slate-100 relative">
+                <img
+                  src="/assets/facilities/pharmacy-24-7.jpg"
+                  alt="24/7 In-House Pharmacy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent"></div>
+                <div className="absolute top-3 right-3 bg-navy-900/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                  Round-the-Clock
+                </div>
+                <div className="absolute bottom-3 left-4 right-4">
+                  <h3 className="font-heading font-extrabold text-2xl text-white drop-shadow-sm">
+                    24/7 PHARMACY
+                  </h3>
+                </div>
               </div>
-              <h3 className="font-heading font-extrabold text-2xl text-navy-900">
-                PHARMACY
-              </h3>
-              <p className="mt-3 text-base text-slate-700 leading-relaxed">
-                "Round-the-clock pharmacy services for patient convenience."
-              </p>
-              <p className="mt-2 text-xs sm:text-sm text-slate-500">
-                Fully stocked with genuine emergency medications, critical care injectables, pediatric formulations, and surgical consumables.
-              </p>
+              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                <div>
+                  <p className="text-base text-slate-700 leading-relaxed font-medium">
+                    "Round-the-clock pharmacy services for patient convenience."
+                  </p>
+                  <p className="mt-2 text-xs sm:text-sm text-slate-500 leading-relaxed">
+                    Fully stocked with genuine emergency medications, critical care injectables, pediatric formulations, and surgical consumables.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-xs font-semibold text-navy-800">In-Hospital Dispensing</span>
+                  <Link to="/facilities" className="text-xs font-bold text-navy-700 hover:text-navy-900">
+                    View Facility Details →
+                  </Link>
+                </div>
+              </div>
             </div>
 
-            <div className="medical-card p-8 border-teal-200/80">
-              <div className="w-12 h-12 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center mb-4">
-                <Activity className="w-6 h-6" />
+            <div className="medical-card overflow-hidden border-teal-200/80 flex flex-col group hover:-translate-y-1 transition-all duration-300">
+              <div className="h-48 sm:h-56 overflow-hidden bg-slate-100 relative">
+                <img
+                  src="/assets/facilities/diagnostic-laboratory-24-7.jpg"
+                  alt="24/7 Diagnostic Laboratory"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent"></div>
+                <div className="absolute top-3 right-3 bg-teal-800/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                  Fast & Accurate
+                </div>
+                <div className="absolute bottom-3 left-4 right-4">
+                  <h3 className="font-heading font-extrabold text-2xl text-white drop-shadow-sm">
+                    24/7 DIAGNOSTIC LABORATORY
+                  </h3>
+                </div>
               </div>
-              <h3 className="font-heading font-extrabold text-2xl text-navy-900">
-                LABORATORY
-              </h3>
-              <p className="mt-3 text-base text-slate-700 leading-relaxed">
-                "Diagnostic laboratory services supporting timely medical evaluation."
-              </p>
-              <p className="mt-2 text-xs sm:text-sm text-slate-500">
-                Rapid turnaround diagnostic testing for hematology, biochemistry, infectious disease markers, and critical care electrolyte monitoring.
-              </p>
+              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                <div>
+                  <p className="text-base text-slate-700 leading-relaxed font-medium">
+                    "Diagnostic laboratory services supporting timely medical evaluation."
+                  </p>
+                  <p className="mt-2 text-xs sm:text-sm text-slate-500 leading-relaxed">
+                    Rapid turnaround diagnostic testing for hematology, biochemistry, infectious disease markers, hormone assays, and critical care monitoring.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-xs font-semibold text-teal-800">Automated Equipment</span>
+                  <Link to="/facilities" className="text-xs font-bold text-teal-700 hover:text-teal-900">
+                    View Facility Details →
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -55,7 +55,7 @@ export const FACILITIES: Facility[] = [
       "Routine prenatal, maternal, and pediatric screening tests",
       "Quality-assured testing procedures and fast turnarounds"
     ],
-    image: "/assets/branding/hospital-header-brand.jpg"
+    image: "/assets/facilities/diagnostic-laboratory-24-7.jpg"
   },
   {
     id: "fertility-centre",

@@ -101,17 +101,24 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "gal-9",
-    title: "Advanced Laparoscopic Operating Theatre",
+    title: "Advanced Operating Theatres",
     category: "Surgery",
     image: "/assets/facilities/laparoscopic-surgery-ot.jpg",
-    caption: "Modern surgical theatre with optical laparoscopy towers for minimally invasive keyhole procedures."
+    caption: "State-of-the-art surgical suites equipped with optical laparoscopy towers, anesthesia workstations, and strict infection control."
   },
   {
     id: "gal-11",
-    title: "Pediatric & Neonatal Healthcare Unit",
+    title: "Pediatric & Neonatal Care Unit (NICU)",
     category: "Medical Care",
     image: "/assets/facilities/pediatric-neonatal-care.jpg",
-    caption: "Child-friendly medical environment equipped with radiant warmers, phototherapy, and nebulization."
+    caption: "Specialized pediatric and neonatal care unit with advanced incubators, radiant warmers, phototherapy, and dedicated child healthcare."
+  },
+  {
+    id: "gal-lab",
+    title: "24/7 Diagnostic Laboratory",
+    category: "Facilities",
+    image: "/assets/facilities/diagnostic-laboratory-24-7.jpg",
+    caption: "Modern round-the-clock pathology and clinical biochemistry diagnostic laboratory with automated testing equipment."
   },
   {
     id: "gal-12",
