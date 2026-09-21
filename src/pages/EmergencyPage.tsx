@@ -71,13 +71,13 @@ export const EmergencyPage: React.FC = () => {
               Continuous medical readiness for accident trauma, acute poisoning, cardiac emergencies, stroke, and life-threatening respiratory collapse in Nirmal, Telangana.
             </p>
 
-            <div className="pt-4 flex flex-wrap gap-4 items-center">
+            <div className="pt-4 flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4 items-stretch xs:items-center">
               <a
                 href={HOSPITAL_INFO.links.callEmergency}
                 id="emergency-page-call-btn"
-                className="btn-emergency bg-white text-emergency-800 hover:bg-red-50 text-base sm:text-lg py-4 px-8 font-extrabold shadow-2xl transition-transform active:scale-95"
+                className="btn-emergency bg-white text-emergency-800 hover:bg-red-50 text-xs xs:text-sm sm:text-lg py-3.5 sm:py-4 px-4 sm:px-8 font-extrabold shadow-2xl transition-transform active:scale-95 w-full xs:w-auto text-center justify-center"
               >
-                <PhoneCall className="w-5 h-5 mr-2 text-emergency-600 animate-pulse" />
+                <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-emergency-600 animate-pulse flex-shrink-0" />
                 <span>CALL EMERGENCY: 8885558061</span>
               </a>
 
@@ -85,7 +85,7 @@ export const EmergencyPage: React.FC = () => {
                 href={HOSPITAL_INFO.links.googleMaps}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline border-white text-white hover:bg-white/10 text-sm sm:text-base py-4 px-6 font-semibold"
+                className="btn-outline border-white text-white hover:bg-white/10 text-sm sm:text-base py-3 sm:py-4 px-5 sm:px-6 font-semibold w-full xs:w-auto text-center justify-center"
               >
                 <MapPin className="w-4 h-4 mr-2" />
                 Emergency Directions

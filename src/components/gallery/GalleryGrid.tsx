@@ -55,12 +55,12 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
     <div>
       {/* Category Pills */}
       {showCategoryFilter && (
-        <div className="flex items-center space-x-2 overflow-x-auto pb-4 mb-6 scrollbar-none">
+        <div className="flex items-center space-x-2 overflow-x-auto pb-3 mb-6 scrollbar-none touch-pan-x -mx-1 px-1">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
+              className={`min-h-[38px] px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
                 selectedCategory === cat
                   ? 'bg-navy-900 text-white shadow-sm'
                   : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
@@ -73,7 +73,7 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
       )}
 
       {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
         {filteredItems.map((item, index) => (
           <div
             key={item.id}

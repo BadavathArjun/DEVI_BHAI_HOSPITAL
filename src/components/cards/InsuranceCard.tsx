@@ -12,13 +12,13 @@ export const InsuranceCard: React.FC<InsuranceCardProps> = ({ provider }) => {
 
   return (
     <div
-      className={`medical-card p-5 flex flex-col justify-between group hover:-translate-y-0.5 transition-all duration-300 ${
+      className={`medical-card p-4 sm:p-5 flex flex-col justify-between group hover:-translate-y-0.5 transition-all duration-300 ${
         isAarogyasri ? 'border-teal-300 ring-1 ring-teal-200/50 bg-teal-50/10' : ''
       }`}
     >
       <div>
         {/* Logo Container */}
-        <div className="h-24 w-full bg-white rounded-lg p-2.5 flex items-center justify-center border border-slate-200/70 shadow-sm overflow-hidden mb-4">
+        <div className="h-20 sm:h-24 w-full bg-white rounded-lg p-2 flex items-center justify-center border border-slate-200/70 shadow-sm overflow-hidden mb-3 sm:mb-4">
           <img
             src={provider.logo}
             alt={`${provider.name} Logo`}

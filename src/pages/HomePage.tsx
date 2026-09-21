@@ -73,25 +73,25 @@ export const HomePage: React.FC = () => {
 
             {/* Hospital Main Title */}
             <div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white tracking-tight leading-[1.1]">
+              <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white tracking-tight leading-[1.1]">
                 DEVIBAI <span className="text-teal-400">SUPER SPECIALITY</span> HOSPITAL
               </h1>
-              <p className="mt-3 text-xl sm:text-2xl text-teal-200 font-medium font-heading">
+              <p className="mt-2.5 sm:mt-3 text-lg sm:text-2xl text-teal-200 font-medium font-heading">
                 "{HOSPITAL_INFO.tagline}"
               </p>
             </div>
 
             {/* Supporting Text */}
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal">
+            <p className="text-sm sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal">
               Comprehensive medical, surgical, maternity, fertility, pediatric and emergency healthcare under one roof in Nirmal, Telangana.
             </p>
 
             {/* Action Buttons */}
-            <div className="pt-2 flex flex-wrap gap-3 sm:gap-4 items-center">
+            <div className="pt-2 flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4 items-stretch xs:items-center">
               <Link
                 to="/appointment"
                 id="hero-book-appointment-btn"
-                className="btn-teal text-sm sm:text-base py-3.5 px-6 font-bold shadow-lg shadow-teal-900/30"
+                className="btn-teal text-sm sm:text-base py-3 sm:py-3.5 px-5 sm:px-6 font-bold shadow-lg shadow-teal-900/30 w-full xs:w-auto text-center justify-center"
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 <span>BOOK AN APPOINTMENT</span>
@@ -100,7 +100,7 @@ export const HomePage: React.FC = () => {
               <a
                 href={HOSPITAL_INFO.links.callPrimary}
                 id="hero-call-now-btn"
-                className="btn-outline border-white/40 text-white hover:bg-white/10 hover:border-white text-sm sm:text-base py-3.5 px-6 font-semibold"
+                className="btn-outline border-white/40 text-white hover:bg-white/10 hover:border-white text-sm sm:text-base py-3 sm:py-3.5 px-5 sm:px-6 font-semibold w-full xs:w-auto text-center justify-center"
               >
                 <Phone className="w-4 h-4 mr-2 text-teal-300" />
                 <span>CALL NOW</span>
@@ -111,7 +111,7 @@ export const HomePage: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-whatsapp-btn"
-                className="inline-flex items-center justify-center px-5 py-3.5 rounded-lg font-semibold text-white bg-emerald-600 hover:bg-emerald-700 transition-all duration-200 text-sm sm:text-base shadow-sm"
+                className="inline-flex items-center justify-center px-5 py-3 sm:py-3.5 rounded-lg font-semibold text-white bg-emerald-600 hover:bg-emerald-700 transition-all duration-200 text-sm sm:text-base shadow-sm min-h-[44px] w-full xs:w-auto text-center"
               >
                 <MessageSquare className="w-4 h-4 mr-2" />
                 <span>WHATSAPP US</span>
@@ -152,18 +152,18 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 w-full md:w-auto justify-center">
             <a
               href={HOSPITAL_INFO.links.callEmergency}
               id="emergency-highlight-btn"
-              className="inline-flex items-center space-x-2 bg-white text-emergency-700 hover:bg-red-50 px-6 py-3 rounded-lg font-extrabold text-sm sm:text-base transition-transform active:scale-95 shadow-lg"
+              className="inline-flex items-center justify-center space-x-2 bg-white text-emergency-700 hover:bg-red-50 px-4 sm:px-6 py-3 rounded-lg font-extrabold text-xs xs:text-sm sm:text-base transition-transform active:scale-95 shadow-lg w-full sm:w-auto text-center"
             >
-              <PhoneCall className="w-4 h-4" />
+              <PhoneCall className="w-4 h-4 flex-shrink-0" />
               <span>CALL EMERGENCY: 8885558061</span>
             </a>
             <Link
               to="/services/emergency"
-              className="hidden lg:inline-flex text-xs font-semibold text-white/90 hover:text-white underline underline-offset-4"
+              className="hidden lg:inline-flex text-xs font-semibold text-white/90 hover:text-white underline underline-offset-4 flex-shrink-0"
             >
               Emergency Details
             </Link>
@@ -176,7 +176,7 @@ export const HomePage: React.FC = () => {
           ================================================== */}
       <section className="py-12 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Card 1: 24/7 Emergency */}
             <div className="medical-card p-6 border-red-200/80 hover:border-red-400 group hover:-translate-y-1 transition-all duration-300">
               <div className="w-12 h-12 rounded-xl bg-red-50 text-emergency-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -275,10 +275,10 @@ export const HomePage: React.FC = () => {
                   className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
                 />
               </div>
-              <div className="absolute -bottom-5 -right-4 sm:-bottom-6 sm:-right-6 bg-navy-900 text-white p-4 sm:p-5 rounded-xl shadow-xl border border-navy-700 max-w-[240px]">
-                <div className="text-xs text-teal-300 uppercase font-semibold">Location</div>
-                <div className="text-sm font-bold mt-1">Yellapalli, Nirmal</div>
-                <div className="text-[11px] text-slate-300 mt-0.5">Opp. Kaveri Hospital, Old RTO Office</div>
+              <div className="absolute bottom-2 right-2 sm:-bottom-6 sm:-right-6 bg-navy-900 text-white p-3.5 sm:p-5 rounded-xl shadow-xl border border-navy-700 max-w-[210px] sm:max-w-[240px]">
+                <div className="text-[10px] sm:text-xs text-teal-300 uppercase font-semibold">Location</div>
+                <div className="text-xs sm:text-sm font-bold mt-0.5 sm:mt-1">Yellapalli, Nirmal</div>
+                <div className="text-[10px] sm:text-[11px] text-slate-300 mt-0.5">Opp. Kaveri Hospital, Old RTO Office</div>
               </div>
             </div>
 
@@ -313,11 +313,11 @@ export const HomePage: React.FC = () => {
                 ))}
               </div>
 
-              <div className="pt-4 flex items-center space-x-4">
-                <Link to="/about" className="btn-primary text-sm py-3 px-6">
+              <div className="pt-4 flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4 items-stretch xs:items-center">
+                <Link to="/about" className="btn-primary text-sm py-3 px-6 text-center justify-center w-full xs:w-auto">
                   Explore Our Hospital
                 </Link>
-                <Link to="/contact" className="btn-outline text-sm py-3 px-5">
+                <Link to="/contact" className="btn-outline text-sm py-3 px-5 text-center justify-center w-full xs:w-auto">
                   Contact Reception
                 </Link>
               </div>
@@ -364,7 +364,7 @@ export const HomePage: React.FC = () => {
             subtitle="Experienced physicians and surgeons dedicated to patient-centered care. Qualifications shown strictly as verified in hospital materials."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6">
             {DOCTORS.map((doc) => (
               <DoctorCard key={doc.id} doctor={doc} />
             ))}
@@ -692,7 +692,7 @@ export const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 mb-10">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4 mb-10">
             {[
               "Accident Cases",
               "All Sorts of Trauma",
@@ -707,26 +707,26 @@ export const HomePage: React.FC = () => {
               "Continuous Ventilator Support",
               "24/7 Resuscitation Bay"
             ].map((cond, idx) => (
-              <div key={idx} className="bg-white/10 backdrop-blur-sm border border-white/15 p-3 rounded-lg text-xs sm:text-sm font-semibold flex items-center space-x-2">
+              <div key={idx} className="bg-white/10 backdrop-blur-sm border border-white/15 p-2.5 sm:p-3 rounded-lg text-xs sm:text-sm font-semibold flex items-center space-x-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0"></span>
-                <span className="truncate">{cond}</span>
+                <span className="leading-snug">{cond}</span>
               </div>
             ))}
           </div>
 
-          <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div>
+          <div className="bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-white/20 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
               <div className="text-xs uppercase font-extrabold tracking-wider text-red-200">
                 Emergency Services Available 24 Hours • 7 Days
               </div>
-              <div className="text-2xl sm:text-3xl font-extrabold font-heading text-white mt-1">
+              <div className="text-xl sm:text-2xl md:text-3xl font-extrabold font-heading text-white mt-1">
                 Direct Emergency Hotline: 8885558061
               </div>
             </div>
 
             <a
               href={HOSPITAL_INFO.links.callEmergency}
-              className="btn-emergency bg-white text-emergency-800 hover:bg-red-50 text-base sm:text-lg py-4 px-8 font-extrabold shadow-2xl flex-shrink-0"
+              className="btn-emergency bg-white text-emergency-800 hover:bg-red-50 text-sm sm:text-base md:text-lg py-3.5 sm:py-4 px-6 sm:px-8 font-extrabold shadow-2xl w-full md:w-auto text-center justify-center flex-shrink-0"
             >
               <PhoneCall className="w-5 h-5 mr-2 text-emergency-600 animate-pulse" />
               <span>CALL EMERGENCY</span>

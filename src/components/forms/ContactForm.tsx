@@ -49,7 +49,7 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="medical-card p-6 sm:p-8 border border-slate-200">
+    <div className="medical-card p-4 sm:p-8 border border-slate-200">
       <h3 className="font-heading font-bold text-xl text-navy-900 mb-2">
         Send Us an Inquiry
       </h3>
@@ -96,7 +96,7 @@ export const ContactForm: React.FC = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Full Name"
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
               />
             </div>
 
@@ -110,7 +110,7 @@ export const ContactForm: React.FC = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Mobile Number"
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
               />
             </div>
           </div>
@@ -125,7 +125,7 @@ export const ContactForm: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="email@example.com"
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
               />
             </div>
 
@@ -138,7 +138,7 @@ export const ContactForm: React.FC = () => {
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
                 placeholder="e.g. Aarogyasri Inquiry, Doctor Timings"
-                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
               />
             </div>
           </div>
@@ -153,7 +153,7 @@ export const ContactForm: React.FC = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="How can we assist you?"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
             />
           </div>
 
@@ -161,7 +161,7 @@ export const ContactForm: React.FC = () => {
             type="submit"
             disabled={loading}
             id="contact-form-submit-btn"
-            className="w-full btn-primary text-sm py-3 justify-center"
+            className="w-full btn-primary text-sm py-3 justify-center font-bold"
           >
             <Send className="w-4 h-4 mr-2" />
             {loading ? 'Sending...' : 'Send Inquiry'}

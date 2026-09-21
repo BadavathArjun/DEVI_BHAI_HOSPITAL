@@ -124,7 +124,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
   };
 
   return (
-    <div className="medical-card p-6 sm:p-8 lg:p-10 border border-slate-200">
+    <div className="medical-card p-4 sm:p-8 lg:p-10 border border-slate-200">
       {/* Success Confirmation Modal / Banner */}
       {submittedAppointment ? (
         <div className="bg-teal-50/80 border border-teal-200 rounded-xl p-6 sm:p-8 text-center space-y-4 animate-fadeIn">
@@ -211,7 +211,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="e.g. Ramesh Kumar / Anitha"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
                 />
               </div>
 
@@ -225,7 +225,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="10-digit mobile number"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
                 />
               </div>
 
@@ -238,7 +238,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your.email@example.com"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
                 />
               </div>
 
@@ -254,7 +254,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
                     value={age}
                     onChange={(e) => setAge(e.target.value)}
                     placeholder="e.g. 28"
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
                   />
                 </div>
 
@@ -265,7 +265,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
                   <select
                     value={gender}
                     onChange={(e) => setGender(e.target.value as any)}
-                    className="w-full px-3 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
+                    className="w-full px-3 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
                   >
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
@@ -307,7 +307,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
                       setPreferredDoctor('dr-k-ravichandra');
                     }
                   }}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
                 >
                   <option value="Fertility & IVF">Fertility & IVF (Dr. Chandrika)</option>
                   <option value="Obstetrics & Gynecology">Obstetrics & Gynecology (Dr. Chandrika)</option>
@@ -327,7 +327,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
                 <select
                   value={preferredDoctor}
                   onChange={(e) => setPreferredDoctor(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
                 >
                   <option value="">Any Available Specialist</option>
                   {DOCTORS.map((doc) => (
@@ -348,7 +348,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
                   min={new Date().toISOString().split('T')[0]}
                   value={preferredDate}
                   onChange={(e) => setPreferredDate(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
                 />
               </div>
 
@@ -359,7 +359,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
                 <select
                   value={preferredTime}
                   onChange={(e) => setPreferredTime(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
                 >
                   <option value="Morning (09:00 AM - 01:00 PM)">Morning (09:00 AM - 01:00 PM)</option>
                   <option value="Afternoon (01:00 PM - 04:00 PM)">Afternoon (01:00 PM - 04:00 PM)</option>
@@ -386,7 +386,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
                   value={reason}
                   onChange={(e) => setReason(e.target.value)}
                   placeholder="e.g. Fertility evaluation, Routine prenatal check, Abdominal pain, Child fever"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
                 />
               </div>
 
@@ -399,7 +399,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Any relevant past treatments, current medications, or notes for the doctor..."
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
                 />
               </div>
             </div>
