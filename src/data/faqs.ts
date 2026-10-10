@@ -11,7 +11,7 @@ export const FAQS: FAQ[] = [
     id: "emergency-availability",
     category: "Emergency",
     question: "Is emergency care available 24/7?",
-    answer: "Yes. Our Emergency Department and Critical Care (Smart ICU) unit operate 24 hours a day, 7 days a week, 365 days a year for trauma, accidents, poisoning, respiratory failure, cardiac crises, and acute medical emergencies. You can reach the emergency desk immediately at 8885558061."
+    answer: "Yes. Our Emergency Department and Critical Care (Smart ICU) unit operate 24 hours a day, 7 days a week, 365 days a year for trauma, accidents, poisoning, respiratory failure, cardiac crises, and acute medical emergencies. You can reach the emergency desk immediately at 9092916222."
   },
   {
     id: "fertility-ivf-available",
@@ -59,7 +59,7 @@ export const FAQS: FAQ[] = [
     id: "book-appointment",
     category: "Appointments",
     question: "How can I book an appointment?",
-    answer: "You can submit an online appointment request through our website appointment form, call our hospital reception at 8885558061 / 8885558062 / 08734-293333, or message us directly on WhatsApp at 9092915222. Our hospital team will review your request and contact you to confirm doctor availability."
+    answer: "You can submit an online appointment request through our website appointment form, call our hospital reception at 9092916222, or message us directly on WhatsApp at 9092915222. Our hospital team will review your request and contact you to confirm doctor availability."
   },
   {
     id: "contact-location",

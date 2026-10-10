@@ -17,28 +17,27 @@ export const HOSPITAL_INFO = {
   },
 
   phones: {
-    primary: "8885558061",
-    secondary: "8885558062",
-    primaryFormatted: "+91 8885558061",
-    secondaryFormatted: "+91 8885558062",
-    landline: "08734-293333",
-    emergency: "+918885558061",
+    primary: "9092916222",
+    primaryFormatted: "+91 9092916222",
+    call: "9092916222",
+    callFormatted: "+91 9092916222",
+    emergency: "9092916222",
+    emergencyFormatted: "+91 9092916222",
     whatsapp: "9092915222",
     whatsappFormatted: "+91 9092915222"
   },
 
   links: {
-    callEmergency: "tel:+918885558061",
-    callPrimary: "tel:+918885558061",
-    callSecondary: "tel:+918885558062",
-    callLandline: "tel:08734293333",
+    callEmergency: "tel:+919092916222",
+    callPrimary: "tel:+919092916222",
+    call: "tel:+919092916222",
     whatsapp: "https://wa.me/919092915222?text=Hello%20Devibai%20Super%20Speciality%20Hospital,%20I%20would%20like%20to%20enquire%20about%20an%20appointment.",
     googleMaps: "https://www.google.com/maps/search/?api=1&query=Devibai+Super+Speciality+Hospital+Yellapalli+Nirmal+Telangana"
   },
 
   disclaimers: {
     medical: "Information provided on this website is for general informational purposes and should not be considered a substitute for professional medical advice, diagnosis or treatment. For medical emergencies, contact the hospital immediately.",
-    emergency: "This website does not replace emergency medical care. In case of immediate life-threatening crisis, call our 24/7 Emergency desk at 8885558061 or visit the hospital emergency department directly.",
+    emergency: "This website does not replace emergency medical care. In case of immediate life-threatening crisis, call our 24/7 Emergency desk at 9092916222 or visit the hospital emergency department directly.",
     insurance: "Insurance and healthcare scheme availability is subject to eligibility, policy terms and hospital/TPA authorization. Please contact the hospital for current details."
   }
 };

@@ -56,7 +56,7 @@ export const appointmentService = {
 
       return { success: true, data: newAppointment };
     } catch {
-      return { success: false, error: 'An unexpected error occurred. Please call 8885558061 directly.' };
+      return { success: false, error: 'An unexpected error occurred. Please call 9092916222 directly.' };
     }
   },
 
@@ -111,7 +111,7 @@ export const contactService = {
 
       return { success: true };
     } catch {
-      return { success: false, error: 'Unable to send message at this time. Please call 8885558061 directly.' };
+      return { success: false, error: 'Unable to send message at this time. Please call 9092916222 directly.' };
     }
   },
 

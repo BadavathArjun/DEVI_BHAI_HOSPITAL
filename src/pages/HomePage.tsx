@@ -155,7 +155,7 @@ export const HomePage: React.FC = () => {
               className="inline-flex items-center justify-center space-x-2 bg-white text-emergency-700 hover:bg-red-50 px-4 sm:px-6 py-3 rounded-lg font-extrabold text-xs xs:text-sm sm:text-base transition-transform active:scale-95 shadow-lg w-full sm:w-auto text-center"
             >
               <PhoneCall className="w-4 h-4 flex-shrink-0" />
-              <span>CALL EMERGENCY: 8885558061</span>
+              <span>CALL EMERGENCY: {HOSPITAL_INFO.phones.primary}</span>
             </a>
             <Link
               to="/services/emergency"
@@ -746,7 +746,7 @@ export const HomePage: React.FC = () => {
                 Emergency Services Available 24 Hours • 7 Days
               </div>
               <div className="text-xl sm:text-2xl md:text-3xl font-extrabold font-heading text-white mt-1">
-                Direct Emergency Hotline: 8885558061
+                Direct Emergency Hotline: {HOSPITAL_INFO.phones.primary}
               </div>
             </div>
 
@@ -1003,19 +1003,19 @@ export const HomePage: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
-                    <div className="text-xs font-bold text-slate-500 uppercase">Hospital Phone</div>
-                    <div className="text-sm font-bold text-navy-900 mt-1">
-                      {HOSPITAL_INFO.phones.primary} / {HOSPITAL_INFO.phones.secondary}
-                    </div>
-                    <div className="text-xs text-slate-500">Landline: {HOSPITAL_INFO.phones.landline}</div>
+                    <div className="text-xs font-bold text-slate-500 uppercase">Hospital Phone (Calls)</div>
+                    <a href={HOSPITAL_INFO.links.callPrimary} className="text-base font-bold text-navy-900 mt-1 block hover:text-teal-700">
+                      {HOSPITAL_INFO.phones.primaryFormatted}
+                    </a>
+                    <div className="text-xs text-slate-500">Normal calls & 24/7 emergency</div>
                   </div>
 
                   <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200/60">
-                    <div className="text-xs font-bold text-emerald-800 uppercase">WhatsApp Inquiry</div>
-                    <div className="text-sm font-bold text-emerald-900 mt-1">
+                    <div className="text-xs font-bold text-emerald-800 uppercase">WhatsApp & Appointments</div>
+                    <a href={HOSPITAL_INFO.links.whatsapp} target="_blank" rel="noopener noreferrer" className="text-base font-bold text-emerald-900 mt-1 block hover:text-emerald-700">
                       {HOSPITAL_INFO.phones.whatsappFormatted}
-                    </div>
-                    <div className="text-xs text-emerald-700">Message anytime</div>
+                    </a>
+                    <div className="text-xs text-emerald-700">Message & appointment response</div>
                   </div>
                 </div>
               </div>

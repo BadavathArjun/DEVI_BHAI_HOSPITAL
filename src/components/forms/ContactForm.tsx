@@ -44,7 +44,7 @@ export const ContactForm: React.FC = () => {
       setSubject('');
       setMessage('');
     } else {
-      setErrorMsg(res.error || 'Failed to send your inquiry. Please contact the hospital by phone.');
+      setErrorMsg(res.error || 'Failed to send your inquiry. Please call the hospital at 9092916222.');
     }
   };
 
@@ -54,7 +54,7 @@ export const ContactForm: React.FC = () => {
         Send Us an Inquiry
       </h3>
       <p className="text-xs sm:text-sm text-slate-500 mb-6">
-        Have questions about our doctors, treatments, or healthcare schemes? Send us a message and our reception team will respond.
+        Have questions about our doctors, treatments, or healthcare schemes? Send us a message or chat directly via WhatsApp: <strong>+91 9092915222</strong>.
       </p>
 
       {success ? (
@@ -66,15 +66,25 @@ export const ContactForm: React.FC = () => {
             Message Sent Successfully
           </h4>
           <p className="text-xs sm:text-sm text-slate-600">
-            Thank you for reaching out. Our hospital help desk will review your message and contact you.
+            Thank you for reaching out. Our hospital help desk will review your message and contact you. You can also chat directly on WhatsApp.
           </p>
-          <button
-            type="button"
-            onClick={() => setSuccess(false)}
-            className="btn-outline text-xs py-2 px-4 mt-2"
-          >
-            Send Another Message
-          </button>
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+            <a
+              href="https://wa.me/919092915222?text=Hello%20Devibai%20Hospital,%20I%20have%20submitted%20an%20inquiry%20via%20the%20website."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-teal text-xs py-2 px-4"
+            >
+              Chat on WhatsApp (+91 9092915222)
+            </a>
+            <button
+              type="button"
+              onClick={() => setSuccess(false)}
+              className="btn-outline text-xs py-2 px-4"
+            >
+              Send Another Message
+            </button>
+          </div>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">

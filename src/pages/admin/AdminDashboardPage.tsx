@@ -219,17 +219,30 @@ export const AdminDashboardPage: React.FC = () => {
                           </span>
                         </td>
                         <td className="py-3 px-3">
-                          <select
-                            value={apt.status}
-                            onChange={(e) => handleStatusChange(apt.id, e.target.value as any)}
-                            className="px-2 py-1 rounded border border-slate-300 text-[11px] bg-white font-medium"
-                          >
-                            <option value="Pending">Set Pending</option>
-                            <option value="Contacted">Set Contacted</option>
-                            <option value="Confirmed">Set Confirmed</option>
-                            <option value="Completed">Set Completed</option>
-                            <option value="Cancelled">Set Cancelled</option>
-                          </select>
+                          <div className="flex items-center space-x-1.5">
+                            <select
+                              value={apt.status}
+                              onChange={(e) => handleStatusChange(apt.id, e.target.value as any)}
+                              className="px-2 py-1 rounded border border-slate-300 text-[11px] bg-white font-medium"
+                            >
+                              <option value="Pending">Set Pending</option>
+                              <option value="Contacted">Set Contacted</option>
+                              <option value="Confirmed">Set Confirmed</option>
+                              <option value="Completed">Set Completed</option>
+                              <option value="Cancelled">Set Cancelled</option>
+                            </select>
+                            <a
+                              href={`https://wa.me/91${apt.phone.replace(/\D/g, '')}?text=${encodeURIComponent(
+                                `Hello ${apt.fullName}, this is Devibai Super Speciality Hospital regarding your appointment request ${apt.id} (${apt.department}) on ${apt.preferredDate}. (Hospital WhatsApp: +91 9092915222 | Helpline: 9092916222)`
+                              )}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              title="Respond via WhatsApp (+91 9092915222)"
+                              className="px-2 py-1 rounded bg-emerald-100 text-emerald-800 hover:bg-emerald-200 text-[10px] font-bold"
+                            >
+                              WhatsApp
+                            </a>
+                          </div>
                         </td>
                       </tr>
                     ))}

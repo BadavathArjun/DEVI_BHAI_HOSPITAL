@@ -138,7 +138,7 @@ export const SERVICES: HospitalService[] = [
       "Poisoning and chemical intoxication management",
       "Stroke / Paralysis acute stabilization",
       "Heart attack (MI) and chest pain immediate response",
-      "Direct emergency phone access: 8885558061"
+      "Direct emergency phone access: 9092916222"
     ],
     conditionsTreated: [
       "Road Traffic Accidents & Blunt / Penetrating Trauma",

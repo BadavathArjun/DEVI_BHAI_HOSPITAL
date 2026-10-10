@@ -21,7 +21,7 @@ export const ContactPage: React.FC = () => {
     <div>
       <SEOHead
         title="Contact & Hospital Directions | Devibai Super Speciality Hospital"
-        description="Contact Devibai Super Speciality Hospital in Nirmal, Telangana. Phone numbers 8885558061, 8885558062, WhatsApp 9092915222, address and Google Maps directions."
+        description="Contact Devibai Super Speciality Hospital in Nirmal, Telangana. Call 9092916222, WhatsApp 9092915222, address and Google Maps directions."
         canonicalPath="/contact"
       />
 
@@ -74,45 +74,38 @@ export const ContactPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Phone & Helpline Directory */}
+              {/* Phone & Helpline Directory - ONLY TWO NUMBERS */}
               <div className="medical-card p-6 border border-slate-200 space-y-4">
-                <h3 className="font-heading font-bold text-lg text-navy-900 border-b border-slate-100 pb-2 flex items-center">
-                  <Phone className="w-4 h-4 text-teal-600 mr-2" />
-                  Telephone Directory
+                <h3 className="font-heading font-bold text-lg text-navy-900 border-b border-slate-100 pb-2 flex items-center justify-between">
+                  <span className="flex items-center">
+                    <Phone className="w-4 h-4 text-teal-600 mr-2" />
+                    Official Hospital Contact Numbers
+                  </span>
+                  <span className="text-[11px] font-normal text-slate-500 uppercase tracking-wider">Direct Lines</span>
                 </h3>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
-                  <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200/70">
-                    <div className="text-slate-500 text-xs font-semibold uppercase">Mobile 1 (Helpline)</div>
-                    <a href={HOSPITAL_INFO.links.callPrimary} className="font-bold text-navy-900 hover:text-teal-700 text-base mt-0.5 block">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">
+                  {/* NUMBER 1: NORMAL CALL */}
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-teal-500 transition-colors">
+                    <div className="text-teal-700 text-xs font-bold uppercase tracking-wider">Normal Call / Reception</div>
+                    <a href={HOSPITAL_INFO.links.callPrimary} className="font-extrabold text-navy-900 hover:text-teal-700 text-lg mt-1 block tracking-wide">
                       {HOSPITAL_INFO.phones.primaryFormatted}
                     </a>
+                    <p className="text-[11px] text-slate-500 mt-1">For general inquiries, doctor appointments & 24/7 emergency</p>
                   </div>
 
-                  <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200/70">
-                    <div className="text-slate-500 text-xs font-semibold uppercase">Mobile 2</div>
-                    <a href={HOSPITAL_INFO.links.callSecondary} className="font-bold text-navy-900 hover:text-teal-700 text-base mt-0.5 block">
-                      {HOSPITAL_INFO.phones.secondaryFormatted}
-                    </a>
-                  </div>
-
-                  <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200/70">
-                    <div className="text-slate-500 text-xs font-semibold uppercase">Landline Reception</div>
-                    <a href={HOSPITAL_INFO.links.callLandline} className="font-bold text-navy-900 hover:text-teal-700 text-base mt-0.5 block">
-                      {HOSPITAL_INFO.phones.landline}
-                    </a>
-                  </div>
-
-                  <div className="p-3.5 rounded-lg bg-emerald-50/70 border border-emerald-200/70">
-                    <div className="text-emerald-800 text-xs font-semibold uppercase">WhatsApp Chat</div>
+                  {/* NUMBER 2: WHATSAPP */}
+                  <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200/80 hover:border-emerald-500 transition-colors">
+                    <div className="text-emerald-800 text-xs font-bold uppercase tracking-wider">WhatsApp & Appointment Response</div>
                     <a
                       href={HOSPITAL_INFO.links.whatsapp}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-bold text-emerald-900 hover:text-emerald-700 text-base mt-0.5 block"
+                      className="font-extrabold text-emerald-900 hover:text-emerald-700 text-lg mt-1 block tracking-wide"
                     >
                       {HOSPITAL_INFO.phones.whatsappFormatted}
                     </a>
+                    <p className="text-[11px] text-emerald-700 mt-1">Send chat message & receive appointment confirmation response</p>
                   </div>
                 </div>
 

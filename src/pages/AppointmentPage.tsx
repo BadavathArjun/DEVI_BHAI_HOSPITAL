@@ -40,7 +40,7 @@ export const AppointmentPage: React.FC = () => {
                   Prefer Direct Booking?
                 </h3>
                 <p className="text-xs text-slate-600 mb-4 leading-relaxed">
-                  You can also book directly by calling our reception numbers or chatting with us on WhatsApp during OPD hours.
+                  You can also book directly by calling our reception number (<strong>{HOSPITAL_INFO.phones.primaryFormatted}</strong>) or messaging us on WhatsApp (<strong>{HOSPITAL_INFO.phones.whatsappFormatted}</strong>).
                 </p>
 
                 <div className="space-y-3">

@@ -134,36 +134,26 @@ export const Footer: React.FC = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-teal-400 flex-shrink-0" />
                 <div className="text-xs">
-                  <a href={HOSPITAL_INFO.links.callPrimary} className="hover:text-white font-medium">
+                  <span className="text-slate-400 mr-1.5">Call:</span>
+                  <a href={HOSPITAL_INFO.links.callPrimary} className="hover:text-white font-semibold text-white">
                     {HOSPITAL_INFO.phones.primaryFormatted}
-                  </a>
-                  {' / '}
-                  <a href={HOSPITAL_INFO.links.callSecondary} className="hover:text-white font-medium">
-                    {HOSPITAL_INFO.phones.secondaryFormatted}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3">
-                <Phone className="w-4 h-4 text-slate-400 flex-shrink-0" />
-                <span className="text-xs text-slate-300">
-                  Landline:{' '}
-                  <a href={HOSPITAL_INFO.links.callLandline} className="hover:text-white font-medium">
-                    {HOSPITAL_INFO.phones.landline}
-                  </a>
-                </span>
-              </div>
-
-              <div className="flex items-center space-x-3">
                 <MessageSquare className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <a
-                  href={HOSPITAL_INFO.links.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-emerald-300 hover:text-emerald-200 font-medium"
-                >
-                  WhatsApp: {HOSPITAL_INFO.phones.whatsappFormatted}
-                </a>
+                <div className="text-xs">
+                  <span className="text-slate-400 mr-1.5">WhatsApp:</span>
+                  <a
+                    href={HOSPITAL_INFO.links.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-300 hover:text-emerald-200 font-semibold"
+                  >
+                    {HOSPITAL_INFO.phones.whatsappFormatted}
+                  </a>
+                </div>
               </div>
 
               <div className="pt-2">
@@ -172,7 +162,7 @@ export const Footer: React.FC = () => {
                   className="inline-flex items-center space-x-2 px-3 py-2 rounded-lg bg-emergency-700/80 hover:bg-emergency-600 text-white font-bold text-xs transition-colors border border-red-500/40"
                 >
                   <AlertTriangle className="w-3.5 h-3.5" />
-                  <span>24/7 Emergency: {HOSPITAL_INFO.phones.primary}</span>
+                  <span>24/7 Helpline: {HOSPITAL_INFO.phones.primary}</span>
                 </a>
               </div>
             </div>

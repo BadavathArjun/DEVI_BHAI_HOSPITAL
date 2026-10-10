@@ -10,7 +10,7 @@ export const FACILITIES: Facility[] = [
     features: [
       "Open 24 hours a day, 7 days a week, 365 days a year",
       "Immediate trauma and acute resuscitation bay",
-      "Direct emergency hotline (8885558061)",
+      "Direct emergency hotline (9092916222)",
       "Continuous triage and rapid stabilization protocols"
     ],
     image: "/assets/facilities/emergency-trauma-care.jpg"

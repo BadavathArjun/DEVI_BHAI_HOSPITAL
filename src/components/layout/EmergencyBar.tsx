@@ -27,7 +27,7 @@ export const EmergencyBar: React.FC = () => {
             href={HOSPITAL_INFO.links.callEmergency}
             id="emergency-top-bar-call"
             className="inline-flex items-center space-x-1 sm:space-x-1.5 bg-white text-emergency-700 hover:bg-red-50 px-2 sm:px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-bold transition-all shadow-sm active:scale-95"
-            aria-label="Call Emergency at 8885558061"
+            aria-label={`Call Emergency at ${HOSPITAL_INFO.phones.primary}`}
           >
             <PhoneCall className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emergency-600 animate-pulse flex-shrink-0" />
             <span>

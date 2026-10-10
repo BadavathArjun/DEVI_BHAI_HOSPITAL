@@ -34,7 +34,7 @@ export const EmergencyPage: React.FC = () => {
     <div>
       <SEOHead
         title="24/7 Emergency & Critical Care | Devibai Super Speciality Hospital Nirmal"
-        description="24/7 Emergency Care in Nirmal. Call 8885558061 for accident trauma, poisoning, cardiac arrest, heart attack, stroke, respiratory failure, and Smart ICU ventilator support."
+        description="24/7 Emergency Care in Nirmal. Call 9092916222 for accident trauma, poisoning, cardiac arrest, heart attack, stroke, respiratory failure, and Smart ICU ventilator support."
         canonicalPath="/emergency"
       />
 
@@ -78,7 +78,7 @@ export const EmergencyPage: React.FC = () => {
                 className="btn-emergency bg-white text-emergency-800 hover:bg-red-50 text-xs xs:text-sm sm:text-lg py-3.5 sm:py-4 px-4 sm:px-8 font-extrabold shadow-2xl transition-transform active:scale-95 w-full xs:w-auto text-center justify-center"
               >
                 <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-emergency-600 animate-pulse flex-shrink-0" />
-                <span>CALL EMERGENCY: 8885558061</span>
+                <span>CALL EMERGENCY: {HOSPITAL_INFO.phones.primary}</span>
               </a>
 
               <a
@@ -204,7 +204,7 @@ export const EmergencyPage: React.FC = () => {
               className="btn-emergency bg-white text-emergency-800 hover:bg-red-50 text-base py-3.5 px-8 font-extrabold inline-flex items-center"
             >
               <PhoneCall className="w-4 h-4 mr-2" />
-              Call Emergency: 8885558061
+              Call Emergency: {HOSPITAL_INFO.phones.primary}
             </a>
           </div>
         </div>

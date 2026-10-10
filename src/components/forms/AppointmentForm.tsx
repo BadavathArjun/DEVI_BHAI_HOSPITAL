@@ -110,6 +110,24 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
 
     if (res.success && res.data) {
       setSubmittedAppointment(res.data);
+      // Auto-open WhatsApp with appointment details to official number 9092915222
+      const docName = DOCTORS.find(d => d.slug === res.data?.preferredDoctor)?.name || res.data?.preferredDoctor || 'Any Specialist';
+      const waMsg = `Hello Devibai Hospital, I have submitted an appointment request:
+*Request ID:* ${res.data.id}
+*Patient Name:* ${res.data.fullName}
+*Phone:* ${res.data.phone}
+*Department:* ${res.data.department}
+*Preferred Doctor:* ${docName}
+*Preferred Date:* ${res.data.preferredDate} (${res.data.preferredTime || 'Morning Slot'})
+${res.data.reason ? `*Reason:* ${res.data.reason}\n` : ''}
+Please confirm my appointment. Thank you!`;
+      const waUrl = `https://wa.me/919092915222?text=${encodeURIComponent(waMsg)}`;
+      try {
+        window.open(waUrl, '_blank');
+      } catch {
+        // Fallback handled by button
+      }
+
       // Reset form
       setFullName('');
       setPhone('');
@@ -119,7 +137,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
       setMessage('');
       setConsent(false);
     } else {
-      setErrorMsg(res.error || 'Failed to submit appointment request. Please call 8885558061.');
+      setErrorMsg(res.error || 'Failed to submit appointment request. Please call 9092916222.');
     }
   };
 
@@ -157,22 +175,28 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
           </div>
 
           <div className="max-w-md mx-auto text-sm text-slate-700 leading-relaxed font-medium">
-            "Thank you. Your appointment request has been received. Our hospital team will contact you to confirm availability."
+            "Thank you. Your appointment request has been received. Our hospital response and confirmation will be provided via official WhatsApp (+91 9092915222)."
+          </div>
+
+          <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3 max-w-lg mx-auto text-xs text-emerald-900 font-semibold">
+            Official WhatsApp for Appointment Response: +91 9092915222 | Voice Helpline: 9092916222
           </div>
 
           <p className="text-xs text-slate-500 italic max-w-md mx-auto">
-            Note: This is a request submission and does not guarantee immediate appointment confirmation. For acute urgent medical emergencies, call the hospital emergency room immediately.
+            Note: For urgent medical emergencies, please call 9092916222 immediately or visit the emergency triage bay.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href={`https://wa.me/919092915222?text=Hello%20Devibai%20Hospital,%20I%20have%20submitted%20appointment%20request%20${submittedAppointment.id}%20for%20${encodeURIComponent(submittedAppointment.fullName)}.`}
+              href={`https://wa.me/919092915222?text=${encodeURIComponent(
+                `Hello Devibai Hospital, I have submitted appointment request ${submittedAppointment.id} for ${submittedAppointment.fullName}. Phone: ${submittedAppointment.phone}, Department: ${submittedAppointment.department}, Date: ${submittedAppointment.preferredDate} (${submittedAppointment.preferredTime || 'Morning Slot'}). Please confirm my appointment.`
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-teal text-xs sm:text-sm py-2.5 px-4 w-full sm:w-auto"
+              className="btn-teal text-xs sm:text-sm py-2.5 px-5 w-full sm:w-auto font-bold shadow-md"
             >
               <MessageSquare className="w-4 h-4 mr-2" />
-              Notify on WhatsApp
+              Send / Confirm on WhatsApp (+91 9092915222)
             </a>
 
             <button
@@ -429,10 +453,11 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
               id="appointment-form-submit-btn"
               className="w-full btn-teal text-sm sm:text-base py-3.5 justify-center shadow-md font-bold"
             >
-              {loading ? 'Submitting Request...' : 'Request Appointment'}
+              <MessageSquare className="w-4 h-4 mr-2" />
+              {loading ? 'Submitting Request...' : 'Submit Request (Response via WhatsApp +91 9092915222)'}
             </button>
-            <p className="text-[11px] text-slate-400 text-center mt-2">
-              For emergency trauma or immediate critical crises, please call 8885558061 directly.
+            <p className="text-[11px] text-slate-500 text-center mt-2">
+              Appointment requests are confirmed via WhatsApp (+91 9092915222). For emergency calls, reach 9092916222 directly.
             </p>
           </div>
         </form>

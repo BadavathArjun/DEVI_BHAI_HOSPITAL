@@ -186,7 +186,7 @@ export const SPECIALITIES: Speciality[] = [
     highlights: [
       "Always open: 24/7/365 Emergency department",
       "Smart ICU with continuous multipara monitoring & ventilators",
-      "Immediate emergency phone helpline: 8885558061",
+      "Immediate emergency phone helpline: 9092916222",
       "Coordinated with 24/7 pharmacy and laboratory"
     ]
   }
