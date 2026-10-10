@@ -65,6 +65,41 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: 'Experienced theatre team dedicated to patient safety, infection control, and surgical excellence in Nirmal.'
   },
   {
+    id: 'oldage-home-annadanam-service',
+    title: 'Annadanam & Food Distribution at Senior Citizens Old Age Home',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/oldage-home-annadanam-service.jpg',
+    caption: 'Dr. K. Avinash Kasamwar and volunteers serving fresh meals to elderly residents at DOVE - IPOP Old Age Home in Nirmal.'
+  },
+  {
+    id: 'oldage-home-elderly-blessings',
+    title: 'Elderly Residents Blessings at Old Age Home',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/oldage-home-elderly-blessings.jpg',
+    caption: 'Elderly mothers and fathers offering prayers and appreciation to Dr. Avinash and the hospital team for their selfless community care.'
+  },
+  {
+    id: 'specially-abled-youth-educational-support',
+    title: 'Educational Aid & Support for Specially-Abled Youth',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/specially-abled-youth-educational-support.png',
+    caption: 'Dr. Avinash Kasamwar presenting study kits and educational materials supporting specially-abled youth and their families.'
+  },
+  {
+    id: 'temple-deity-blessing-felicitation',
+    title: 'Temple Deity Blessings & Felicitation of Dr. Avinash',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/temple-deity-blessing-felicitation.jpg',
+    caption: 'Temple priests and community elders conferring sacred shawl and deity portrait blessings upon Dr. Avinash Kasamwar.'
+  },
+  {
+    id: 'temple-sacred-shawl-felicitation',
+    title: 'Community Honor at Sri Temple',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/temple-sacred-shawl-felicitation.png',
+    caption: 'Community members honoring Dr. Avinash Kasamwar with traditional temple honors for his healing service to the people of Nirmal.'
+  },
+  {
     id: 'ceremonial-lamp-lighting-jyothi-prajwalana',
     title: 'Jyothi Prajwalana — Ceremonial Lamp Lighting',
     category: 'Events & Celebrations',
