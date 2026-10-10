@@ -16,8 +16,8 @@ export const GalleryPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Hospital Gallery | Devibai Super Speciality Hospital"
-        description="Official gallery of Devibai Super Speciality Hospital in Nirmal: clinical facilities, specialist doctor team, operating theatres, pediatric unit, emergency care and maternity suites."
+        title="Hospital Photo Gallery | Devibai Super Speciality Hospital"
+        description="Official gallery of Devibai Super Speciality Hospital in Nirmal: comprehensive photo archive of clinical facilities, modular operating theatres, IVF & fertility centre, state doctor awards, and community healthcare initiatives."
         canonicalPath="/gallery"
       />
 
@@ -28,8 +28,8 @@ export const GalleryPage: React.FC = () => {
           <SectionHeader
             badge="Visual Tour"
             badgeVariant="teal"
-            title="Hospital Gallery"
-            subtitle="Browse official images of our hospital building, specialist team, emergency department, operating theatres, and clinical facilities in Nirmal."
+            title="Hospital Gallery & Photographic Archive"
+            subtitle="Explore our comprehensive photographic archive featuring hospital facilities, modular operation theatres, Dr. Chandrika’s Fertility (IVF) Centre, doctor team, state awards, free health camps, and community milestones in Nirmal."
           />
 
           <GalleryGrid items={items} showCategoryFilter={true} />

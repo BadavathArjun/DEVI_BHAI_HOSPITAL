@@ -1,7 +1,7 @@
 import { GALLERY_ITEMS } from '../data/gallery';
 import { GalleryItem } from '../types';
 
-const GALLERY_STORAGE_KEY = 'devibai_hospital_gallery_v1';
+const GALLERY_STORAGE_KEY = 'devibai_hospital_gallery_v2';
 
 export const galleryService = {
   getGalleryItems(): GalleryItem[] {
@@ -9,7 +9,7 @@ export const galleryService = {
       const stored = localStorage.getItem(GALLERY_STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed) && parsed.length >= GALLERY_ITEMS.length) {
           return parsed as GalleryItem[];
         }
       }

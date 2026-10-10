@@ -628,7 +628,7 @@ def get_metadata(idx, filename):
         slug_prefix = "temple-committee-felicitation-shrine"
     elif idx == 188:
         cat = "Awards & Recognition"
-        title = "Full Newspaper Page Feature on Devibai Hospital Services",
+        title = "Full Newspaper Page Feature on Devibai Hospital Services"
         caption = "Comprehensive regional press feature on free health camps and specialized medical treatments in Nirmal."
         slug_prefix = "newspaper-feature-hospital-services"
     # 189 - 198: Free Medical Camps (Senior Citizens & TSRTC Employees)
@@ -835,7 +835,7 @@ def get_metadata(idx, filename):
         slug_prefix = f"reception-shawl-felicitation-{idx-276}"
     elif idx == 281:
         cat = "Events & Celebrations"
-        title = "Women Community Gathering & Reproductive Health Awareness",
+        title = "Women Community Gathering & Reproductive Health Awareness"
         caption = "Dr. Chandrika interacting with women from the community and discussing preventive health and maternal care."
         slug_prefix = "women-community-health-awareness"
     # 282, 283, 286: Eco-Friendly Clay Ganesha Workshop
