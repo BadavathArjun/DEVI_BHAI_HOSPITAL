@@ -65,11 +65,46 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: 'Experienced theatre team dedicated to patient safety, infection control, and surgical excellence in Nirmal.'
   },
   {
+    id: 'ceremonial-lamp-lighting-jyothi-prajwalana',
+    title: 'Jyothi Prajwalana — Ceremonial Lamp Lighting',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/ceremonial-lamp-lighting-jyothi-prajwalana.jpg',
+    caption: 'Dr. K. Avinash Kasamwar lighting the ceremonial lamp alongside Dr. K. Chandrika during the inaugural ceremony in Nirmal.'
+  },
+  {
+    id: 'science-exhibition-isro-showcase',
+    title: 'Science & Space Exhibition Showcase (Aavishkaar 2K25)',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/science-exhibition-isro-showcase.jpg',
+    caption: 'Dr. Chandrika and Dr. Avinash encouraging student innovators with the model ISRO rocket exhibit at Bhashyam School.'
+  },
+  {
+    id: 'school-assembly-parade-review',
+    title: 'Student Parade & Ceremonial Assembly',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/school-assembly-parade-review.jpg',
+    caption: 'Dr. Avinash and Dr. Chandrika reviewing the ceremonial parade and salute by student cadets during youth empowerment celebrations.'
+  },
+  {
     id: 'community-school-youth-encouragement',
     title: 'Youth & Student Encouragement Program in Nirmal',
     category: 'Events & Celebrations',
     image: '/assets/gallery/community-school-youth-encouragement.png',
     caption: 'Dr. K. Chandrika and Dr. Avinash Kasamwar felicitating and inspiring students and NCC cadets at Bhashyam School (Aavishkaar 2K25).'
+  },
+  {
+    id: 'hospital-reception-staff-celebration',
+    title: 'Celebration with Clinical & Administrative Team',
+    category: 'Hospital',
+    image: '/assets/gallery/hospital-reception-staff-celebration.png',
+    caption: 'Dr. Avinash Kasamwar and hospital healthcare team gathered at the main reception lobby for hospital milestone celebrations.'
+  },
+  {
+    id: 'doctors-reception-cake-cutting',
+    title: 'Devibai Hospital Reception Milestone Celebration',
+    category: 'Hospital',
+    image: '/assets/gallery/doctors-reception-cake-cutting.png',
+    caption: 'Hospital leadership, Dr. Avinash Kasamwar, Dr. K. Chandrika, and reception staff celebrating healthcare milestones.'
   },
   {
     id: 'community-public-event-gathering',
