@@ -65,6 +65,6 @@ export const FAQS: FAQ[] = [
     id: "contact-location",
     category: "Contact",
     question: "Where is the hospital located?",
-    answer: "The hospital is located Opposite Kaveri Hospital, Old RTO Office, Yellapalli, Nirmal – 504106, Telangana, India (also noted as Beside DS Mart, Mancherial Road, Shastrinagar, Nirmal). Directions and contact buttons are readily accessible on our Contact page."
+    answer: "The hospital is located beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal – 504106, Telangana, India. Directions and contact buttons are readily accessible on our Contact page."
   }
 ];

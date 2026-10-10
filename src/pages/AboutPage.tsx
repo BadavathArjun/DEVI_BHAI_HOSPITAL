@@ -59,7 +59,7 @@ export const AboutPage: React.FC = () => {
                 Comprehensive Healthcare. One Trusted Destination.
               </h2>
               <p className="mt-4 text-base text-slate-700 leading-relaxed">
-                Devibai Super Speciality Hospital is a modern multi-speciality healthcare centre situated opposite Kaveri Hospital at Old RTO Office, Yellapalli, Nirmal.
+                Devibai Super Speciality Hospital is a modern multi-speciality healthcare centre situated beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal.
               </p>
               <p className="mt-3 text-sm text-slate-600 leading-relaxed">
                 We integrate comprehensive clinical disciplines — from dedicated fertility and IVF care under Dr. K. Chandrika to general and laparoscopic surgery under Dr. K. Avinash Kasamwar, internal medicine and critical care under Dr. Prashant Kumar Waghmare, pediatric and neonatal care under Dr. Sudheer Kumar G, and visiting urology consultations by Dr. K. Ravichandra.

@@ -20,7 +20,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Devibai Super Speciality Hospital Main Facility Board",
     category: "Hospital",
     image: "/assets/branding/hospital-board.jpg",
-    caption: "Official hospital signage and entrance brand board located at Yellapalli, Nirmal."
+    caption: "Official hospital signage and entrance brand board located beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal."
   },
   {
     id: "gal-2",
