@@ -9,6 +9,34 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: 'Celebrating precious IVF and fertility success stories — joyous parents with newborn babies and gratitude letters for Dr. Chandrika and Dr. Avinash.'
   },
   {
+    id: 'laparoscopic-surgery-hd-monitor',
+    title: 'High-Definition Video Laparoscopy in Real-Time',
+    category: 'Surgery',
+    image: '/assets/gallery/laparoscopic-surgery-hd-monitor.jpg',
+    caption: 'Dr. K. Avinash Kasamwar performing minimally invasive keyhole surgery with live real-time HD endoscopic video imaging.'
+  },
+  {
+    id: 'laparoscopic-keyhole-surgery-team',
+    title: 'Minimally Invasive Keyhole Surgical Team',
+    category: 'Surgery',
+    image: '/assets/gallery/laparoscopic-keyhole-surgery-team.jpg',
+    caption: 'Precision laparoscopic surgical equipment, sterile trocar ports, and dedicated OT staff ensuring rapid patient recovery.'
+  },
+  {
+    id: 'dr-avinash-laparoscopic-precision',
+    title: 'Precision Laparoscopic Surgical Techniques',
+    category: 'Surgery',
+    image: '/assets/gallery/dr-avinash-laparoscopic-precision.jpg',
+    caption: 'Dr. Avinash Kasamwar executing fine laparoscopic instrumentation in the sterile surgical suite at Devibai Hospital.'
+  },
+  {
+    id: 'modular-ot-laparoscopy-setup',
+    title: 'Modern Modular Operation Theatre with Endoscopy Tower',
+    category: 'Surgery',
+    image: '/assets/gallery/modular-ot-laparoscopy-setup.jpg',
+    caption: 'Complete view of the modular surgical theatre: ceiling-mounted LED surgical lights, anesthesia workstation, and laparoscopic tower.'
+  },
+  {
     id: 'dr-avinash-performing-surgery',
     title: 'Advanced Surgical Procedure Led by Dr. K. Avinash Kasamwar',
     category: 'Surgery',
@@ -35,6 +63,13 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'Surgery',
     image: '/assets/gallery/modular-ot-surgical-staff.png',
     caption: 'Experienced theatre team dedicated to patient safety, infection control, and surgical excellence in Nirmal.'
+  },
+  {
+    id: 'community-school-youth-encouragement',
+    title: 'Youth & Student Encouragement Program in Nirmal',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/community-school-youth-encouragement.png',
+    caption: 'Dr. K. Chandrika and Dr. Avinash Kasamwar felicitating and inspiring students and NCC cadets at Bhashyam School (Aavishkaar 2K25).'
   },
   {
     id: 'community-public-event-gathering',
