@@ -21,7 +21,7 @@ import { SPECIALITIES } from '../data/specialities';
 import { FACILITIES } from '../data/facilities';
 import { INSURANCE_PROVIDERS, INSURANCE_DISCLAIMER, INSURANCE_COMING_SOON } from '../data/insurance';
 import { FAQS } from '../data/faqs';
-import { GALLERY_ITEMS } from '../data/gallery';
+import { galleryService } from '../services/galleryService';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { DoctorCard } from '../components/cards/DoctorCard';
 import { SpecialityCard } from '../components/cards/SpecialityCard';

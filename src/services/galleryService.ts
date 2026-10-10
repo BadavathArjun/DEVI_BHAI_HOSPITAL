@@ -1,0 +1,52 @@
+import { GALLERY_ITEMS } from '../data/gallery';
+import { GalleryItem } from '../types';
+
+const GALLERY_STORAGE_KEY = 'devibai_hospital_gallery_v1';
+
+export const galleryService = {
+  getGalleryItems(): GalleryItem[] {
+    try {
+      const stored = localStorage.getItem(GALLERY_STORAGE_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed as GalleryItem[];
+        }
+      }
+    } catch {
+      // Safe fallback to default data
+    }
+    return GALLERY_ITEMS;
+  },
+
+  saveGalleryItems(items: GalleryItem[]): void {
+    try {
+      localStorage.setItem(GALLERY_STORAGE_KEY, JSON.stringify(items));
+    } catch (e) {
+      console.error('Failed to save gallery items to localStorage', e);
+    }
+  },
+
+  addGalleryItem(item: GalleryItem): GalleryItem[] {
+    const current = this.getGalleryItems();
+    const updated = [item, ...current];
+    this.saveGalleryItems(updated);
+    return updated;
+  },
+
+  deleteGalleryItem(id: string): GalleryItem[] {
+    const current = this.getGalleryItems();
+    const updated = current.filter(item => item.id !== id);
+    this.saveGalleryItems(updated);
+    return updated;
+  },
+
+  resetToDefault(): GalleryItem[] {
+    try {
+      localStorage.removeItem(GALLERY_STORAGE_KEY);
+    } catch {
+      // Safe fallback
+    }
+    return GALLERY_ITEMS;
+  }
+};

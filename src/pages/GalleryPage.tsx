@@ -1,11 +1,18 @@
-import React from 'react';
-import { GALLERY_ITEMS } from '../data/gallery';
+import React, { useState, useEffect } from 'react';
+import { galleryService } from '../services/galleryService';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { GalleryGrid } from '../components/gallery/GalleryGrid';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { SEOHead } from '../components/common/SEOHead';
+import { GalleryItem } from '../types';
 
 export const GalleryPage: React.FC = () => {
+  const [items, setItems] = useState<GalleryItem[]>(() => galleryService.getGalleryItems());
+
+  useEffect(() => {
+    setItems(galleryService.getGalleryItems());
+  }, []);
+
   return (
     <div>
       <SEOHead
@@ -25,7 +32,7 @@ export const GalleryPage: React.FC = () => {
             subtitle="Browse official images of our hospital building, specialist team, emergency department, operating theatres, and clinical facilities in Nirmal."
           />
 
-          <GalleryGrid items={GALLERY_ITEMS} showCategoryFilter={true} />
+          <GalleryGrid items={items} showCategoryFilter={true} />
         </div>
       </section>
     </div>
