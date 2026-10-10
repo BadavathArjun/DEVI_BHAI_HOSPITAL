@@ -15,17 +15,22 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const categories = [
+  const categoryOrder = [
     'All',
+    'Awards & Recognition',
+    'Events & Celebrations',
     'Hospital',
-    'Doctors',
-    'Medical Care',
     'Facilities',
-    'Services',
-    'Emergency',
+    'Doctors',
     'Fertility & IVF',
-    'Surgery'
+    'Surgery',
+    'Emergency',
+    'Medical Care',
+    'Services'
   ];
+
+  const presentCategories = new Set(items.map(item => item.category));
+  const categories = categoryOrder.filter(cat => cat === 'All' || presentCategories.has(cat as any));
 
   const filteredItems = selectedCategory === 'All'
     ? items
