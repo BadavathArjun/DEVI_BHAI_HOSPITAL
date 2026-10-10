@@ -958,7 +958,7 @@ export const HomePage: React.FC = () => {
                       Opposite Kaveri Hospital, Old RTO Office, Yellapalli, Nirmal – 504106, Telangana, India.
                     </p>
                     <span className="inline-block text-xs text-slate-500 mt-1">
-                      (Also noted as Beside DS Mart, Mancherial Road, Shastrinagar, Nirmal)
+                      (Landmark: Opposite Kaveri Hospital, Old RTO Office / Beside DS Mart, Mancherial Road)
                     </span>
                   </div>
                 </div>

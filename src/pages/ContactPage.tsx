@@ -33,7 +33,7 @@ export const ContactPage: React.FC = () => {
             badge="Get In Touch"
             badgeVariant="navy"
             title="Contact Devibai Hospital"
-            subtitle="Reach our hospital reception, emergency desk, or specialist outpatient departments. We are located in Yellapalli, Nirmal."
+            subtitle="Reach our hospital reception, emergency desk, or specialist outpatient departments. We are located Opposite Kaveri Hospital, Old RTO Office, Yellapalli, Nirmal."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -56,7 +56,7 @@ export const ContactPage: React.FC = () => {
                       Opposite Kaveri Hospital, Old RTO Office, Yellapalli, Nirmal – 504106, Telangana, India.
                     </p>
                     <p className="text-xs text-slate-500 mt-1.5">
-                      (Also noted as Beside DS Mart, Mancherial Road, Shastrinagar, Nirmal)
+                      (Landmark: Opposite Kaveri Hospital, Old RTO Office / Beside DS Mart, Mancherial Road)
                     </p>
 
                     <div className="pt-4 flex flex-wrap gap-2.5">
