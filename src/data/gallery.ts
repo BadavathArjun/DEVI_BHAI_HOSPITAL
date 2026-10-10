@@ -2,6 +2,41 @@ import { GalleryItem } from '../types';
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
+    id: 'hospital-modern-building-render',
+    title: 'Devibai Multispeciality & Critical Care Centre — Architectural Elevation',
+    category: 'Hospital',
+    image: '/assets/gallery/hospital-modern-building-render.jpg',
+    caption: 'Architectural elevation of Devibai Multispeciality & Critical Care Centre, Dr. Chandrika’s Fertility Centre (IVF), and 24/7 Devi Bai Pharmacy.'
+  },
+  {
+    id: 'doctors-day-celebration-banner',
+    title: 'Doctors’ Day Recognition — Dr. Chandrika & Dr. Avinash',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/doctors-day-celebration-banner.jpg',
+    caption: 'Doctors’ Day tribute celebrating Dr. Chandrika Avinash and Dr. Avinash Kasamwar for dedicated fertility and surgical healthcare services in Nirmal & Adilabad.'
+  },
+  {
+    id: 'suman-tv-award-navatelangana',
+    title: 'Suman TV Doctor Award — Dr. Chandrika Kasamwar (Nava Telangana)',
+    category: 'Awards & Recognition',
+    image: '/assets/gallery/suman-tv-award-navatelangana.png',
+    caption: 'Dr. Chandrika Kasamwar receiving the prestigious Suman TV Doctor Award at HICC Novotel, Hyderabad, celebrating excellence in infertility and women’s health.'
+  },
+  {
+    id: 'suman-tv-award-prajajyothi',
+    title: 'Suman TV Doctor Excellence Award (Praja Jyothi)',
+    category: 'Awards & Recognition',
+    image: '/assets/gallery/suman-tv-award-prajajyothi.png',
+    caption: 'News feature on Dr. Chandrika Kasamwar honored with state-level award for exceptional service and bringing the joy of parenthood to childless couples.'
+  },
+  {
+    id: 'suman-tv-award-vijayakranthi',
+    title: 'Suman TV State Award Felicitation (Vijayakranthi)',
+    category: 'Awards & Recognition',
+    image: '/assets/gallery/suman-tv-award-vijayakranthi.png',
+    caption: 'Vijayakranthi coverage honoring Dr. Chandrika Kasamwar of Devi Bhai Hospital Nirmal at Hyderabad for dedicated gynecology and fertility care.'
+  },
+  {
     id: 'state-excellence-award-sakshi',
     title: 'State Excellence Award Felicitation (Sakshi News)',
     category: 'Awards & Recognition',
