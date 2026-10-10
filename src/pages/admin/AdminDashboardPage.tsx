@@ -22,7 +22,7 @@ import { galleryService } from '../../services/galleryService';
 import { GalleryItem } from '../../types';
 import { SEOHead } from '../../components/common/SEOHead';
 
-export const AVAILABLE_CATEGORIES: GalleryItem['category'][] = [
+const AVAILABLE_CATEGORIES: GalleryItem['category'][] = [
   'Hospital',
   'Doctors',
   'Facilities',
