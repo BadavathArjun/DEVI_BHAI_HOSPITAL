@@ -2,6 +2,13 @@ import { GalleryItem } from '../types';
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
+    id: 'fertility-wall-of-success',
+    title: 'Wall of Success — Couples Blessed with Children at Devibai Hospital',
+    category: 'Fertility & IVF',
+    image: '/assets/gallery/fertility-wall-of-success.jpg',
+    caption: 'Celebrating precious IVF and fertility success stories — joyous parents with newborn babies and gratitude letters for Dr. Chandrika and Dr. Avinash.'
+  },
+  {
     id: 'hospital-modern-building-render',
     title: 'Devibai Multispeciality & Critical Care Centre — Architectural Elevation',
     category: 'Hospital',
@@ -9,11 +16,39 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: 'Architectural elevation of Devibai Multispeciality & Critical Care Centre, Dr. Chandrika’s Fertility Centre (IVF), and 24/7 Devi Bai Pharmacy.'
   },
   {
+    id: 'general-ward-inauguration',
+    title: 'Inauguration of New General Ward Facility',
+    category: 'Hospital',
+    image: '/assets/gallery/general-ward-inauguration.jpg',
+    caption: 'Official ribbon-cutting ceremony for the hospital’s expanded General Ward attended by local dignitaries, Dr. Avinash, and Dr. Chandrika.'
+  },
+  {
+    id: 'fertility-centre-inauguration-felicitation',
+    title: 'Dr. Chandrika’s Fertility & Laparoscopic Centre — Felicitation Ceremony',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/fertility-centre-inauguration-felicitation.png',
+    caption: 'Felicitation and memento presentation with distinguished guests at Dr. Chandrika’s Fertility & Laparoscopic Centre in Nirmal.'
+  },
+  {
     id: 'doctors-day-celebration-banner',
     title: 'Doctors’ Day Recognition — Dr. Chandrika & Dr. Avinash',
     category: 'Events & Celebrations',
     image: '/assets/gallery/doctors-day-celebration-banner.jpg',
     caption: 'Doctors’ Day tribute celebrating Dr. Chandrika Avinash and Dr. Avinash Kasamwar for dedicated fertility and surgical healthcare services in Nirmal & Adilabad.'
+  },
+  {
+    id: 'dr-chandrika-fertility-specialist-op',
+    title: 'Dr. K. Chandrika — Infertility & Women’s Health Specialist (OP Schedule)',
+    category: 'Doctors',
+    image: '/assets/gallery/dr-chandrika-fertility-specialist-op.png',
+    caption: 'OP Timings: 10:00 AM – 03:30 PM & 06:30 PM – 08:30 PM. Specialized in OI, IUI, IVF, high-risk pregnancy, and PCOD treatment.'
+  },
+  {
+    id: 'dr-avinash-laparoscopic-surgeon-op',
+    title: 'Dr. Avinash Kasamwar — General & Laparoscopic Surgeon (OP Schedule)',
+    category: 'Doctors',
+    image: '/assets/gallery/dr-avinash-laparoscopic-surgeon-op.png',
+    caption: 'OP Timings: 10:00 AM – 04:00 PM & 06:00 PM – 09:00 PM. Expert keyhole laparoscopic surgery for appendix, gallstones, hernia, and acute trauma.'
   },
   {
     id: 'suman-tv-award-navatelangana',
