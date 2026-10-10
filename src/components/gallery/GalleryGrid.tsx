@@ -51,6 +51,18 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
     }
   };
 
+  if (items.length === 0) {
+    return (
+      <div className="text-center py-16 bg-slate-50 rounded-2xl border border-dashed border-slate-300 p-8 max-w-md mx-auto">
+        <div className="w-12 h-12 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-3">
+          <Layers className="w-6 h-6" />
+        </div>
+        <h3 className="font-heading font-bold text-base text-navy-900 mb-1">Gallery Updates Coming Soon</h3>
+        <p className="text-xs text-slate-500">Official hospital photographs and facility images will be uploaded here shortly.</p>
+      </div>
+    );
+  }
+
   return (
     <div>
       {/* Category Pills */}

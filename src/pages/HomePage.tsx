@@ -881,24 +881,26 @@ export const HomePage: React.FC = () => {
       {/* ==================================================
           SECTION 17 — GALLERY
           ================================================== */}
-      <section className="py-16 sm:py-24 bg-slate-50 border-y border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Hospital Photos"
-            badgeVariant="teal"
-            title="Hospital Gallery"
-            subtitle="Official imagery of Devibai Super Speciality Hospital, specialist doctors, and clinical care units."
-          />
+      {GALLERY_ITEMS.length > 0 && (
+        <section className="py-16 sm:py-24 bg-slate-50 border-y border-slate-200/80">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              badge="Hospital Photos"
+              badgeVariant="teal"
+              title="Hospital Gallery"
+              subtitle="Official imagery of Devibai Super Speciality Hospital, specialist doctors, and clinical care units."
+            />
 
-          <GalleryGrid items={GALLERY_ITEMS.slice(0, 8)} showCategoryFilter={false} />
+            <GalleryGrid items={GALLERY_ITEMS.slice(0, 8)} showCategoryFilter={false} />
 
-          <div className="mt-10 text-center">
-            <Link to="/gallery" className="btn-teal text-sm py-3 px-6">
-              Explore Full Filterable Gallery
-            </Link>
+            <div className="mt-10 text-center">
+              <Link to="/gallery" className="btn-teal text-sm py-3 px-6">
+                Explore Full Filterable Gallery
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ==================================================
           SECTION 18 — FAQ
