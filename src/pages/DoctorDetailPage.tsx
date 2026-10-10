@@ -12,7 +12,6 @@ import { DOCTORS } from '../data/doctors';
 import { SPECIALITIES } from '../data/specialities';
 import { HOSPITAL_INFO } from '../data/hospital';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
-import { AppointmentForm } from '../components/forms/AppointmentForm';
 import { SEOHead } from '../components/common/SEOHead';
 
 export const DoctorDetailPage: React.FC = () => {
@@ -170,23 +169,6 @@ export const DoctorDetailPage: React.FC = () => {
               )}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Appointment Booking Section for this Doctor */}
-      <section className="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <span className="badge-teal mb-2">Direct Appointment Request</span>
-            <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-navy-900">
-              Book a Consultation with {doctor.name}
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 mt-2">
-              Submit your preferred date and slot. Our hospital desk will verify doctor availability and contact you.
-            </p>
-          </div>
-
-          <AppointmentForm initialDoctorId={doctor.slug} />
         </div>
       </section>
 
