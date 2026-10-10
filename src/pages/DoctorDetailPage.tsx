@@ -2,14 +2,11 @@ import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { 
   Award, 
-  Calendar, 
   Phone, 
   MessageSquare, 
   CheckCircle2, 
-  Clock, 
-  ArrowRight,
-  ShieldAlert,
-  UserCheck
+  Clock,
+  ArrowRight 
 } from 'lucide-react';
 import { DOCTORS } from '../data/doctors';
 import { SPECIALITIES } from '../data/specialities';

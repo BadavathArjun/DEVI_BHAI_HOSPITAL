@@ -9,19 +9,15 @@ import {
   AlertTriangle, 
   Clock, 
   MapPin, 
-  ShieldCheck, 
   Activity, 
   HeartPulse, 
   Baby, 
-  Stethoscope,
   Sparkles,
-  PhoneCall,
-  ExternalLink
+  PhoneCall
 } from 'lucide-react';
 import { HOSPITAL_INFO } from '../data/hospital';
 import { DOCTORS } from '../data/doctors';
 import { SPECIALITIES } from '../data/specialities';
-import { SERVICES } from '../data/services';
 import { FACILITIES } from '../data/facilities';
 import { INSURANCE_PROVIDERS, INSURANCE_DISCLAIMER } from '../data/insurance';
 import { FAQS } from '../data/faqs';

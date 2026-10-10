@@ -2,17 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   CheckCircle2, 
-  ShieldCheck, 
-  Clock, 
-  HeartHandshake, 
-  Stethoscope, 
   PhoneCall, 
-  MapPin, 
   Calendar 
 } from 'lucide-react';
 import { HOSPITAL_INFO } from '../data/hospital';
 import { SPECIALITIES } from '../data/specialities';
-import { FACILITIES } from '../data/facilities';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { SEOHead } from '../components/common/SEOHead';

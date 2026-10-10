@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { 
-  Users, 
-  Calendar, 
-  MessageSquare, 
-  CheckCircle, 
-  Clock, 
   LogOut, 
-  ShieldCheck, 
-  Search,
-  ChevronRight,
-  Filter,
-  Eye,
-  Settings
+  ChevronRight 
 } from 'lucide-react';
 import { DOCTORS } from '../../data/doctors';
 import { appointmentService, contactService } from '../../services/appointmentService';
@@ -22,19 +12,15 @@ import { SEOHead } from '../../components/common/SEOHead';
 export const AdminDashboardPage: React.FC = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'appointments' | 'messages' | 'doctors' | 'cms'>('appointments');
-  const [appointments, setAppointments] = useState<AppointmentRequest[]>([]);
-  const [messages, setMessages] = useState<ContactMessage[]>([]);
+  const [appointments, setAppointments] = useState<AppointmentRequest[]>(() => appointmentService.getStoredAppointments());
+  const [messages] = useState<ContactMessage[]>(() => contactService.getStoredMessages());
   const [statusFilter, setStatusFilter] = useState<string>('All');
 
   useEffect(() => {
     const token = sessionStorage.getItem('devibai_admin_token');
     if (!token) {
       navigate('/admin/login');
-      return;
     }
-
-    setAppointments(appointmentService.getStoredAppointments());
-    setMessages(contactService.getStoredMessages());
   }, [navigate]);
 
   const handleLogout = () => {

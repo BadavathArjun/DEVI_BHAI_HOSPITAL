@@ -1,32 +1,75 @@
-# React + TypeScript + Vite
+# Devibai Super Speciality Hospital Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Official web portal and patient management application for **Devibai Super Speciality Hospital**, located in Yellapalli, Nirmal, Telangana.
 
-Currently, two official plugins are available:
+Built with **React 19**, **TypeScript**, **Vite**, and **Tailwind CSS**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Quick Start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm or yarn
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+### Installation
+```bash
+npm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+### Local Development
+```bash
+npm run dev
+```
+The site runs locally on `http://localhost:5173` (or the next available port).
+
+### Production Build
+```bash
+npm run build
+```
+Generates production-ready optimized assets in the `dist/` directory.
+
+---
+
+## ☁️ Deploying to Vercel
+
+The project is pre-configured for seamless 1-click deployment on **Vercel** with full Single-Page Application (SPA) routing support via [`vercel.json`](./vercel.json).
+
+### Method 1: Deploy via Vercel Dashboard (Recommended)
+
+1. Push your repository to **GitHub**, **GitLab**, or **Bitbucket**.
+2. Go to [vercel.com](https://vercel.com) and log in.
+3. Click **"Add New..."** → **"Project"**.
+4. Import your `DEVI_BHAI_HOSPITAL` repository.
+5. Vercel automatically detects Vite. Verify the default settings:
+   - **Framework Preset**: `Vite`
+   - **Root Directory**: `./`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+6. Click **Deploy**. Your site will be live on a `*.vercel.app` domain with an SSL certificate within 1 minute!
+
+### Method 2: Deploy via Vercel CLI
+
+```bash
+# Install Vercel CLI if not already installed
+npm i -g vercel
+
+# Deploy directly from terminal
+vercel
+
+# For production deployment
+vercel --prod
+```
+
+---
+
+## ⚙️ Configuration Files for Vercel
+
+- **[`vercel.json`](./vercel.json)**:
+  - Configures SPA rewrites so direct navigation and browser refreshing on deep routes (e.g. `/doctors`, `/emergency`, `/services`, `/admin`) do not return 404 errors.
+  - Applies 1-year immutable caching for `/assets/*` bundles.
+  - Implements production security headers (`X-Content-Type-Options`, `X-Frame-Options`, `X-XSS-Protection`, `Referrer-Policy`).
+- **[`.gitignore`](./.gitignore)**:
+  - Excludes `.vercel`, `.env`, and build artifacts from version control.
+- **[`tsconfig.app.json`](./tsconfig.app.json)**:
+  - Configured with `forceConsistentCasingInFileNames: true` ensuring cross-platform build stability between Windows and Linux environments.
