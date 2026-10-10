@@ -179,7 +179,7 @@ export const Navbar: React.FC = () => {
               </a>
 
               <div className="text-center pt-2 text-xs text-slate-500">
-                Opposite Kaveri Hospital, Old RTO Office, Yellapalli, Nirmal
+                Beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal
               </div>
             </div>
           </div>

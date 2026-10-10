@@ -122,7 +122,7 @@ export const HomePage: React.FC = () => {
               </div>
               <div className="hidden sm:flex items-center space-x-2 text-slate-300">
                 <MapPin className="w-4 h-4 text-teal-400 flex-shrink-0" />
-                <span>Opp. Kaveri Hospital, Yellapalli, Nirmal</span>
+                <span>Beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal</span>
               </div>
             </div>
           </div>
@@ -273,8 +273,8 @@ export const HomePage: React.FC = () => {
               </div>
               <div className="absolute bottom-2 right-2 sm:-bottom-6 sm:-right-6 bg-navy-900 text-white p-3.5 sm:p-5 rounded-xl shadow-xl border border-navy-700 max-w-[210px] sm:max-w-[240px]">
                 <div className="text-[10px] sm:text-xs text-teal-300 uppercase font-semibold">Location</div>
-                <div className="text-xs sm:text-sm font-bold mt-0.5 sm:mt-1">Yellapalli, Nirmal</div>
-                <div className="text-[10px] sm:text-[11px] text-slate-300 mt-0.5">Opp. Kaveri Hospital, Old RTO Office</div>
+                <div className="text-xs sm:text-sm font-bold mt-0.5 sm:mt-1">Shastri Nagar, Nirmal</div>
+                <div className="text-[10px] sm:text-[11px] text-slate-300 mt-0.5">Beside DS Mart, Mancherial Road</div>
               </div>
             </div>
 
@@ -955,10 +955,10 @@ export const HomePage: React.FC = () => {
                       DEVIBAI SUPER SPECIALITY HOSPITAL
                     </strong>
                     <p className="text-slate-600 leading-relaxed text-xs sm:text-sm">
-                      Opposite Kaveri Hospital, Old RTO Office, Yellapalli, Nirmal – 504106, Telangana, India.
+                      Beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal – 504106, Telangana, India.
                     </p>
                     <span className="inline-block text-xs text-slate-500 mt-1">
-                      (Landmark: Opposite Kaveri Hospital, Old RTO Office / Beside DS Mart, Mancherial Road)
+                      (Landmark: Beside DS Mart, Mancherial Road)
                     </span>
                   </div>
                 </div>

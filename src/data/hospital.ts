@@ -6,14 +6,14 @@ export const HOSPITAL_INFO = {
   emergencyHighlight: "24/7 Emergency • Pharmacy • Laboratory • ICU Services",
   
   address: {
-    line1: "Opposite Kaveri Hospital, Old RTO Office",
-    line2: "Yellapalli",
+    line1: "Beside DS Mart, Mancherial Road",
+    line2: "Shastri Nagar",
     city: "Nirmal",
     pincode: "504106",
     state: "Telangana",
     country: "India",
-    fullAddress: "Opposite Kaveri Hospital, Old RTO Office, Yellapalli, Nirmal – 504106, Telangana, India.",
-    landmark: "Opposite Kaveri Hospital, Old RTO Office / Beside DS Mart, Mancherial Road"
+    fullAddress: "Beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal – 504106, Telangana, India.",
+    landmark: "Beside DS Mart, Mancherial Road"
   },
 
   phones: {
