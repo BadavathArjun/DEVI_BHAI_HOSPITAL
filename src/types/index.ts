@@ -68,7 +68,7 @@ export interface FAQ {
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'Hospital' | 'Doctors' | 'Medical Care' | 'Facilities' | 'Services' | 'Emergency' | 'Fertility & IVF' | 'Surgery';
+  category: 'Hospital' | 'Doctors' | 'Medical Care' | 'Facilities' | 'Services' | 'Emergency' | 'Fertility & IVF' | 'Surgery' | 'Awards & Recognition' | 'Events & Celebrations';
   image: string;
   caption?: string;
 }
