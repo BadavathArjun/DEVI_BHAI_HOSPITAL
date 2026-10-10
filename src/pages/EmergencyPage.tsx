@@ -196,7 +196,7 @@ export const EmergencyPage: React.FC = () => {
             Emergency Desk Open Right Now
           </h3>
           <p className="text-xs sm:text-sm text-red-100">
-            Opposite Kaveri Hospital, Old RTO Office, Yellapalli, Nirmal – 504106, Telangana.
+            Beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal – 504106, Telangana.
           </p>
           <div className="pt-2">
             <a
