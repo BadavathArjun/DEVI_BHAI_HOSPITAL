@@ -16,11 +16,46 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: 'Architectural elevation of Devibai Multispeciality & Critical Care Centre, Dr. Chandrika’s Fertility Centre (IVF), and 24/7 Devi Bai Pharmacy.'
   },
   {
+    id: 'doctors-excellence-award-2025',
+    title: 'Doctors Excellence Award 2025 — Gynecology & Infertility',
+    category: 'Awards & Recognition',
+    image: '/assets/gallery/doctors-excellence-award-2025.png',
+    caption: 'Hon’ble MP Raghunandan Rao and State Women’s Commission Chairperson Nerella Sharada presenting the Doctors Excellence Award 2025 to Dr. Chandrika Avinash.'
+  },
+  {
+    id: 'doctors-excellence-award-andhraprabha',
+    title: 'State Level Doctors Excellence Award (Andhra Prabha)',
+    category: 'Awards & Recognition',
+    image: '/assets/gallery/doctors-excellence-award-andhraprabha.png',
+    caption: 'Andhra Prabha feature on Dr. Chandrika Avinash receiving state-level accolades for specialized gynecology and fertility healthcare in Nirmal.'
+  },
+  {
     id: 'general-ward-inauguration',
     title: 'Inauguration of New General Ward Facility',
     category: 'Hospital',
     image: '/assets/gallery/general-ward-inauguration.jpg',
     caption: 'Official ribbon-cutting ceremony for the hospital’s expanded General Ward attended by local dignitaries, Dr. Avinash, and Dr. Chandrika.'
+  },
+  {
+    id: 'hospital-clinical-staff-team',
+    title: 'Devibai Hospital Medical & Clinical Staff Team',
+    category: 'Hospital',
+    image: '/assets/gallery/hospital-clinical-staff-team.jpg',
+    caption: 'Dr. K. Avinash Kasamwar and Dr. K. Chandrika with the dedicated hospital clinical, nursing, and healthcare administration team.'
+  },
+  {
+    id: 'doctors-floral-felicitation',
+    title: 'Floral Felicitation of Dr. Avinash & Dr. Chandrika',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/doctors-floral-felicitation.jpg',
+    caption: 'Community members and well-wishers honoring Dr. Avinash Kasamwar and Dr. Chandrika with floral bouquets and celebratory shawls.'
+  },
+  {
+    id: 'hospital-dignitary-welcome-bouquet',
+    title: 'Welcome Reception for Distinguished Community Guests',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/hospital-dignitary-welcome-bouquet.jpg',
+    caption: 'Dr. Avinash Kasamwar and Dr. K. Chandrika welcoming esteemed community leaders and guests with floral bouquets at Devibai Hospital.'
   },
   {
     id: 'fertility-centre-inauguration-felicitation',
