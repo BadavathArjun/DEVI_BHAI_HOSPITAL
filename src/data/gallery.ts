@@ -2,6 +2,13 @@ import { GalleryItem } from '../types';
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
+    id: 'fertility-centre-banner',
+    title: 'Dr. Chandrika’s Fertility (IVF) Laparoscopic Centre — Official Banner',
+    category: 'Fertility & IVF',
+    image: '/assets/gallery/fertility-centre-banner.png',
+    caption: 'Official banner of Dr. Chandrika’s Fertility (IVF) Laparoscopic Centre (సంతాన సాఫల్య కేంద్రం) at Devibai Super Speciality Hospital, Nirmal.'
+  },
+  {
     id: 'fertility-wall-of-success',
     title: 'Wall of Success — Couples Blessed with Children at Devibai Hospital',
     category: 'Fertility & IVF',

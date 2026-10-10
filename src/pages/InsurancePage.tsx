@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Info, FileText, Phone, MessageSquare } from 'lucide-react';
-import { INSURANCE_PROVIDERS, INSURANCE_DISCLAIMER } from '../data/insurance';
+import { ShieldCheck, Info, FileText, Phone, MessageSquare, Sparkles } from 'lucide-react';
+import { INSURANCE_PROVIDERS, INSURANCE_DISCLAIMER, INSURANCE_COMING_SOON } from '../data/insurance';
 import { HOSPITAL_INFO } from '../data/hospital';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { InsuranceCard } from '../components/cards/InsuranceCard';
@@ -29,14 +29,21 @@ export const InsurancePage: React.FC = () => {
             subtitle="Displaying the insurance partners, TPAs, and government healthcare schemes shown on the official hospital panel."
           />
 
-          {/* Prominent Mandatory Disclaimer */}
-          <div className="max-w-4xl mx-auto mb-10 p-5 rounded-xl bg-amber-50 border border-amber-200 text-amber-950 flex items-start space-x-3.5">
-            <Info className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
-            <div className="text-xs sm:text-sm leading-relaxed">
-              <strong className="block font-bold text-amber-900 mb-0.5 uppercase tracking-wide text-xs">
-                Scheme & Policy Availability Terms
-              </strong>
-              <p>{INSURANCE_DISCLAIMER}</p>
+          {/* Prominent Mandatory Disclaimer & Coming Soon Point */}
+          <div className="max-w-4xl mx-auto mb-10 space-y-4">
+            <div className="p-3.5 sm:p-4 rounded-xl bg-teal-50/90 border border-teal-200/90 flex items-center justify-center space-x-2 text-teal-900 text-xs sm:text-sm font-semibold text-center shadow-sm">
+              <Sparkles className="w-4 h-4 text-teal-600 flex-shrink-0 animate-pulse" />
+              <span>{INSURANCE_COMING_SOON}</span>
+            </div>
+
+            <div className="p-5 rounded-xl bg-amber-50 border border-amber-200 text-amber-950 flex items-start space-x-3.5">
+              <Info className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
+              <div className="text-xs sm:text-sm leading-relaxed">
+                <strong className="block font-bold text-amber-900 mb-0.5 uppercase tracking-wide text-xs">
+                  Scheme & Policy Availability Terms
+                </strong>
+                <p>{INSURANCE_DISCLAIMER}</p>
+              </div>
             </div>
           </div>
 

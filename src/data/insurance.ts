@@ -2,6 +2,8 @@ import { InsuranceProvider } from '../types';
 
 export const INSURANCE_DISCLAIMER = "Insurance and healthcare scheme availability is subject to eligibility, policy terms and hospital/TPA authorization. Please contact the hospital for current details.";
 
+export const INSURANCE_COMING_SOON = "More insurance partners coming soon for better cashless care.";
+
 export const INSURANCE_PROVIDERS: InsuranceProvider[] = [
   {
     id: "aarogyasri",

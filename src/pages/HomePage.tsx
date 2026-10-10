@@ -19,7 +19,7 @@ import { HOSPITAL_INFO } from '../data/hospital';
 import { DOCTORS } from '../data/doctors';
 import { SPECIALITIES } from '../data/specialities';
 import { FACILITIES } from '../data/facilities';
-import { INSURANCE_PROVIDERS, INSURANCE_DISCLAIMER } from '../data/insurance';
+import { INSURANCE_PROVIDERS, INSURANCE_DISCLAIMER, INSURANCE_COMING_SOON } from '../data/insurance';
 import { FAQS } from '../data/faqs';
 import { GALLERY_ITEMS } from '../data/gallery';
 import { SectionHeader } from '../components/common/SectionHeader';
@@ -162,6 +162,36 @@ export const HomePage: React.FC = () => {
               className="hidden lg:inline-flex text-xs font-semibold text-white/90 hover:text-white underline underline-offset-4 flex-shrink-0"
             >
               Emergency Details
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION 4.5 — DR. CHANDRIKA'S FERTILITY & LAPAROSCOPIC CENTRE BANNER
+          ================================================== */}
+      <section className="bg-gradient-to-b from-slate-100/90 via-teal-50/20 to-white py-6 sm:py-8 lg:py-10 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative group rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-teal-100/90 bg-white">
+            <Link
+              to="/services/fertility"
+              id="fertility-centre-updated-banner"
+              className="block relative focus:outline-none focus:ring-4 focus:ring-teal-400/40 rounded-2xl sm:rounded-3xl overflow-hidden"
+              title="Dr. Chandrika's Fertility (IVF) Laparoscopic Centre - Devibai Super Speciality Hospital Nirmal"
+            >
+              <img
+                src="/assets/branding/fertility-centre-banner.png"
+                alt="Dr. Chandrika's Fertility (IVF) Laparoscopic Centre - సంతాన సాఫల్య కేంద్రం"
+                className="w-full h-auto object-cover block group-hover:scale-[1.01] transition-transform duration-500 rounded-2xl sm:rounded-3xl"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl sm:rounded-3xl" />
+              <div className="absolute bottom-3 right-3 sm:bottom-5 sm:right-6 opacity-90 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                <span className="inline-flex items-center space-x-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-teal-900/90 hover:bg-teal-900 text-white text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm border border-teal-400/30">
+                  <span>Explore Fertility & IVF</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
             </Link>
           </div>
         </div>
@@ -837,7 +867,13 @@ export const HomePage: React.FC = () => {
             ))}
           </div>
 
-          <div className="mt-8 p-4 rounded-xl bg-amber-50/80 border border-amber-200 text-xs text-amber-900 leading-relaxed text-center max-w-3xl mx-auto">
+          {/* Coming Soon Point */}
+          <div className="mt-6 p-3.5 sm:p-4 rounded-xl bg-teal-50/90 border border-teal-200/90 flex items-center justify-center space-x-2 text-teal-900 text-xs sm:text-sm font-semibold text-center max-w-3xl mx-auto shadow-sm">
+            <Sparkles className="w-4 h-4 text-teal-600 flex-shrink-0 animate-pulse" />
+            <span>{INSURANCE_COMING_SOON}</span>
+          </div>
+
+          <div className="mt-4 p-4 rounded-xl bg-amber-50/80 border border-amber-200 text-xs text-amber-900 leading-relaxed text-center max-w-3xl mx-auto">
             <strong>Important Notice:</strong> {INSURANCE_DISCLAIMER}
           </div>
 
