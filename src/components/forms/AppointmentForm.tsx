@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { 
-  Calendar, 
   User, 
-  Phone, 
-  Mail, 
-  Clock, 
-  Stethoscope, 
   CheckCircle, 
   AlertCircle, 
-  MessageSquare,
-  FileText
+  MessageSquare
 } from 'lucide-react';
 import { DOCTORS } from '../../data/doctors';
-import { SPECIALITIES } from '../../data/specialities';
-import { HOSPITAL_INFO } from '../../data/hospital';
 import { appointmentService } from '../../services/appointmentService';
 import { AppointmentRequest } from '../../types';
 
@@ -36,33 +28,15 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
   const [email, setEmail] = useState('');
   const [age, setAge] = useState('');
   const [gender, setGender] = useState<'Male' | 'Female' | 'Other' | undefined>('Female');
-  const [department, setDepartment] = useState(initialDepartment || urlDept || 'Fertility & IVF');
-  const [preferredDoctor, setPreferredDoctor] = useState(initialDoctorId || urlDoctorSlug || '');
-  const [preferredDate, setPreferredDate] = useState('');
-  const [preferredTime, setPreferredTime] = useState('Morning (09:00 AM - 01:00 PM)');
-  const [reason, setReason] = useState('');
-  const [message, setMessage] = useState('');
   const [consent, setConsent] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [submittedAppointment, setSubmittedAppointment] = useState<AppointmentRequest | null>(null);
 
-  // Sync preferredDoctor if URL parameter changes
-  useEffect(() => {
-    if (urlDoctorSlug) {
-      setPreferredDoctor(urlDoctorSlug);
-      // Automatically select department if doctor found
-      const doc = DOCTORS.find(d => d.slug === urlDoctorSlug);
-      if (doc) {
-        if (doc.slug === 'dr-k-chandrika') setDepartment('Fertility & IVF');
-        else if (doc.slug === 'dr-k-avinash-kasamwar') setDepartment('General & Laparoscopic Surgery');
-        else if (doc.slug === 'dr-prashant-kumar-waghmare') setDepartment('General Medicine & Diabetology');
-        else if (doc.slug === 'dr-sudheer-kumar-g') setDepartment('Pediatrics & Neonatology');
-        else if (doc.slug === 'dr-k-ravichandra') setDepartment('Urology');
-      }
-    }
-  }, [urlDoctorSlug]);
+  // Inferred context if coming from doctor or department link
+  const departmentContext = initialDepartment || urlDept || undefined;
+  const doctorSlugContext = initialDoctorId || urlDoctorSlug || undefined;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,14 +48,6 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
     }
     if (!phone.trim() || phone.replace(/\D/g, '').length < 10) {
       setErrorMsg('Please enter a valid 10-digit mobile number.');
-      return;
-    }
-    if (!department) {
-      setErrorMsg('Please select a hospital department.');
-      return;
-    }
-    if (!preferredDate) {
-      setErrorMsg('Please select a preferred date for your visit.');
       return;
     }
     if (!consent) {
@@ -97,12 +63,8 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
       email: email || undefined,
       age: age || undefined,
       gender,
-      department,
-      preferredDoctor: preferredDoctor || undefined,
-      preferredDate,
-      preferredTime,
-      reason: reason || undefined,
-      message: message || undefined,
+      department: departmentContext,
+      preferredDoctor: doctorSlugContext,
       consent: true
     });
 
@@ -111,16 +73,23 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
     if (res.success && res.data) {
       setSubmittedAppointment(res.data);
       // Auto-open WhatsApp with appointment details to official number 9092915222
-      const docName = DOCTORS.find(d => d.slug === res.data?.preferredDoctor)?.name || res.data?.preferredDoctor || 'Any Specialist';
-      const waMsg = `Hello Devibai Hospital, I have submitted an appointment request:
-*Request ID:* ${res.data.id}
-*Patient Name:* ${res.data.fullName}
-*Phone:* ${res.data.phone}
-*Department:* ${res.data.department}
-*Preferred Doctor:* ${docName}
-*Preferred Date:* ${res.data.preferredDate} (${res.data.preferredTime || 'Morning Slot'})
-${res.data.reason ? `*Reason:* ${res.data.reason}\n` : ''}
-Please confirm my appointment. Thank you!`;
+      const docName = res.data.preferredDoctor
+        ? (DOCTORS.find(d => d.slug === res.data?.preferredDoctor)?.name || res.data.preferredDoctor)
+        : undefined;
+
+      const lines = [
+        'Hello Devibai Hospital, I have submitted an appointment request:',
+        `*Request ID:* ${res.data.id}`,
+        `*Patient Name:* ${res.data.fullName}`,
+        `*Phone:* ${res.data.phone}`
+      ];
+      if (res.data.age) lines.push(`*Age:* ${res.data.age}`);
+      if (res.data.gender) lines.push(`*Gender:* ${res.data.gender}`);
+      if (res.data.department) lines.push(`*Department:* ${res.data.department}`);
+      if (docName) lines.push(`*Preferred Doctor:* ${docName}`);
+      lines.push('Please confirm my appointment. Thank you!');
+
+      const waMsg = lines.join('\n');
       const waUrl = `https://wa.me/919092915222?text=${encodeURIComponent(waMsg)}`;
       try {
         window.open(waUrl, '_blank');
@@ -133,8 +102,6 @@ Please confirm my appointment. Thank you!`;
       setPhone('');
       setEmail('');
       setAge('');
-      setReason('');
-      setMessage('');
       setConsent(false);
     } else {
       setErrorMsg(res.error || 'Failed to submit appointment request. Please call 9092916222.');
@@ -162,11 +129,23 @@ Please confirm my appointment. Thank you!`;
               <strong>Patient Name:</strong> {submittedAppointment.fullName}
             </div>
             <div>
-              <strong>Department:</strong> {submittedAppointment.department}
+              <strong>Mobile Number:</strong> {submittedAppointment.phone}
             </div>
-            <div>
-              <strong>Preferred Date:</strong> {submittedAppointment.preferredDate} ({submittedAppointment.preferredTime})
-            </div>
+            {submittedAppointment.email && (
+              <div>
+                <strong>Email:</strong> {submittedAppointment.email}
+              </div>
+            )}
+            {submittedAppointment.age && (
+              <div>
+                <strong>Age:</strong> {submittedAppointment.age} {submittedAppointment.gender ? `(${submittedAppointment.gender})` : ''}
+              </div>
+            )}
+            {submittedAppointment.department && (
+              <div>
+                <strong>Department:</strong> {submittedAppointment.department}
+              </div>
+            )}
             {submittedAppointment.preferredDoctor && (
               <div>
                 <strong>Preferred Doctor:</strong> {DOCTORS.find(d => d.slug === submittedAppointment.preferredDoctor)?.name || submittedAppointment.preferredDoctor}
@@ -189,7 +168,7 @@ Please confirm my appointment. Thank you!`;
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href={`https://wa.me/919092915222?text=${encodeURIComponent(
-                `Hello Devibai Hospital, I have submitted appointment request ${submittedAppointment.id} for ${submittedAppointment.fullName}. Phone: ${submittedAppointment.phone}, Department: ${submittedAppointment.department}, Date: ${submittedAppointment.preferredDate} (${submittedAppointment.preferredTime || 'Morning Slot'}). Please confirm my appointment.`
+                `Hello Devibai Hospital, I have submitted appointment request ${submittedAppointment.id} for ${submittedAppointment.fullName}. Phone: ${submittedAppointment.phone}. Please confirm my appointment.`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -221,7 +200,7 @@ Please confirm my appointment. Thank you!`;
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider text-teal-800 mb-4 pb-2 border-b border-slate-100 flex items-center">
               <User className="w-4 h-4 mr-2 text-teal-600" />
-              1. Patient Information
+              Patient Information
             </h4>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -296,135 +275,6 @@ Please confirm my appointment. Thank you!`;
                     <option value="Other">Other</option>
                   </select>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Section: Appointment Preference */}
-          <div className="pt-2">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-teal-800 mb-4 pb-2 border-b border-slate-100 flex items-center">
-              <Stethoscope className="w-4 h-4 mr-2 text-teal-600" />
-              2. Department & Doctor Preference
-            </h4>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-semibold text-navy-900 mb-1">
-                  Clinical Department <span className="text-emergency-600">*</span>
-                </label>
-                <select
-                  required
-                  value={department}
-                  onChange={(e) => {
-                    const dept = e.target.value;
-                    setDepartment(dept);
-                    // Preselect matching doctor
-                    if (dept === 'Fertility & IVF' || dept === 'Obstetrics & Gynecology') {
-                      setPreferredDoctor('dr-k-chandrika');
-                    } else if (dept === 'General Surgery' || dept === 'Laparoscopic Surgery') {
-                      setPreferredDoctor('dr-k-avinash-kasamwar');
-                    } else if (dept === 'General Medicine & Diabetology') {
-                      setPreferredDoctor('dr-prashant-kumar-waghmare');
-                    } else if (dept === 'Pediatrics & Neonatology') {
-                      setPreferredDoctor('dr-sudheer-kumar-g');
-                    } else if (dept === 'Urology') {
-                      setPreferredDoctor('dr-k-ravichandra');
-                    }
-                  }}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
-                >
-                  <option value="Fertility & IVF">Fertility & IVF (Dr. Chandrika)</option>
-                  <option value="Obstetrics & Gynecology">Obstetrics & Gynecology (Dr. Chandrika)</option>
-                  <option value="General Medicine & Diabetology">General Medicine & Diabetology (Dr. Prashant)</option>
-                  <option value="Pediatrics & Neonatology">Pediatrics & Neonatology (Dr. Sudheer Kumar)</option>
-                  <option value="General Surgery">General Surgery (Dr. Avinash Kasamwar)</option>
-                  <option value="Laparoscopic Surgery">Laparoscopic Surgery (Dr. Avinash Kasamwar)</option>
-                  <option value="Urology">Urology (Dr. K. Ravichandra - Visiting)</option>
-                  <option value="Emergency & Critical Care">Emergency & Critical Care (Smart ICU)</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-navy-900 mb-1">
-                  Preferred Doctor (Optional)
-                </label>
-                <select
-                  value={preferredDoctor}
-                  onChange={(e) => setPreferredDoctor(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
-                >
-                  <option value="">Any Available Specialist</option>
-                  {DOCTORS.map((doc) => (
-                    <option key={doc.slug} value={doc.slug}>
-                      {doc.name} — {doc.specialization}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-navy-900 mb-1">
-                  Preferred Date <span className="text-emergency-600">*</span>
-                </label>
-                <input
-                  type="date"
-                  required
-                  min={new Date().toISOString().split('T')[0]}
-                  value={preferredDate}
-                  onChange={(e) => setPreferredDate(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-navy-900 mb-1">
-                  Preferred Slot
-                </label>
-                <select
-                  value={preferredTime}
-                  onChange={(e) => setPreferredTime(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
-                >
-                  <option value="Morning (09:00 AM - 01:00 PM)">Morning (09:00 AM - 01:00 PM)</option>
-                  <option value="Afternoon (01:00 PM - 04:00 PM)">Afternoon (01:00 PM - 04:00 PM)</option>
-                  <option value="Evening (04:00 PM - 08:00 PM)">Evening (04:00 PM - 08:00 PM)</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          {/* Section: Reason for Visit */}
-          <div className="pt-2">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-teal-800 mb-4 pb-2 border-b border-slate-100 flex items-center">
-              <FileText className="w-4 h-4 mr-2 text-teal-600" />
-              3. Symptoms or Reason for Visit
-            </h4>
-
-            <div className="space-y-3">
-              <div>
-                <label className="block text-xs font-semibold text-navy-900 mb-1">
-                  Primary Reason (Optional)
-                </label>
-                <input
-                  type="text"
-                  value={reason}
-                  onChange={(e) => setReason(e.target.value)}
-                  placeholder="e.g. Fertility evaluation, Routine prenatal check, Abdominal pain, Child fever"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-navy-900 mb-1">
-                  Additional Notes / Medical History (Optional)
-                </label>
-                <textarea
-                  rows={3}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Any relevant past treatments, current medications, or notes for the doctor..."
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-base sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
-                />
               </div>
             </div>
           </div>

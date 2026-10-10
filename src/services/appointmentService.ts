@@ -16,12 +16,6 @@ export const appointmentService = {
       if (!data.fullName.trim()) {
         return { success: false, error: 'Full name is required' };
       }
-      if (!data.department) {
-        return { success: false, error: 'Please select a clinical department' };
-      }
-      if (!data.preferredDate) {
-        return { success: false, error: 'Please choose a preferred appointment date' };
-      }
       if (!data.consent) {
         return { success: false, error: 'Consent to contact regarding this appointment is required' };
       }
@@ -33,9 +27,9 @@ export const appointmentService = {
         email: data.email?.trim() || undefined,
         age: data.age?.trim() || undefined,
         gender: data.gender,
-        department: data.department,
+        department: data.department || undefined,
         preferredDoctor: data.preferredDoctor,
-        preferredDate: data.preferredDate,
+        preferredDate: data.preferredDate || undefined,
         preferredTime: data.preferredTime,
         reason: data.reason?.trim() || undefined,
         message: data.message?.trim() || undefined,

@@ -196,10 +196,10 @@ export const AdminDashboardPage: React.FC = () => {
                             {apt.phone}
                           </a>
                         </td>
-                        <td className="py-3 px-3 text-slate-700">{apt.department}</td>
+                        <td className="py-3 px-3 text-slate-700">{apt.department || 'General Consultation'}</td>
                         <td className="py-3 px-3 text-slate-600">
-                          {apt.preferredDate} <br />
-                          <span className="text-[10px] text-slate-400">{apt.preferredTime}</span>
+                          {apt.preferredDate || 'Flexible / Urgent'} <br />
+                          {apt.preferredTime && <span className="text-[10px] text-slate-400">{apt.preferredTime}</span>}
                         </td>
                         <td className="py-3 px-3">
                           <span
@@ -233,7 +233,7 @@ export const AdminDashboardPage: React.FC = () => {
                             </select>
                             <a
                               href={`https://wa.me/91${apt.phone.replace(/\D/g, '')}?text=${encodeURIComponent(
-                                `Hello ${apt.fullName}, this is Devibai Super Speciality Hospital regarding your appointment request ${apt.id} (${apt.department}) on ${apt.preferredDate}. (Hospital WhatsApp: +91 9092915222 | Helpline: 9092916222)`
+                                `Hello ${apt.fullName}, this is Devibai Super Speciality Hospital regarding your appointment request ${apt.id}${apt.department ? ` (${apt.department})` : ''}${apt.preferredDate ? ` on ${apt.preferredDate}` : ''}. (Hospital WhatsApp: +91 9092915222 | Helpline: 9092916222)`
                               )}`}
                               target="_blank"
                               rel="noopener noreferrer"

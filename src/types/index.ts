@@ -80,9 +80,9 @@ export interface AppointmentRequest {
   email?: string;
   age?: string;
   gender?: 'Male' | 'Female' | 'Other';
-  department: string;
+  department?: string;
   preferredDoctor?: string;
-  preferredDate: string;
+  preferredDate?: string;
   preferredTime?: string;
   reason?: string;
   message?: string;
