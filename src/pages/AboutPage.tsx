@@ -6,6 +6,7 @@ import {
   Calendar 
 } from 'lucide-react';
 import { HOSPITAL_INFO } from '../data/hospital';
+import { InstagramIcon, YoutubeIcon, FacebookIcon } from '../components/common/SocialIcons';
 import { SPECIALITIES } from '../data/specialities';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { SectionHeader } from '../components/common/SectionHeader';
@@ -45,6 +46,51 @@ export const AboutPage: React.FC = () => {
             <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
               Established to provide multi-speciality clinical excellence, advanced diagnostics, and compassionate healthcare to patients and families in Nirmal and surrounding regions of Telangana.
             </p>
+
+            {/* Social Media Links in About Hero */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="text-xs sm:text-sm font-semibold tracking-wide text-teal-300 flex items-center">
+                <span className="w-2 h-2 rounded-full bg-teal-400 mr-2 animate-pulse"></span>
+                Follow Us:
+              </span>
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+                <a
+                  href={HOSPITAL_INFO.links.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="about-hero-instagram-btn"
+                  aria-label="Follow Dr. Chandrika on Instagram"
+                  className="group inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] text-white border border-white/20 hover:border-transparent transition-all duration-300 shadow-sm hover:scale-105 active:scale-95"
+                >
+                  <InstagramIcon className="w-3.5 h-3.5 text-pink-300 group-hover:text-white transition-colors" />
+                  <span className="text-xs font-semibold">Instagram</span>
+                </a>
+
+                <a
+                  href={HOSPITAL_INFO.links.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="about-hero-youtube-btn"
+                  aria-label="Watch Devibai Hospital on YouTube"
+                  className="group inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#FF0000] text-white border border-white/20 hover:border-[#FF0000] transition-all duration-300 shadow-sm hover:scale-105 active:scale-95"
+                >
+                  <YoutubeIcon className="w-3.5 h-3.5 text-red-400 group-hover:text-white transition-colors" />
+                  <span className="text-xs font-semibold">YouTube</span>
+                </a>
+
+                <a
+                  href={HOSPITAL_INFO.links.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="about-hero-facebook-btn"
+                  aria-label="Follow Devibai Hospital on Facebook"
+                  className="group inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#1877F2] text-white border border-white/20 hover:border-[#1877F2] transition-all duration-300 shadow-sm hover:scale-105 active:scale-95"
+                >
+                  <FacebookIcon className="w-3.5 h-3.5 text-blue-400 group-hover:text-white transition-colors" />
+                  <span className="text-xs font-semibold">Facebook</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

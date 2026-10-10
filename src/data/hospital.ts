@@ -32,7 +32,16 @@ export const HOSPITAL_INFO = {
     callPrimary: "tel:+919092916222",
     call: "tel:+919092916222",
     whatsapp: "https://wa.me/919092915222?text=Hello%20Devibai%20Super%20Speciality%20Hospital,%20I%20would%20like%20to%20enquire%20about%20an%20appointment.",
-    googleMaps: "https://www.google.com/maps/search/?api=1&query=Devibai+Super+Speciality+Hospital+Yellapalli+Nirmal+Telangana"
+    googleMaps: "https://www.google.com/maps/search/?api=1&query=Devibai+Super+Speciality+Hospital+Yellapalli+Nirmal+Telangana",
+    instagram: "https://www.instagram.com/drchandrika?mdxt=MXhoMnEzc2RoZnNreA==",
+    facebook: "https://www.facebook.com/devibai.hospital",
+    youtube: "https://www.instagram.com/drchandrika?mdxt=MXhoMnEzc2RoZnNreA=="
+  },
+
+  social: {
+    instagram: "https://www.instagram.com/drchandrika?mdxt=MXhoMnEzc2RoZnNreA==",
+    facebook: "https://www.facebook.com/devibai.hospital",
+    youtube: "https://www.instagram.com/drchandrika?mdxt=MXhoMnEzc2RoZnNreA=="
   },
 
   disclaimers: {

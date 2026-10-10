@@ -16,6 +16,7 @@ import {
   PhoneCall
 } from 'lucide-react';
 import { HOSPITAL_INFO } from '../data/hospital';
+import { InstagramIcon, YoutubeIcon, FacebookIcon } from '../components/common/SocialIcons';
 import { DOCTORS } from '../data/doctors';
 import { SPECIALITIES } from '../data/specialities';
 import { FACILITIES } from '../data/facilities';
@@ -114,8 +115,53 @@ export const HomePage: React.FC = () => {
               </a>
             </div>
 
+            {/* Hero Social Media Links */}
+            <div className="pt-2 flex flex-wrap items-center gap-3">
+              <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-200 flex items-center">
+                <span className="w-2 h-2 rounded-full bg-teal-400 mr-2 animate-pulse"></span>
+                Follow Us:
+              </span>
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+                <a
+                  href={HOSPITAL_INFO.links.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="hero-instagram-btn"
+                  aria-label="Follow Dr. Chandrika on Instagram"
+                  className="group inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-white/10 hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] text-white border border-white/20 hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 active:scale-95"
+                >
+                  <InstagramIcon className="w-4 h-4 text-pink-300 group-hover:text-white transition-colors" />
+                  <span className="text-xs sm:text-sm font-semibold">Instagram</span>
+                </a>
+
+                <a
+                  href={HOSPITAL_INFO.links.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="hero-youtube-btn"
+                  aria-label="Watch Devibai Hospital on YouTube"
+                  className="group inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-white/10 hover:bg-[#FF0000] text-white border border-white/20 hover:border-[#FF0000] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 active:scale-95"
+                >
+                  <YoutubeIcon className="w-4 h-4 text-red-400 group-hover:text-white transition-colors" />
+                  <span className="text-xs sm:text-sm font-semibold">YouTube</span>
+                </a>
+
+                <a
+                  href={HOSPITAL_INFO.links.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="hero-facebook-btn"
+                  aria-label="Follow Devibai Hospital on Facebook"
+                  className="group inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-white/10 hover:bg-[#1877F2] text-white border border-white/20 hover:border-[#1877F2] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 active:scale-95"
+                >
+                  <FacebookIcon className="w-4 h-4 text-blue-400 group-hover:text-white transition-colors" />
+                  <span className="text-xs sm:text-sm font-semibold">Facebook</span>
+                </a>
+              </div>
+            </div>
+
             {/* Secondary Highlight Bar */}
-            <div className="pt-4 flex items-center space-x-6 text-xs sm:text-sm text-slate-300">
+            <div className="pt-3 flex items-center space-x-6 text-xs sm:text-sm text-slate-300">
               <div className="flex items-center space-x-2">
                 <AlertTriangle className="w-4 h-4 text-emergency-500 flex-shrink-0" />
                 <span className="font-semibold text-white">24/7 Emergency & Critical Care</span>

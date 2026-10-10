@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, MessageSquare, MapPin, Mail, Clock, AlertTriangle, ShieldCheck, Heart } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, Clock, AlertTriangle } from 'lucide-react';
 import { HOSPITAL_INFO } from '../../data/hospital';
+import { InstagramIcon, YoutubeIcon, FacebookIcon } from '../common/SocialIcons';
 
 export const Footer: React.FC = () => {
   return (
@@ -33,6 +34,50 @@ export const Footer: React.FC = () => {
               <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-navy-900 border border-navy-700/60 text-xs text-teal-300">
                 <Clock className="w-3.5 h-3.5 text-teal-400" />
                 <span>24/7 Emergency & ICU Always Open</span>
+              </div>
+            </div>
+
+            {/* Social Media Follow Section */}
+            <div className="pt-2 space-y-2">
+              <span className="text-xs font-semibold uppercase tracking-wider text-teal-400 block">
+                Connect With Us
+              </span>
+              <div className="flex items-center space-x-2.5">
+                <a
+                  href={HOSPITAL_INFO.links.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="footer-instagram-btn"
+                  aria-label="Follow Dr. Chandrika on Instagram"
+                  className="w-9 h-9 rounded-lg bg-navy-900 border border-navy-700/70 flex items-center justify-center text-slate-300 hover:text-white hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:border-transparent transition-all duration-300 shadow-sm hover:scale-110"
+                  title="Follow Dr. Chandrika on Instagram"
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                </a>
+
+                <a
+                  href={HOSPITAL_INFO.links.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="footer-youtube-btn"
+                  aria-label="Watch Devibai Hospital on YouTube"
+                  className="w-9 h-9 rounded-lg bg-navy-900 border border-navy-700/70 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#FF0000] hover:border-[#FF0000] transition-all duration-300 shadow-sm hover:scale-110"
+                  title="Watch on YouTube"
+                >
+                  <YoutubeIcon className="w-4 h-4" />
+                </a>
+
+                <a
+                  href={HOSPITAL_INFO.links.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="footer-facebook-btn"
+                  aria-label="Follow Devibai Hospital on Facebook"
+                  className="w-9 h-9 rounded-lg bg-navy-900 border border-navy-700/70 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all duration-300 shadow-sm hover:scale-110"
+                  title="Follow on Facebook"
+                >
+                  <FacebookIcon className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </div>
@@ -183,9 +228,42 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Rights & Admin Link */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4 text-center sm:text-left">
+        <div className="pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4 text-center sm:text-left">
           <div>
             © 2026 Devibai Super Speciality Hospital, Nirmal. All rights reserved.
+          </div>
+          <div className="flex items-center space-x-3 text-slate-400">
+            <span className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Social:</span>
+            <a
+              href={HOSPITAL_INFO.links.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Dr. Chandrika on Instagram"
+              className="hover:text-pink-400 transition-colors p-1"
+              title="Instagram"
+            >
+              <InstagramIcon className="w-4 h-4" />
+            </a>
+            <a
+              href={HOSPITAL_INFO.links.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Watch Devibai Hospital on YouTube"
+              className="hover:text-red-500 transition-colors p-1"
+              title="YouTube"
+            >
+              <YoutubeIcon className="w-4 h-4" />
+            </a>
+            <a
+              href={HOSPITAL_INFO.links.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Devibai Hospital on Facebook"
+              className="hover:text-blue-500 transition-colors p-1"
+              title="Facebook"
+            >
+              <FacebookIcon className="w-4 h-4" />
+            </a>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
             <Link to="/privacy-policy" className="hover:text-slate-300 transition-colors">

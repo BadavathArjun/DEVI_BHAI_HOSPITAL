@@ -1,16 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { 
   MapPin, 
   Phone, 
-  MessageSquare, 
-  Calendar, 
-  Clock, 
   ExternalLink, 
-  PhoneCall, 
   AlertTriangle 
 } from 'lucide-react';
 import { HOSPITAL_INFO } from '../data/hospital';
+import { InstagramIcon, YoutubeIcon, FacebookIcon } from '../components/common/SocialIcons';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { ContactForm } from '../components/forms/ContactForm';
 import { SectionHeader } from '../components/common/SectionHeader';
@@ -119,6 +115,56 @@ export const ContactPage: React.FC = () => {
                     <span>Direct line for urgent ambulances and critical trauma: </span>
                     <a href={HOSPITAL_INFO.links.callEmergency} className="font-extrabold underline hover:text-emergency-700">
                       {HOSPITAL_INFO.phones.primary}
+                    </a>
+                  </div>
+                </div>
+
+                {/* Social Media Channels */}
+                <div className="pt-2 border-t border-slate-100">
+                  <div className="text-xs font-bold uppercase tracking-wider text-navy-900 mb-2.5">
+                    Official Social Media Channels
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <a
+                      href={HOSPITAL_INFO.links.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      id="contact-instagram-btn"
+                      aria-label="Follow Dr. Chandrika on Instagram"
+                      className="flex items-center space-x-2.5 p-2.5 rounded-lg border border-slate-200 hover:border-pink-500 hover:bg-pink-50/50 transition-all duration-200 text-slate-700 hover:text-pink-600 group"
+                    >
+                      <div className="w-7 h-7 rounded-md bg-pink-100 text-pink-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <InstagramIcon className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs font-semibold">Instagram</span>
+                    </a>
+
+                    <a
+                      href={HOSPITAL_INFO.links.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      id="contact-youtube-btn"
+                      aria-label="Watch Devibai Hospital on YouTube"
+                      className="flex items-center space-x-2.5 p-2.5 rounded-lg border border-slate-200 hover:border-red-500 hover:bg-red-50/50 transition-all duration-200 text-slate-700 hover:text-red-600 group"
+                    >
+                      <div className="w-7 h-7 rounded-md bg-red-100 text-red-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <YoutubeIcon className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs font-semibold">YouTube</span>
+                    </a>
+
+                    <a
+                      href={HOSPITAL_INFO.links.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      id="contact-facebook-btn"
+                      aria-label="Follow Devibai Hospital on Facebook"
+                      className="flex items-center space-x-2.5 p-2.5 rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all duration-200 text-slate-700 hover:text-blue-600 group"
+                    >
+                      <div className="w-7 h-7 rounded-md bg-blue-100 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <FacebookIcon className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs font-semibold">Facebook</span>
                     </a>
                   </div>
                 </div>
