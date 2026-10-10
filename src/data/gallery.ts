@@ -9,6 +9,41 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: 'Celebrating precious IVF and fertility success stories — joyous parents with newborn babies and gratitude letters for Dr. Chandrika and Dr. Avinash.'
   },
   {
+    id: 'dr-avinash-performing-surgery',
+    title: 'Advanced Surgical Procedure Led by Dr. K. Avinash Kasamwar',
+    category: 'Surgery',
+    image: '/assets/gallery/dr-avinash-performing-surgery.png',
+    caption: 'Dr. Avinash Kasamwar performing complex surgical intervention supported by assistant surgeons, scrub team, and OT nursing technicians.'
+  },
+  {
+    id: 'surgical-ot-team-dr-avinash',
+    title: 'Surgical Operation Theatre Team with Dr. Avinash',
+    category: 'Surgery',
+    image: '/assets/gallery/surgical-ot-team-dr-avinash.png',
+    caption: 'Surgical team, anesthesiology staff, and theatre nurses inside the sterile modular operation theatre at Devibai Hospital.'
+  },
+  {
+    id: 'surgical-procedure-in-progress',
+    title: 'Sterile Operating Theatre Procedure in Progress',
+    category: 'Surgery',
+    image: '/assets/gallery/surgical-procedure-in-progress.png',
+    caption: 'Surgical procedure underway under sterile laminar airflow and specialized surgical lighting.'
+  },
+  {
+    id: 'modular-ot-surgical-staff',
+    title: 'Modular OT Clinical & Surgical Care Team',
+    category: 'Surgery',
+    image: '/assets/gallery/modular-ot-surgical-staff.png',
+    caption: 'Experienced theatre team dedicated to patient safety, infection control, and surgical excellence in Nirmal.'
+  },
+  {
+    id: 'community-public-event-gathering',
+    title: 'Community Outreach & Public Health Gathering',
+    category: 'Events & Celebrations',
+    image: '/assets/gallery/community-public-event-gathering.jpg',
+    caption: 'Dr. K. Avinash Kasamwar and Dr. K. Chandrika participating in community interaction and public health outreach in Nirmal.'
+  },
+  {
     id: 'siwaa-award-chennai-article',
     title: 'South Indian Women Achievers Award 2025 (SIWAA Chennai)',
     category: 'Awards & Recognition',
