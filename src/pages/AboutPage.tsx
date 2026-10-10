@@ -85,7 +85,11 @@ export const AboutPage: React.FC = () => {
                 <img
                   src="/assets/gallery/all-doctors-team.jpg"
                   alt="Devibai Hospital Medical Specialists"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover rounded-2xl"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = '/assets/branding/about-hospital.jpg';
+                  }}
                 />
               </div>
               <div className="mt-3 text-center text-xs text-slate-500 italic">
