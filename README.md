@@ -1,6 +1,6 @@
 # Devibai Super Speciality Hospital Website
 
-Official web portal and patient management application for **Devibai Super Speciality Hospital**, located in Yellapalli, Nirmal, Telangana.
+Official web portal and patient management application for **Devibai Super Speciality Hospital**, located beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal, Telangana.
 
 Built with **React 19**, **TypeScript**, **Vite**, and **Tailwind CSS**.
 
