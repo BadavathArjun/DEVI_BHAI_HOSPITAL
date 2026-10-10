@@ -19,17 +19,26 @@ export const galleryService = {
     return GALLERY_ITEMS;
   },
 
-  saveGalleryItems(items: GalleryItem[]): void {
+  saveGalleryItems(items: GalleryItem[]): boolean {
     try {
       localStorage.setItem(GALLERY_STORAGE_KEY, JSON.stringify(items));
+      return true;
     } catch (e) {
       console.error('Failed to save gallery items to localStorage', e);
+      return false;
     }
   },
 
   addGalleryItem(item: GalleryItem): GalleryItem[] {
     const current = this.getGalleryItems();
     const updated = [item, ...current];
+    this.saveGalleryItems(updated);
+    return updated;
+  },
+
+  updateGalleryItem(updatedItem: GalleryItem): GalleryItem[] {
+    const current = this.getGalleryItems();
+    const updated = current.map(item => item.id === updatedItem.id ? updatedItem : item);
     this.saveGalleryItems(updated);
     return updated;
   },
