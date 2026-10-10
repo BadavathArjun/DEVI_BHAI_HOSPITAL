@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { 
   LogOut, 
@@ -13,13 +13,16 @@ import {
   Copy,
   RotateCcw,
   Sparkles,
-  AlertCircle
+  AlertCircle,
+  Pencil,
+  X,
+  RefreshCw
 } from 'lucide-react';
 import { galleryService } from '../../services/galleryService';
 import { GalleryItem } from '../../types';
 import { SEOHead } from '../../components/common/SEOHead';
 
-const CATEGORIES: GalleryItem['category'][] = [
+export const AVAILABLE_CATEGORIES: GalleryItem['category'][] = [
   'Hospital',
   'Doctors',
   'Facilities',
@@ -32,8 +35,69 @@ const CATEGORIES: GalleryItem['category'][] = [
   'Events & Celebrations'
 ];
 
+/**
+ * Compresses and optimizes an uploaded image file using an HTML5 Canvas.
+ * Ensures the image fits comfortably in browser storage without throwing QuotaExceededError.
+ */
+const compressImageFile = (file: File, maxWidth = 1600, maxHeight = 1200, quality = 0.85): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    if (!file.type.startsWith('image/')) {
+      reject(new Error('Selected file is not an image.'));
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error('Failed to read image file.'));
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onerror = () => reject(new Error('Failed to decode image data.'));
+      img.onload = () => {
+        try {
+          let width = img.width;
+          let height = img.height;
+
+          // Scale down if image exceeds max dimensions
+          if (width > maxWidth || height > maxHeight) {
+            if (width / height > maxWidth / maxHeight) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            } else {
+              width = Math.round((width * maxHeight) / height);
+              height = maxHeight;
+            }
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          if (!ctx) {
+            resolve(e.target?.result as string);
+            return;
+          }
+
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.drawImage(img, 0, 0, width, height);
+
+          // Compress to JPEG with 0.85 quality for optimal clarity and small file footprint
+          const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+          resolve(compressedDataUrl);
+        } catch {
+          // Fallback to original data URL if canvas manipulation fails
+          resolve(e.target?.result as string);
+        }
+      };
+      img.src = e.target?.result as string;
+    };
+    reader.readAsDataURL(file);
+  });
+};
+
 export const AdminDashboardPage: React.FC = () => {
   const navigate = useNavigate();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const editFileInputRef = useRef<HTMLInputElement>(null);
 
   // Authentication check
   useEffect(() => {
@@ -65,34 +129,104 @@ export const AdminDashboardPage: React.FC = () => {
   const [imageUrl, setImageUrl] = useState('');
   const [uploadedImageData, setUploadedImageData] = useState('');
   const [caption, setCaption] = useState('');
+  const [isCompressingAdd, setIsCompressingAdd] = useState(false);
   const [previewError, setPreviewError] = useState(false);
 
-  // File upload handler
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Update / Edit Photo State
+  const [editingItem, setEditingItem] = useState<GalleryItem | null>(null);
+  const [editTitle, setEditTitle] = useState('');
+  const [editCategory, setEditCategory] = useState<GalleryItem['category']>('Hospital');
+  const [editImageInputType, setEditImageInputType] = useState<'upload' | 'url'>('upload');
+  const [editImageUrl, setEditImageUrl] = useState('');
+  const [editUploadedImageData, setEditUploadedImageData] = useState('');
+  const [editCaption, setEditCaption] = useState('');
+  const [isCompressingEdit, setIsCompressingEdit] = useState(false);
+  const [editPreviewError, setEditPreviewError] = useState(false);
+
+  // Handle file upload for ADD
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      if (!file.type.startsWith('image/')) {
-        setErrorMessage('Please select a valid image file (PNG, JPG, WEBP).');
-        return;
-      }
-      setErrorMessage('');
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const result = event.target?.result as string;
-        setUploadedImageData(result);
-        setPreviewError(false);
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      setErrorMessage('Please select a valid image file (PNG, JPG, JPEG, WEBP).');
+      return;
+    }
+
+    setErrorMessage('');
+    setIsCompressingAdd(true);
+
+    try {
+      const optimizedData = await compressImageFile(file);
+      setUploadedImageData(optimizedData);
+      setPreviewError(false);
+    } catch (err: any) {
+      setErrorMessage(err.message || 'Failed to process image.');
+    } finally {
+      setIsCompressingAdd(false);
     }
   };
 
+  // Handle file upload for EDIT/UPDATE
+  const handleEditFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      setErrorMessage('Please select a valid image file (PNG, JPG, JPEG, WEBP).');
+      return;
+    }
+
+    setErrorMessage('');
+    setIsCompressingEdit(true);
+
+    try {
+      const optimizedData = await compressImageFile(file);
+      setEditUploadedImageData(optimizedData);
+      setEditPreviewError(false);
+    } catch (err: any) {
+      setErrorMessage(err.message || 'Failed to process image.');
+    } finally {
+      setIsCompressingEdit(false);
+    }
+  };
+
+  // Open Edit / Update Modal
+  const openEditModal = (item: GalleryItem) => {
+    setEditingItem(item);
+    setEditTitle(item.title);
+    setEditCategory(item.category);
+    setEditCaption(item.caption || '');
+    setEditPreviewError(false);
+
+    if (item.image.startsWith('data:')) {
+      setEditImageInputType('upload');
+      setEditUploadedImageData(item.image);
+      setEditImageUrl('');
+    } else {
+      setEditImageInputType('url');
+      setEditImageUrl(item.image);
+      setEditUploadedImageData(item.image);
+    }
+  };
+
+  // Close Edit Modal
+  const closeEditModal = () => {
+    setEditingItem(null);
+    setEditTitle('');
+    setEditImageUrl('');
+    setEditUploadedImageData('');
+    setEditCaption('');
+  };
+
+  // ADD Photo Submit Handler
   const handleAddPhoto = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage('');
     setSuccessMessage('');
 
     if (!title.trim()) {
-      setErrorMessage('Please enter a photo title.');
+      setErrorMessage('Please enter an image name / title.');
       return;
     }
 
@@ -100,8 +234,8 @@ export const AdminDashboardPage: React.FC = () => {
     if (!imageSource) {
       setErrorMessage(
         imageInputType === 'upload'
-          ? 'Please select an image file to upload.'
-          : 'Please enter a valid image URL or path (e.g. /assets/gallery/photo.jpg).'
+          ? 'Please select and upload an image file from your device.'
+          : 'Please enter a valid image URL or file path (e.g. /assets/gallery/photo.jpg).'
       );
       return;
     }
@@ -114,20 +248,68 @@ export const AdminDashboardPage: React.FC = () => {
       caption: caption.trim() || undefined
     };
 
-    const updated = galleryService.addGalleryItem(newItem);
-    setItems(updated);
-    setSuccessMessage(`"${title}" has been successfully added to the hospital gallery!`);
+    try {
+      const updated = galleryService.addGalleryItem(newItem);
+      setItems(updated);
+      setSuccessMessage(`Image "${title.trim()}" has been added to the gallery successfully without any error!`);
 
-    // Reset Form
-    setTitle('');
-    setImageUrl('');
-    setUploadedImageData('');
-    setCaption('');
-    setShowAddForm(false);
+      // Reset Form
+      setTitle('');
+      setImageUrl('');
+      setUploadedImageData('');
+      setCaption('');
+      setShowAddForm(false);
+      if (fileInputRef.current) fileInputRef.current.value = '';
 
-    setTimeout(() => setSuccessMessage(''), 5000);
+      setTimeout(() => setSuccessMessage(''), 5000);
+    } catch (err: any) {
+      setErrorMessage(`Failed to save image: ${err?.message || 'Storage error'}`);
+    }
   };
 
+  // UPDATE Photo Submit Handler
+  const handleUpdatePhoto = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingItem) return;
+
+    setErrorMessage('');
+    setSuccessMessage('');
+
+    if (!editTitle.trim()) {
+      setErrorMessage('Please enter an image name / title.');
+      return;
+    }
+
+    const updatedImageSource =
+      editImageInputType === 'upload'
+        ? editUploadedImageData || editingItem.image
+        : editImageUrl.trim() || editingItem.image;
+
+    if (!updatedImageSource) {
+      setErrorMessage('Please provide an image for this gallery item.');
+      return;
+    }
+
+    const updatedItem: GalleryItem = {
+      ...editingItem,
+      title: editTitle.trim(),
+      category: editCategory,
+      image: updatedImageSource,
+      caption: editCaption.trim() || undefined
+    };
+
+    try {
+      const updated = galleryService.updateGalleryItem(updatedItem);
+      setItems(updated);
+      setSuccessMessage(`Image "${editTitle.trim()}" has been updated successfully without any error!`);
+      closeEditModal();
+      setTimeout(() => setSuccessMessage(''), 5000);
+    } catch (err: any) {
+      setErrorMessage(`Failed to update image: ${err?.message || 'Storage error'}`);
+    }
+  };
+
+  // DELETE Photo Handler
   const handleDeletePhoto = (id: string, photoTitle: string) => {
     if (window.confirm(`Are you sure you want to remove "${photoTitle}" from the gallery?`)) {
       const updated = galleryService.deleteGalleryItem(id);
@@ -137,10 +319,11 @@ export const AdminDashboardPage: React.FC = () => {
     }
   };
 
+  // RESET Defaults Handler
   const handleResetDefaults = () => {
     if (
       window.confirm(
-        'Are you sure you want to restore the default gallery photos? Any newly added custom photos will be reset.'
+        'Are you sure you want to restore the default gallery photos? Any newly added or updated photos will be reset.'
       )
     ) {
       const reset = galleryService.resetToDefault();
@@ -161,8 +344,11 @@ export const AdminDashboardPage: React.FC = () => {
   });
 
   const activeCategoriesCount = new Set(items.map((i) => i.category)).size;
-
   const currentPreviewImage = imageInputType === 'upload' ? uploadedImageData : imageUrl.trim();
+  const currentEditPreviewImage =
+    editImageInputType === 'upload'
+      ? editUploadedImageData || editingItem?.image
+      : editImageUrl.trim() || editingItem?.image;
 
   // Export JSON/TS code for src/data/gallery.ts
   const exportCode = `import { GalleryItem } from '../types';\n\nexport const GALLERY_ITEMS: GalleryItem[] = ${JSON.stringify(
@@ -233,9 +419,17 @@ export const AdminDashboardPage: React.FC = () => {
         )}
 
         {errorMessage && (
-          <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-emergency-700 text-sm flex items-center space-x-2">
-            <AlertCircle className="w-5 h-5 flex-shrink-0" />
-            <span>{errorMessage}</span>
+          <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-emergency-700 text-sm flex items-center justify-between shadow-sm">
+            <div className="flex items-center space-x-2">
+              <AlertCircle className="w-5 h-5 flex-shrink-0" />
+              <span>{errorMessage}</span>
+            </div>
+            <button
+              onClick={() => setErrorMessage('')}
+              className="text-red-600 hover:text-red-800 text-xs font-semibold px-2 py-1"
+            >
+              Dismiss
+            </button>
           </div>
         )}
 
@@ -247,13 +441,16 @@ export const AdminDashboardPage: React.FC = () => {
               Hospital Photo Gallery Manager
             </h1>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Add new photographs, categorize them, and manage images displayed in the public gallery and home page.
+              Add new images, update existing images, categorize them, and manage the live gallery.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2.5">
             <button
-              onClick={() => setShowAddForm(!showAddForm)}
+              onClick={() => {
+                setShowAddForm(!showAddForm);
+                if (!showAddForm) setEditingItem(null);
+              }}
               className="btn-teal text-xs sm:text-sm py-2.5 px-4 font-bold shadow-sm"
             >
               <Plus className="w-4 h-4 mr-1.5" />
@@ -306,7 +503,9 @@ export const AdminDashboardPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Add Photo Form (Collapsible / Toggleable) */}
+        {/* ==============================================================
+            ADD PHOTO FORM
+            ============================================================== */}
         {showAddForm && (
           <div className="medical-card p-6 sm:p-8 bg-white border border-teal-200 shadow-md animate-fadeIn">
             <div className="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
@@ -321,9 +520,10 @@ export const AdminDashboardPage: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Left Form Inputs */}
                 <div className="space-y-4">
+                  {/* Field 1: Image Name */}
                   <div>
                     <label className="block text-xs font-semibold text-navy-900 mb-1">
-                      Photo Title <span className="text-emergency-600">*</span>
+                      Image Name <span className="text-emergency-600">*</span>
                     </label>
                     <input
                       type="text"
@@ -335,16 +535,17 @@ export const AdminDashboardPage: React.FC = () => {
                     />
                   </div>
 
+                  {/* Field 2: Image Category */}
                   <div>
                     <label className="block text-xs font-semibold text-navy-900 mb-1">
-                      Gallery Category <span className="text-emergency-600">*</span>
+                      Image Category <span className="text-emergency-600">*</span>
                     </label>
                     <select
                       value={category}
                       onChange={(e) => setCategory(e.target.value as any)}
                       className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
                     >
-                      {CATEGORIES.map((cat) => (
+                      {AVAILABLE_CATEGORIES.map((cat) => (
                         <option key={cat} value={cat}>
                           {cat}
                         </option>
@@ -352,9 +553,10 @@ export const AdminDashboardPage: React.FC = () => {
                     </select>
                   </div>
 
+                  {/* Field 3: Upload Image */}
                   <div>
                     <label className="block text-xs font-semibold text-navy-900 mb-1.5">
-                      Image Source <span className="text-emergency-600">*</span>
+                      Upload Image / Source <span className="text-emergency-600">*</span>
                     </label>
 
                     {/* Toggle between upload and path/URL */}
@@ -369,7 +571,7 @@ export const AdminDashboardPage: React.FC = () => {
                         }`}
                       >
                         <Upload className="w-3.5 h-3.5 mr-1" />
-                        Upload from Device
+                        Upload Image from Device
                       </button>
                       <button
                         type="button"
@@ -381,15 +583,16 @@ export const AdminDashboardPage: React.FC = () => {
                         }`}
                       >
                         <ImageIcon className="w-3.5 h-3.5 mr-1" />
-                        File Path / URL
+                        Image URL / File Path
                       </button>
                     </div>
 
                     {imageInputType === 'upload' ? (
-                      <div className="border-2 border-dashed border-slate-300 rounded-xl p-4 text-center hover:border-teal-500 transition-colors bg-slate-50">
+                      <div className="border-2 border-dashed border-slate-300 rounded-xl p-4 text-center hover:border-teal-500 transition-colors bg-slate-50 relative">
                         <input
                           type="file"
                           id="gallery-file-upload"
+                          ref={fileInputRef}
                           accept="image/*"
                           onChange={handleFileUpload}
                           className="hidden"
@@ -398,11 +601,24 @@ export const AdminDashboardPage: React.FC = () => {
                           htmlFor="gallery-file-upload"
                           className="cursor-pointer flex flex-col items-center justify-center space-y-1.5"
                         >
-                          <Upload className="w-6 h-6 text-teal-600" />
-                          <span className="text-xs font-semibold text-teal-700">
-                            Click to select photo from your computer
-                          </span>
-                          <span className="text-[11px] text-slate-400">JPG, PNG, WEBP (Max 5MB recommended)</span>
+                          {isCompressingAdd ? (
+                            <div className="flex flex-col items-center space-y-2 py-2">
+                              <RefreshCw className="w-6 h-6 text-teal-600 animate-spin" />
+                              <span className="text-xs font-semibold text-teal-700">
+                                Optimizing & preparing image...
+                              </span>
+                            </div>
+                          ) : (
+                            <>
+                              <Upload className="w-6 h-6 text-teal-600" />
+                              <span className="text-xs font-semibold text-teal-700">
+                                Click to select image from your computer
+                              </span>
+                              <span className="text-[11px] text-slate-400">
+                                Supports JPG, PNG, WEBP (auto-optimized for error-free storage)
+                              </span>
+                            </>
+                          )}
                         </label>
                       </div>
                     ) : (
@@ -441,7 +657,7 @@ export const AdminDashboardPage: React.FC = () => {
                 {/* Right Image Live Preview */}
                 <div className="flex flex-col">
                   <label className="block text-xs font-semibold text-navy-900 mb-1">
-                    Photo Live Preview
+                    Image Live Preview
                   </label>
                   <div className="flex-1 min-h-[220px] rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center overflow-hidden relative p-2">
                     {currentPreviewImage && !previewError ? (
@@ -453,14 +669,14 @@ export const AdminDashboardPage: React.FC = () => {
                           className="max-h-[200px] w-auto max-w-full rounded-lg object-contain shadow-sm"
                         />
                         <div className="mt-2 text-center text-xs text-slate-600 font-medium line-clamp-1">
-                          {title || 'Untitled Photo'} • <span className="text-teal-700">{category}</span>
+                          {title || 'Untitled Image'} • <span className="text-teal-700">{category}</span>
                         </div>
                       </div>
                     ) : (
                       <div className="text-center text-slate-400 p-6">
                         <ImageIcon className="w-12 h-12 mx-auto mb-2 text-slate-300" />
-                        <div className="text-xs font-medium">No photo selected yet</div>
-                        <div className="text-[11px] mt-0.5">Upload a photo or enter a URL on the left</div>
+                        <div className="text-xs font-medium">No image selected yet</div>
+                        <div className="text-[11px] mt-0.5">Upload an image or enter a URL on the left</div>
                       </div>
                     )}
                   </div>
@@ -478,13 +694,227 @@ export const AdminDashboardPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="btn-teal text-xs sm:text-sm py-2.5 px-6 font-bold shadow-md"
+                  disabled={isCompressingAdd}
+                  className="btn-teal text-xs sm:text-sm py-2.5 px-6 font-bold shadow-md disabled:opacity-50"
                 >
                   <Plus className="w-4 h-4 mr-1.5" />
                   Save Photo to Gallery
                 </button>
               </div>
             </form>
+          </div>
+        )}
+
+        {/* ==============================================================
+            UPDATE / EDIT PHOTO MODAL
+            ============================================================== */}
+        {editingItem && (
+          <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+            <div className="bg-white rounded-2xl max-w-3xl w-full p-6 sm:p-8 space-y-6 shadow-2xl animate-fadeIn my-8">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-9 h-9 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center font-bold">
+                    <Pencil className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h2 className="font-heading font-bold text-lg text-navy-900">
+                      Update Image Details
+                    </h2>
+                    <p className="text-xs text-slate-500">
+                      Editing: <span className="font-medium text-slate-700">"{editingItem.title}"</span>
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={closeEditModal}
+                  className="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <form onSubmit={handleUpdatePhoto} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Left Form Inputs */}
+                  <div className="space-y-4">
+                    {/* Update Option 1: Image Name */}
+                    <div>
+                      <label className="block text-xs font-semibold text-navy-900 mb-1">
+                        Image Name <span className="text-emergency-600">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={editTitle}
+                        onChange={(e) => setEditTitle(e.target.value)}
+                        placeholder="e.g. Modern Laparoscopy Surgery Suite"
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                      />
+                    </div>
+
+                    {/* Update Option 2: Image Category */}
+                    <div>
+                      <label className="block text-xs font-semibold text-navy-900 mb-1">
+                        Image Category <span className="text-emergency-600">*</span>
+                      </label>
+                      <select
+                        value={editCategory}
+                        onChange={(e) => setEditCategory(e.target.value as any)}
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors bg-white"
+                      >
+                        {AVAILABLE_CATEGORIES.map((cat) => (
+                          <option key={cat} value={cat}>
+                            {cat}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Update Option 3: Uploaded Image / Replacement */}
+                    <div>
+                      <label className="block text-xs font-semibold text-navy-900 mb-1.5">
+                        Uploaded Image / Replacement
+                      </label>
+
+                      <div className="flex items-center space-x-2 mb-3">
+                        <button
+                          type="button"
+                          onClick={() => setEditImageInputType('upload')}
+                          className={`text-xs py-1.5 px-3 rounded-md font-semibold transition-colors flex items-center ${
+                            editImageInputType === 'upload'
+                              ? 'bg-teal-600 text-white shadow-sm'
+                              : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                          }`}
+                        >
+                          <Upload className="w-3.5 h-3.5 mr-1" />
+                          Upload New Image
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setEditImageInputType('url')}
+                          className={`text-xs py-1.5 px-3 rounded-md font-semibold transition-colors flex items-center ${
+                            editImageInputType === 'url'
+                              ? 'bg-teal-600 text-white shadow-sm'
+                              : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                          }`}
+                        >
+                          <ImageIcon className="w-3.5 h-3.5 mr-1" />
+                          Image URL / Path
+                        </button>
+                      </div>
+
+                      {editImageInputType === 'upload' ? (
+                        <div className="border-2 border-dashed border-slate-300 rounded-xl p-4 text-center hover:border-teal-500 transition-colors bg-slate-50 relative">
+                          <input
+                            type="file"
+                            id="edit-gallery-file-upload"
+                            ref={editFileInputRef}
+                            accept="image/*"
+                            onChange={handleEditFileUpload}
+                            className="hidden"
+                          />
+                          <label
+                            htmlFor="edit-gallery-file-upload"
+                            className="cursor-pointer flex flex-col items-center justify-center space-y-1.5"
+                          >
+                            {isCompressingEdit ? (
+                              <div className="flex flex-col items-center space-y-2 py-2">
+                                <RefreshCw className="w-6 h-6 text-teal-600 animate-spin" />
+                                <span className="text-xs font-semibold text-teal-700">
+                                  Optimizing new image...
+                                </span>
+                              </div>
+                            ) : (
+                              <>
+                                <Upload className="w-6 h-6 text-teal-600" />
+                                <span className="text-xs font-semibold text-teal-700">
+                                  Click to upload replacement image
+                                </span>
+                                <span className="text-[11px] text-slate-400">
+                                  Leave unchanged to keep current image
+                                </span>
+                              </>
+                            )}
+                          </label>
+                        </div>
+                      ) : (
+                        <div>
+                          <input
+                            type="text"
+                            value={editImageUrl}
+                            onChange={(e) => {
+                              setEditImageUrl(e.target.value);
+                              setEditPreviewError(false);
+                            }}
+                            placeholder="e.g. /assets/gallery/photo.jpg or https://..."
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                          />
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-navy-900 mb-1">
+                        Caption / Description (Optional)
+                      </label>
+                      <textarea
+                        rows={2}
+                        value={editCaption}
+                        onChange={(e) => setEditCaption(e.target.value)}
+                        placeholder="Brief description shown when clicked in lightbox..."
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Right Image Live Preview for Edit */}
+                  <div className="flex flex-col">
+                    <label className="block text-xs font-semibold text-navy-900 mb-1">
+                      Updated Image Live Preview
+                    </label>
+                    <div className="flex-1 min-h-[220px] rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center overflow-hidden relative p-3">
+                      {currentEditPreviewImage && !editPreviewError ? (
+                        <div className="w-full h-full flex flex-col items-center justify-center">
+                          <img
+                            src={currentEditPreviewImage}
+                            alt="Preview"
+                            onError={() => setEditPreviewError(true)}
+                            className="max-h-[220px] w-auto max-w-full rounded-lg object-contain shadow-sm"
+                          />
+                          <div className="mt-2 text-center text-xs text-slate-600 font-medium line-clamp-1">
+                            {editTitle || 'Untitled'} • <span className="text-teal-700">{editCategory}</span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="text-center text-slate-400 p-6">
+                          <ImageIcon className="w-12 h-12 mx-auto mb-2 text-slate-300" />
+                          <div className="text-xs font-medium">No image preview available</div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Update Modal Action Buttons */}
+                <div className="pt-3 flex items-center justify-end space-x-3 border-t border-slate-100">
+                  <button
+                    type="button"
+                    onClick={closeEditModal}
+                    className="btn-outline text-xs sm:text-sm py-2 px-4"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isCompressingEdit}
+                    className="btn-teal text-xs sm:text-sm py-2.5 px-6 font-bold shadow-md disabled:opacity-50 flex items-center"
+                  >
+                    <Check className="w-4 h-4 mr-1.5" />
+                    Save & Update Image
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         )}
 
@@ -497,7 +927,7 @@ export const AdminDashboardPage: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search photos by title or caption..."
+              placeholder="Search images by name or caption..."
               className="w-full pl-9 pr-3.5 py-2 rounded-lg border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600 transition-colors"
             />
           </div>
@@ -515,7 +945,7 @@ export const AdminDashboardPage: React.FC = () => {
             >
               All ({items.length})
             </button>
-            {CATEGORIES.map((cat) => {
+            {AVAILABLE_CATEGORIES.map((cat) => {
               const count = items.filter((i) => i.category === cat).length;
               if (count === 0) return null;
               return (
@@ -539,11 +969,11 @@ export const AdminDashboardPage: React.FC = () => {
         {filteredItems.length === 0 ? (
           <div className="medical-card p-12 text-center bg-white border border-slate-200 rounded-xl space-y-3">
             <ImageIcon className="w-12 h-12 text-slate-300 mx-auto" />
-            <h3 className="text-base font-bold text-navy-900 font-heading">No Photos Found</h3>
+            <h3 className="text-base font-bold text-navy-900 font-heading">No Images Found</h3>
             <p className="text-xs text-slate-500 max-w-sm mx-auto">
               {searchQuery
-                ? `No photos matched "${searchQuery}". Try a different keyword.`
-                : 'There are no photos in this category yet. Click "Add New Photo" to add one!'}
+                ? `No images matched "${searchQuery}". Try a different keyword.`
+                : 'There are no images in this category yet. Click "Add New Photo" to add one!'}
             </p>
             {searchQuery && (
               <button
@@ -576,7 +1006,7 @@ export const AdminDashboardPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Photo Meta */}
+                {/* Photo Meta & Actions */}
                 <div className="p-3.5 flex-1 flex flex-col justify-between space-y-2">
                   <div>
                     <h3 className="font-heading font-bold text-sm text-navy-900 line-clamp-1" title={item.title}>
@@ -589,14 +1019,22 @@ export const AdminDashboardPage: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
-                    <span className="font-mono text-[10px] truncate max-w-[130px]" title={item.image}>
-                      {item.image.startsWith('data:') ? 'Custom Upload' : item.image.replace('/assets/gallery/', '')}
-                    </span>
+                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                    {/* Update / Edit Option */}
+                    <button
+                      onClick={() => openEditModal(item)}
+                      className="inline-flex items-center space-x-1 px-2.5 py-1 rounded bg-teal-50 text-teal-700 hover:bg-teal-100 font-semibold border border-teal-200/80 transition-colors"
+                      title="Update image name, category, or photo"
+                    >
+                      <Pencil className="w-3 h-3" />
+                      <span>Update</span>
+                    </button>
+
+                    {/* Delete Option */}
                     <button
                       onClick={() => handleDeletePhoto(item.id, item.title)}
                       className="text-red-500 hover:text-red-700 hover:bg-red-50 p-1.5 rounded transition-colors flex items-center space-x-1"
-                      title="Delete this photo"
+                      title="Delete this image"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                       <span className="text-[11px] font-semibold">Delete</span>
@@ -628,7 +1066,7 @@ export const AdminDashboardPage: React.FC = () => {
               </div>
 
               <p className="text-xs text-slate-600 leading-relaxed">
-                Photos added through this portal are already live and saved locally. If you wish to permanently freeze them into your Git repository, copy this snippet and replace the contents of <code>src/data/gallery.ts</code>.
+                Images added or updated through this portal are already live and saved in browser storage. If you wish to permanently freeze them into your Git repository, copy this snippet and replace the contents of <code>src/data/gallery.ts</code>.
               </p>
 
               <div className="flex-1 overflow-auto bg-slate-900 text-teal-300 p-4 rounded-xl text-xs font-mono max-h-80 border border-slate-800">
