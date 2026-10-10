@@ -9,6 +9,20 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: 'Celebrating precious IVF and fertility success stories — joyous parents with newborn babies and gratitude letters for Dr. Chandrika and Dr. Avinash.'
   },
   {
+    id: 'siwaa-award-chennai-article',
+    title: 'South Indian Women Achievers Award 2025 (SIWAA Chennai)',
+    category: 'Awards & Recognition',
+    image: '/assets/gallery/siwaa-award-chennai-article.png',
+    caption: 'Dr. Chandrika Kasamwar honored at Chennai with South Indian Women Achievers Award (SIWAA 2025) for Excellence in Medical Services.'
+  },
+  {
+    id: 'siwaa-award-chennai-andhraprabha',
+    title: 'SIWAA 2025 Distinguished Honor (Andhra Prabha)',
+    category: 'Awards & Recognition',
+    image: '/assets/gallery/siwaa-award-chennai-andhraprabha.jpg',
+    caption: 'Newspaper feature celebrating Dr. Chandrika Kasamwar dedicated service to maternal wellness and infertility treatments.'
+  },
+  {
     id: 'hospital-modern-building-render',
     title: 'Devibai Multispeciality & Critical Care Centre — Architectural Elevation',
     category: 'Hospital',
@@ -23,11 +37,32 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: 'Hon’ble MP Raghunandan Rao and State Women’s Commission Chairperson Nerella Sharada presenting the Doctors Excellence Award 2025 to Dr. Chandrika Avinash.'
   },
   {
+    id: 'doctors-excellence-award-sakshi-2025',
+    title: 'Doctors Excellence Award 2025 (Sakshi News)',
+    category: 'Awards & Recognition',
+    image: '/assets/gallery/doctors-excellence-award-sakshi-2025.png',
+    caption: 'Medak MP Raghunandan Rao and State Women’s Commission Chairperson Nerella Sharada conferring the Excellence Award upon Dr. Chandrika Avinash.'
+  },
+  {
+    id: 'doctors-excellence-award-navabharat-2025',
+    title: 'State Level Doctors Excellence Award (Nava Bharat)',
+    category: 'Awards & Recognition',
+    image: '/assets/gallery/doctors-excellence-award-navabharat-2025.jpg',
+    caption: 'Nava Bharat report on Devibai Hospital receiving state-level doctor honors for exemplary gynecology and fertility care.'
+  },
+  {
     id: 'doctors-excellence-award-andhraprabha',
     title: 'State Level Doctors Excellence Award (Andhra Prabha)',
     category: 'Awards & Recognition',
     image: '/assets/gallery/doctors-excellence-award-andhraprabha.png',
     caption: 'Andhra Prabha feature on Dr. Chandrika Avinash receiving state-level accolades for specialized gynecology and fertility healthcare in Nirmal.'
+  },
+  {
+    id: 'suman-tv-award-andhraprabha',
+    title: 'Suman TV State Award — Dr. Chandrika (Andhra Prabha)',
+    category: 'Awards & Recognition',
+    image: '/assets/gallery/suman-tv-award-andhraprabha.jpg',
+    caption: 'Andhra Prabha special coverage on Dr. Chandrika receiving Suman TV Doctor Award at Hyderabad for bringing parenthood joy to families.'
   },
   {
     id: 'general-ward-inauguration',
