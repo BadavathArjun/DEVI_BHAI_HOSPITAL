@@ -4,14 +4,220 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/Contact",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/Contact/:match*",
+      "destination": "/contact/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/About",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/About/:match*",
+      "destination": "/about/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/Doctors",
+      "destination": "/doctors",
+      "permanent": true
+    },
+    {
+      "source": "/Doctors/:match*",
+      "destination": "/doctors/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/doctors/",
+      "destination": "/doctors",
+      "permanent": true
+    },
+    {
+      "source": "/Services",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/Services/:match*",
+      "destination": "/services/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/services/",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/Specialities",
+      "destination": "/specialities",
+      "permanent": true
+    },
+    {
+      "source": "/Specialities/:match*",
+      "destination": "/specialities/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/specialities/",
+      "destination": "/specialities",
+      "permanent": true
+    },
+    {
+      "source": "/Facilities",
+      "destination": "/facilities",
+      "permanent": true
+    },
+    {
+      "source": "/Facilities/:match*",
+      "destination": "/facilities/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/facilities/",
+      "destination": "/facilities",
+      "permanent": true
+    },
+    {
+      "source": "/Insurance",
+      "destination": "/insurance",
+      "permanent": true
+    },
+    {
+      "source": "/Insurance/:match*",
+      "destination": "/insurance/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/insurance/",
+      "destination": "/insurance",
+      "permanent": true
+    },
+    {
+      "source": "/Arogyasri",
+      "destination": "/arogyasri",
+      "permanent": true
+    },
+    {
+      "source": "/Arogyasri/:match*",
+      "destination": "/arogyasri/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/arogyasri/",
+      "destination": "/arogyasri",
+      "permanent": true
+    },
+    {
+      "source": "/Aarogyasri",
+      "destination": "/arogyasri",
+      "permanent": true
+    },
+    {
+      "source": "/Aarogyasri/:match*",
+      "destination": "/arogyasri/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/aarogyasri",
+      "destination": "/arogyasri",
+      "permanent": true
+    },
+    {
+      "source": "/Gallery",
+      "destination": "/gallery",
+      "permanent": true
+    },
+    {
+      "source": "/Gallery/:match*",
+      "destination": "/gallery/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/gallery/",
+      "destination": "/gallery",
+      "permanent": true
+    },
+    {
+      "source": "/Appointment",
+      "destination": "/appointment",
+      "permanent": true
+    },
+    {
+      "source": "/Appointment/:match*",
+      "destination": "/appointment/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/appointment/",
+      "destination": "/appointment",
+      "permanent": true
+    },
+    {
+      "source": "/Emergency",
+      "destination": "/emergency",
+      "permanent": true
+    },
+    {
+      "source": "/Emergency/:match*",
+      "destination": "/emergency/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/emergency/",
+      "destination": "/emergency",
+      "permanent": true
+    },
+    {
+      "source": "/Privacy-Policy",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/Terms",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/terms/",
+      "destination": "/terms",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/assets/(.*)",
       "destination": "/assets/$1"
     },
     {
+      "source": "/photos/(.*)",
+      "destination": "/photos/$1"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/index"
     }
   ],
   "headers": [

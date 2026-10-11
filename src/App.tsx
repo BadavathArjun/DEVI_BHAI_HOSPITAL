@@ -94,6 +94,21 @@ export const App: React.FC = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms" element={<TermsPage />} />
 
+            {/* Case Normalization Redirects */}
+            <Route path="/Contact" element={<Navigate to="/contact" replace />} />
+            <Route path="/About" element={<Navigate to="/about" replace />} />
+            <Route path="/Doctors" element={<Navigate to="/doctors" replace />} />
+            <Route path="/Appointment" element={<Navigate to="/appointment" replace />} />
+            <Route path="/Emergency" element={<Navigate to="/emergency" replace />} />
+            <Route path="/Facilities" element={<Navigate to="/facilities" replace />} />
+            <Route path="/Insurance" element={<Navigate to="/insurance" replace />} />
+            <Route path="/Arogyasri" element={<Navigate to="/arogyasri" replace />} />
+            <Route path="/Aarogyasri" element={<Navigate to="/arogyasri" replace />} />
+            <Route path="/aarogyasri" element={<Navigate to="/arogyasri" replace />} />
+            <Route path="/Gallery" element={<Navigate to="/gallery" replace />} />
+            <Route path="/Services" element={<Navigate to="/services" replace />} />
+            <Route path="/Specialities" element={<Navigate to="/specialities" replace />} />
+
             {/* 404 Catch-All */}
             <Route path="*" element={<NotFoundPage />} />
           </Route>
