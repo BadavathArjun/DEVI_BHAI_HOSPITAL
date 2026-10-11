@@ -15,11 +15,11 @@ export const AdminLoginPage: React.FC = () => {
     setError('');
 
     // Demo admin credentials for CMS preview (can be connected to backend auth)
-    if (username === 'admin' && password === 'devibai2026') {
+    if (username === 'devibaisuperspecialityhospital' && password === 'devibaihospital@@83462') {
       sessionStorage.setItem('devibai_admin_token', 'session_auth_token_active');
       navigate('/admin/dashboard');
     } else {
-      setError('Invalid staff credentials. Default preview is username: admin, password: devibai2026');
+      setError('Invalid staff credentials. Please check your username and password.');
     }
   };
 
@@ -57,7 +57,7 @@ export const AdminLoginPage: React.FC = () => {
                 required
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="admin"
+                placeholder="Enter username"
                 className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600"
               />
             </div>
@@ -74,10 +74,6 @@ export const AdminLoginPage: React.FC = () => {
                 placeholder="••••••••••••"
                 className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-teal-600 focus:border-teal-600"
               />
-            </div>
-
-            <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 text-[11px] text-slate-600">
-              <strong>Preview access:</strong> User: <code className="bg-slate-200 px-1 rounded">admin</code> | Pass: <code className="bg-slate-200 px-1 rounded">devibai2026</code>
             </div>
 
             <button
