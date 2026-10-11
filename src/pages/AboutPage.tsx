@@ -12,7 +12,6 @@ import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { ReviewsSection } from '../components/common/ReviewsSection';
 import { SEOHead } from '../components/common/SEOHead';
-import heroBannerImg from '../assets/homepage-hero.jpg';
 
 export const AboutPage: React.FC = () => {
   return (
@@ -32,7 +31,7 @@ export const AboutPage: React.FC = () => {
       <section className="bg-navy-950 text-white py-14 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={heroBannerImg}
+            src="/assets/branding/hospital-building.jpg"
             alt="Devibai Hospital Facility"
             className="w-full h-full object-cover opacity-25 filter blur-[1px]"
           />
@@ -131,20 +130,22 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-medical border border-slate-200">
+            <div className="relative group">
+              <div className="rounded-2xl overflow-hidden shadow-medical border border-slate-200 bg-white">
                 <img
-                  src="/assets/gallery/all-doctors-team.jpg"
-                  alt="Devibai Hospital Medical Specialists"
-                  className="w-full h-auto object-cover rounded-2xl"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = '/assets/branding/about-hospital.jpg';
-                  }}
+                  src="/assets/branding/hospital-building.jpg"
+                  alt="Devibai Super Speciality Hospital & Dr. Chandrika's Fertility Centre Building in Nirmal"
+                  className="w-full h-auto object-cover rounded-2xl group-hover:scale-[1.01] transition-transform duration-500"
+                  loading="eager"
                 />
               </div>
-              <div className="mt-3 text-center text-xs text-slate-500 italic">
-                Our consultant medical, surgical, pediatric, and critical care specialists
+              <div className="absolute bottom-2 right-2 sm:-bottom-4 sm:-right-4 bg-navy-950/95 text-white p-3.5 sm:p-4 rounded-xl shadow-xl border border-teal-500/30 backdrop-blur-sm max-w-[220px] sm:max-w-[250px]">
+                <div className="text-[10px] sm:text-xs text-teal-300 font-bold uppercase tracking-wider">Hospital Facility</div>
+                <div className="text-xs sm:text-sm font-extrabold text-white mt-0.5">Devibai Hospital Nirmal</div>
+                <div className="text-[10px] sm:text-[11px] text-slate-300 mt-0.5">Beside DS Mart, Mancherial Road</div>
+              </div>
+              <div className="mt-4 sm:mt-5 text-center text-xs text-slate-500 italic">
+                Devibai Super Speciality & Critical Care Centre with Dr. Chandrika's Fertility Centre (IVF) and 24/7 Pharmacy
               </div>
             </div>
           </div>
