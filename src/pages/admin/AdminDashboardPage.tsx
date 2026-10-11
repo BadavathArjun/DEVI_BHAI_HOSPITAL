@@ -18,27 +18,16 @@ import {
   X,
   RefreshCw,
   Stethoscope,
-  Calendar,
-  MessageSquare,
-  LayoutDashboard,
   Eye,
   Award,
   Clock,
-  Phone,
-  Tag,
   CheckCircle,
   Grid,
-  List,
-  ShieldCheck,
-  ChevronRight,
-  UserCheck,
-  UserX,
-  FileText
+  List
 } from 'lucide-react';
 import { doctorService } from '../../services/doctorService';
 import { galleryService } from '../../services/galleryService';
-import { appointmentService, contactService } from '../../services/appointmentService';
-import { Doctor, GalleryItem, AppointmentRequest, ContactMessage } from '../../types';
+import { Doctor, GalleryItem } from '../../types';
 import { SEOHead } from '../../components/common/SEOHead';
 
 const AVAILABLE_GALLERY_CATEGORIES: GalleryItem['category'][] = [
@@ -124,8 +113,8 @@ const compressImageFile = (file: File, maxWidth = 1200, maxHeight = 1000, qualit
 export const AdminDashboardPage: React.FC = () => {
   const navigate = useNavigate();
 
-  // Active Main Tab
-  const [activeTab, setActiveTab] = useState<'doctors' | 'gallery' | 'appointments' | 'messages' | 'overview'>('doctors');
+  // Active Main Tab (Doctors and Photo Gallery)
+  const [activeTab, setActiveTab] = useState<'doctors' | 'gallery'>('doctors');
 
   // Authentication check
   useEffect(() => {
@@ -194,11 +183,6 @@ export const AdminDashboardPage: React.FC = () => {
   const [isCompressingDoctorPhoto, setIsCompressingDoctorPhoto] = useState(false);
 
   const doctorFileInputRef = useRef<HTMLInputElement>(null);
-
-  // Refresh doctors list helper
-  const reloadDoctors = () => {
-    setDoctors(doctorService.getDoctors());
-  };
 
   // Open Add Doctor Modal
   const openAddDoctorModal = () => {
@@ -332,7 +316,6 @@ export const AdminDashboardPage: React.FC = () => {
       ? (docFormUploadedPhoto || '/assets/branding/db-logo.jpg')
       : (docFormPhotoUrl.trim() || '/assets/branding/db-logo.jpg');
 
-    // Create unique slug & id
     const cleanSlug = docFormName
       .toLowerCase()
       .trim()
@@ -630,42 +613,6 @@ export const AdminDashboardPage: React.FC = () => {
     2
   )};\n`;
 
-  // =========================================================================
-  // APPOINTMENTS & MESSAGES STATE
-  // =========================================================================
-  const [appointments, setAppointments] = useState<AppointmentRequest[]>(() => appointmentService.getStoredAppointments());
-  const [appointmentFilter, setAppointmentFilter] = useState<string>('All');
-  const [messages, setMessages] = useState<ContactMessage[]>(() => contactService.getStoredMessages());
-
-  const handleUpdateAppointmentStatus = (id: string, newStatus: AppointmentRequest['status']) => {
-    appointmentService.updateAppointmentStatus(id, newStatus);
-    setAppointments(appointmentService.getStoredAppointments());
-    showSuccess(`Appointment status updated to ${newStatus}.`);
-  };
-
-  const handleDeleteAppointment = (id: string) => {
-    if (window.confirm('Delete this appointment record?')) {
-      appointmentService.deleteAppointment(id);
-      setAppointments(appointmentService.getStoredAppointments());
-      showSuccess('Appointment record deleted.');
-    }
-  };
-
-  const handleDeleteMessage = (id: string) => {
-    if (window.confirm('Delete this contact message?')) {
-      contactService.deleteMessage(id);
-      setMessages(contactService.getStoredMessages());
-      showSuccess('Message removed.');
-    }
-  };
-
-  const filteredAppointments = appointments.filter(apt => {
-    if (appointmentFilter === 'All') return true;
-    return apt.status === appointmentFilter;
-  });
-
-  const pendingAppointmentsCount = appointments.filter(a => a.status === 'Pending').length;
-
   return (
     <div className="min-h-screen bg-slate-100 flex flex-col font-sans">
       <SEOHead title="Executive Administration Portal | Devibai Super Speciality Hospital" />
@@ -734,13 +681,13 @@ export const AdminDashboardPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Tab Navigation Navigation Strip */}
+        {/* Tab Navigation Strip: Doctors & Specialists and Photo Gallery */}
         <div className="bg-navy-900 border-t border-navy-800/80 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto flex items-center space-x-1 sm:space-x-2 overflow-x-auto scrollbar-none py-2">
+          <div className="max-w-7xl mx-auto flex items-center space-x-2 py-2">
             {/* TAB: DOCTORS */}
             <button
               onClick={() => setActiveTab('doctors')}
-              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
                 activeTab === 'doctors'
                   ? 'bg-teal-600 text-white shadow-sm'
                   : 'text-slate-300 hover:text-white hover:bg-navy-800'
@@ -758,7 +705,7 @@ export const AdminDashboardPage: React.FC = () => {
             {/* TAB: GALLERY */}
             <button
               onClick={() => setActiveTab('gallery')}
-              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
                 activeTab === 'gallery'
                   ? 'bg-teal-600 text-white shadow-sm'
                   : 'text-slate-300 hover:text-white hover:bg-navy-800'
@@ -771,61 +718,6 @@ export const AdminDashboardPage: React.FC = () => {
               }`}>
                 {galleryItems.length}
               </span>
-            </button>
-
-            {/* TAB: APPOINTMENTS */}
-            <button
-              onClick={() => setActiveTab('appointments')}
-              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
-                activeTab === 'appointments'
-                  ? 'bg-teal-600 text-white shadow-sm'
-                  : 'text-slate-300 hover:text-white hover:bg-navy-800'
-              }`}
-            >
-              <Calendar className="w-4 h-4" />
-              <span>Appointments</span>
-              {pendingAppointmentsCount > 0 ? (
-                <span className="px-2 py-0.2 rounded-full text-[10px] font-bold bg-amber-500 text-navy-950">
-                  {pendingAppointmentsCount} pending
-                </span>
-              ) : (
-                <span className={`px-2 py-0.2 rounded-full text-[10px] font-bold ${
-                  activeTab === 'appointments' ? 'bg-teal-800 text-teal-100' : 'bg-navy-800 text-slate-400'
-                }`}>
-                  {appointments.length}
-                </span>
-              )}
-            </button>
-
-            {/* TAB: MESSAGES */}
-            <button
-              onClick={() => setActiveTab('messages')}
-              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
-                activeTab === 'messages'
-                  ? 'bg-teal-600 text-white shadow-sm'
-                  : 'text-slate-300 hover:text-white hover:bg-navy-800'
-              }`}
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>Patient Inquiries</span>
-              <span className={`px-2 py-0.2 rounded-full text-[10px] font-bold ${
-                activeTab === 'messages' ? 'bg-teal-800 text-teal-100' : 'bg-navy-800 text-slate-400'
-              }`}>
-                {messages.length}
-              </span>
-            </button>
-
-            {/* TAB: OVERVIEW */}
-            <button
-              onClick={() => setActiveTab('overview')}
-              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
-                activeTab === 'overview'
-                  ? 'bg-teal-600 text-white shadow-sm'
-                  : 'text-slate-300 hover:text-white hover:bg-navy-800'
-              }`}
-            >
-              <LayoutDashboard className="w-4 h-4" />
-              <span>Overview</span>
             </button>
           </div>
         </div>
@@ -1409,312 +1301,6 @@ export const AdminDashboardPage: React.FC = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        )}
-
-        {/* ==============================================================
-            TAB 3: APPOINTMENTS
-            ============================================================== */}
-        {activeTab === 'appointments' && (
-          <div className="space-y-6 animate-fadeIn">
-            <div className="medical-card p-5 sm:p-6 bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <h2 className="font-heading font-extrabold text-xl sm:text-2xl text-navy-900 flex items-center">
-                  <Calendar className="w-6 h-6 mr-2.5 text-teal-600" />
-                  Patient Appointments
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  Manage patient consultation requests received through the website booking portal.
-                </p>
-              </div>
-
-              {/* Status filter pills */}
-              <div className="flex items-center space-x-1.5 overflow-x-auto scrollbar-none">
-                {['All', 'Pending', 'Contacted', 'Confirmed', 'Completed', 'Cancelled'].map((st) => (
-                  <button
-                    key={st}
-                    onClick={() => setAppointmentFilter(st)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
-                      appointmentFilter === st
-                        ? 'bg-teal-600 text-white shadow-sm'
-                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                    }`}
-                  >
-                    {st}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {filteredAppointments.length === 0 ? (
-              <div className="medical-card p-12 text-center bg-white border border-slate-200 rounded-xl space-y-3">
-                <Calendar className="w-12 h-12 text-slate-300 mx-auto" />
-                <h3 className="text-base font-bold text-navy-900 font-heading">No Appointments</h3>
-                <p className="text-xs text-slate-500 max-w-sm mx-auto">
-                  There are no appointments matching this status. New requests from website forms will appear here.
-                </p>
-              </div>
-            ) : (
-              <div className="medical-card bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 uppercase tracking-wider text-[11px]">
-                      <tr>
-                        <th className="py-3.5 px-4">Patient</th>
-                        <th className="py-3.5 px-4">Phone / Contact</th>
-                        <th className="py-3.5 px-4">Department / Doctor</th>
-                        <th className="py-3.5 px-4">Requested Time</th>
-                        <th className="py-3.5 px-4">Status</th>
-                        <th className="py-3.5 px-4 text-right">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100">
-                      {filteredAppointments.map((apt) => (
-                        <tr key={apt.id} className="hover:bg-slate-50/70 transition-colors">
-                          <td className="py-3.5 px-4">
-                            <div className="font-bold text-navy-900">{apt.fullName}</div>
-                            <div className="text-slate-400 text-[10px]">
-                              {apt.age ? `Age: ${apt.age}` : ''} {apt.gender ? `• ${apt.gender}` : ''}
-                            </div>
-                            <div className="text-[10px] text-slate-400 mt-0.5">ID: {apt.id}</div>
-                          </td>
-
-                          <td className="py-3.5 px-4">
-                            <a
-                              href={`tel:${apt.phone}`}
-                              className="font-semibold text-teal-700 hover:underline flex items-center"
-                            >
-                              <Phone className="w-3 h-3 mr-1" />
-                              {apt.phone}
-                            </a>
-                            {apt.email && <div className="text-slate-400 text-[10px]">{apt.email}</div>}
-                          </td>
-
-                          <td className="py-3.5 px-4">
-                            <div className="font-semibold text-slate-800">{apt.department || 'General Consultation'}</div>
-                            {apt.preferredDoctor && (
-                              <div className="text-teal-700 text-[11px]">
-                                Dr. {apt.preferredDoctor.replace(/^dr-/, '').replace(/-/g, ' ')}
-                              </div>
-                            )}
-                          </td>
-
-                          <td className="py-3.5 px-4">
-                            <div className="text-slate-700">{apt.preferredDate || 'Earliest available'}</div>
-                            <div className="text-slate-400 text-[10px]">{apt.preferredTime || 'Any slot'}</div>
-                          </td>
-
-                          <td className="py-3.5 px-4">
-                            <select
-                              value={apt.status}
-                              onChange={(e) => handleUpdateAppointmentStatus(apt.id, e.target.value as any)}
-                              className={`text-xs font-bold rounded-lg px-2.5 py-1 border transition-colors cursor-pointer ${
-                                apt.status === 'Pending'
-                                  ? 'bg-amber-50 text-amber-700 border-amber-200'
-                                  : apt.status === 'Confirmed'
-                                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                                  : apt.status === 'Completed'
-                                  ? 'bg-blue-50 text-blue-700 border-blue-200'
-                                  : apt.status === 'Cancelled'
-                                  ? 'bg-red-50 text-red-700 border-red-200'
-                                  : 'bg-slate-100 text-slate-700 border-slate-200'
-                              }`}
-                            >
-                              <option value="Pending">Pending</option>
-                              <option value="Contacted">Contacted</option>
-                              <option value="Confirmed">Confirmed</option>
-                              <option value="Completed">Completed</option>
-                              <option value="Cancelled">Cancelled</option>
-                            </select>
-                          </td>
-
-                          <td className="py-3.5 px-4 text-right">
-                            <div className="flex items-center justify-end space-x-2">
-                              <a
-                                href={`https://wa.me/91${apt.phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Hello ${apt.fullName}, this is Devibai Super Speciality Hospital regarding your appointment request (${apt.id}).`)}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-1.5 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-colors"
-                                title="Chat on WhatsApp"
-                              >
-                                <MessageSquare className="w-3.5 h-3.5" />
-                              </a>
-                              <button
-                                onClick={() => handleDeleteAppointment(apt.id)}
-                                className="p-1.5 rounded-lg text-red-500 hover:text-red-700 hover:bg-red-50 transition-colors"
-                                title="Delete Record"
-                              >
-                                <Trash2 className="w-3.5 h-3.5" />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* ==============================================================
-            TAB 4: MESSAGES / INQUIRIES
-            ============================================================== */}
-        {activeTab === 'messages' && (
-          <div className="space-y-6 animate-fadeIn">
-            <div className="medical-card p-5 sm:p-6 bg-white border border-slate-200 shadow-sm flex items-center justify-between">
-              <div>
-                <h2 className="font-heading font-extrabold text-xl sm:text-2xl text-navy-900 flex items-center">
-                  <MessageSquare className="w-6 h-6 mr-2.5 text-teal-600" />
-                  Patient Inquiries & Messages
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  Questions and feedback submitted by patients via the website contact form.
-                </p>
-              </div>
-            </div>
-
-            {messages.length === 0 ? (
-              <div className="medical-card p-12 text-center bg-white border border-slate-200 rounded-xl space-y-3">
-                <MessageSquare className="w-12 h-12 text-slate-300 mx-auto" />
-                <h3 className="text-base font-bold text-navy-900 font-heading">No Inquiries Yet</h3>
-                <p className="text-xs text-slate-500 max-w-sm mx-auto">
-                  Messages sent from the Contact Us page will be automatically stored and listed here.
-                </p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {messages.map((m) => (
-                  <div key={m.id} className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-3">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <h4 className="font-heading font-bold text-sm text-navy-900">{m.name}</h4>
-                        <div className="text-xs text-slate-500 mt-0.5 flex items-center space-x-2">
-                          <span>{m.phone}</span>
-                          {m.email && <span>• {m.email}</span>}
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => handleDeleteMessage(m.id)}
-                        className="text-red-400 hover:text-red-600 p-1 rounded"
-                        title="Delete Message"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </div>
-
-                    {m.subject && (
-                      <div className="text-xs font-semibold text-teal-700 bg-teal-50 px-2 py-1 rounded inline-block">
-                        {m.subject}
-                      </div>
-                    )}
-
-                    <p className="text-xs text-slate-700 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-100">
-                      "{m.message}"
-                    </p>
-
-                    <div className="text-[10px] text-slate-400 flex items-center justify-between pt-1">
-                      <span>Received: {new Date(m.createdAt).toLocaleDateString()}</span>
-                      <a
-                        href={`tel:${m.phone}`}
-                        className="text-teal-700 font-semibold hover:underline"
-                      >
-                        Call Patient
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* ==============================================================
-            TAB 5: SYSTEM OVERVIEW
-            ============================================================== */}
-        {activeTab === 'overview' && (
-          <div className="space-y-6 animate-fadeIn">
-            <div className="medical-card p-6 bg-navy-950 text-white rounded-2xl shadow-lg border border-navy-800">
-              <div className="max-w-2xl space-y-2">
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-teal-500/20 text-teal-300 border border-teal-400/30">
-                  Hospital Dashboard
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-white">
-                  Devibai Super Speciality Hospital CMS
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Real-time administration center for managing medical specialists, photos, patient appointments, and inquiries across Nirmal, Telangana.
-                </p>
-              </div>
-            </div>
-
-            {/* Quick Action Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div
-                onClick={() => setActiveTab('doctors')}
-                className="bg-white p-5 rounded-xl border border-slate-200 hover:border-teal-500 shadow-sm hover:shadow cursor-pointer transition-all space-y-2"
-              >
-                <div className="w-10 h-10 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center font-bold">
-                  <Stethoscope className="w-5 h-5" />
-                </div>
-                <div className="font-heading font-bold text-navy-900 text-base">Doctors Directory</div>
-                <p className="text-xs text-slate-500">
-                  {doctors.length} doctors recorded. Add, update, or remove specialists.
-                </p>
-                <div className="text-xs font-semibold text-teal-700 flex items-center pt-1">
-                  Manage Doctors <ChevronRight className="w-3.5 h-3.5 ml-1" />
-                </div>
-              </div>
-
-              <div
-                onClick={() => setActiveTab('gallery')}
-                className="bg-white p-5 rounded-xl border border-slate-200 hover:border-teal-500 shadow-sm hover:shadow cursor-pointer transition-all space-y-2"
-              >
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center font-bold">
-                  <ImageIcon className="w-5 h-5" />
-                </div>
-                <div className="font-heading font-bold text-navy-900 text-base">Photo Gallery</div>
-                <p className="text-xs text-slate-500">
-                  {galleryItems.length} photos published across departments.
-                </p>
-                <div className="text-xs font-semibold text-teal-700 flex items-center pt-1">
-                  Manage Photos <ChevronRight className="w-3.5 h-3.5 ml-1" />
-                </div>
-              </div>
-
-              <div
-                onClick={() => setActiveTab('appointments')}
-                className="bg-white p-5 rounded-xl border border-slate-200 hover:border-teal-500 shadow-sm hover:shadow cursor-pointer transition-all space-y-2"
-              >
-                <div className="w-10 h-10 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
-                  <Calendar className="w-5 h-5" />
-                </div>
-                <div className="font-heading font-bold text-navy-900 text-base">Appointments</div>
-                <p className="text-xs text-slate-500">
-                  {appointments.length} total requests ({pendingAppointmentsCount} pending).
-                </p>
-                <div className="text-xs font-semibold text-teal-700 flex items-center pt-1">
-                  View Bookings <ChevronRight className="w-3.5 h-3.5 ml-1" />
-                </div>
-              </div>
-
-              <div
-                onClick={() => setActiveTab('messages')}
-                className="bg-white p-5 rounded-xl border border-slate-200 hover:border-teal-500 shadow-sm hover:shadow cursor-pointer transition-all space-y-2"
-              >
-                <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
-                  <MessageSquare className="w-5 h-5" />
-                </div>
-                <div className="font-heading font-bold text-navy-900 text-base">Patient Inquiries</div>
-                <p className="text-xs text-slate-500">
-                  {messages.length} messages from contact form.
-                </p>
-                <div className="text-xs font-semibold text-teal-700 flex items-center pt-1">
-                  View Messages <ChevronRight className="w-3.5 h-3.5 ml-1" />
-                </div>
-              </div>
             </div>
           </div>
         )}
