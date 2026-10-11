@@ -100,3 +100,16 @@ export interface ContactMessage {
   message: string;
   createdAt: string;
 }
+
+export interface PatientReview {
+  id: string;
+  name: string;
+  initials?: string;
+  rating: number; // 1 to 5
+  review: string;
+  date?: string;
+  departmentTag?: string;
+  isVerified?: boolean;
+  avatarGradient?: string;
+}
+

@@ -31,6 +31,7 @@ import { InsuranceCard } from '../components/cards/InsuranceCard';
 import { GalleryGrid } from '../components/gallery/GalleryGrid';
 import { FAQAccordion } from '../components/common/FAQAccordion';
 import { AppointmentForm } from '../components/forms/AppointmentForm';
+import { ReviewsSection } from '../components/common/ReviewsSection';
 import { MedicalDisclaimer } from '../components/common/MedicalDisclaimer';
 import { SEOHead } from '../components/common/SEOHead';
 
@@ -983,6 +984,11 @@ export const HomePage: React.FC = () => {
           </div>
         </section>
       )}
+
+      {/* ==================================================
+          SECTION 17.5 — PATIENT REVIEWS & GOOGLE RATINGS
+          ================================================== */}
+      <ReviewsSection />
 
       {/* ==================================================
           SECTION 18 — FAQ

@@ -10,6 +10,7 @@ import { InstagramIcon, YoutubeIcon, FacebookIcon } from '../components/common/S
 import { SPECIALITIES } from '../data/specialities';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { SectionHeader } from '../components/common/SectionHeader';
+import { ReviewsSection } from '../components/common/ReviewsSection';
 import { SEOHead } from '../components/common/SEOHead';
 
 export const AboutPage: React.FC = () => {
@@ -230,6 +231,9 @@ export const AboutPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Patient Reviews Section */}
+      <ReviewsSection />
 
       {/* Contact CTA */}
       <section className="py-14 bg-navy-900 text-white">
