@@ -32,7 +32,7 @@ import { AppointmentForm } from '../components/forms/AppointmentForm';
 import { ReviewsSection } from '../components/common/ReviewsSection';
 import { MedicalDisclaimer } from '../components/common/MedicalDisclaimer';
 import { SEOHead } from '../components/common/SEOHead';
-import { generateFaqSchema } from '../utils/seoSchemas';
+import { generateFaqSchema, generateWebSiteSchema } from '../utils/seoSchemas';
 
 const HomeGallerySection = React.lazy(() => import('../components/home/HomeGallerySection'));
 
@@ -40,11 +40,11 @@ export const HomePage: React.FC = () => {
   return (
     <div className="space-y-0">
       <SEOHead
-        title="Devibai Super Speciality Hospital Nirmal | Best Hospital & Fertility Centre in Nirmal"
-        description="Devibai Super Speciality Hospital (Devi Bai Hospital) is the best hospital and top fertility & IVF centre in Nirmal, Telangana. 24/7 emergency care, maternity, laparoscopic surgery & ICU facilities beside DS Mart, Mancherial Road."
-        keywords="best fertility hospital in nirmal, best fertility center in nirmal, best hospital in nirmal, devi bai hospital, devi bai hospital nirmal, devi bai super specility hospital nirmal, devibai super speciality hospital nirmal, devi bhai hospital, devi bhai super speciality hospital, best ivf center in nirmal, fertility clinic in nirmal, test tube baby center nirmal, dr chandrika fertility centre nirmal, dr chandrika nirmal, multi speciality hospital in nirmal, maternity hospital nirmal, gynecologist nirmal, emergency hospital nirmal 24/7, laparoscopic surgery nirmal, aarogyasri hospital nirmal"
+        title="DEVIBAI SUPER SPECIALITY HOSPITAL | Nirmal, Telangana"
+        description="Visit the official website of DeviBai Super Speciality Hospital in Nirmal, Telangana. Explore hospital services, doctors, location and contact information."
+        keywords="devi bai hospital, devibai super speciality hospital, devibai hospital nirmal, devi bai hospital nirmal, devi bhai hospital, hospital in nirmal, best hospital in nirmal, best fertility center in nirmal, dr chandrika fertility centre nirmal, maternity hospital nirmal, emergency hospital nirmal 24/7, laparoscopic surgery nirmal"
         canonicalPath="/"
-        schema={generateFaqSchema(FAQS)}
+        schema={[generateWebSiteSchema(), generateFaqSchema(FAQS)]}
       />
 
       {/* ==================================================

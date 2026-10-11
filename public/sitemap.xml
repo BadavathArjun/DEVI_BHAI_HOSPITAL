@@ -1,69 +1,69 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <!-- Core Hospital Pages -->
   <url>
-    <loc>https://devibaihospital.com/</loc>
+    <loc>https://devibaisuperspecialityhospital.com/</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://devibaihospital.com/assets/branding/homepage-hero.jpg</image:loc>
+      <image:loc>https://devibaisuperspecialityhospital.com/assets/branding/homepage-hero.jpg</image:loc>
       <image:title>Devibai Super Speciality Hospital Nirmal Facility</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://devibaihospital.com/emergency</loc>
+    <loc>https://devibaisuperspecialityhospital.com/emergency</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://devibaihospital.com/assets/facilities/emergency-trauma-care.jpg</image:loc>
+      <image:loc>https://devibaisuperspecialityhospital.com/assets/facilities/emergency-trauma-care.jpg</image:loc>
       <image:title>24/7 Emergency and Trauma Centre Devibai Hospital Nirmal</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://devibaihospital.com/about</loc>
+    <loc>https://devibaisuperspecialityhospital.com/about</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/appointment</loc>
+    <loc>https://devibaisuperspecialityhospital.com/appointment</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/contact</loc>
+    <loc>https://devibaisuperspecialityhospital.com/contact</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/arogyasri</loc>
+    <loc>https://devibaisuperspecialityhospital.com/arogyasri</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://devibaihospital.com/assets/insurance/aarogyasri.png</image:loc>
+      <image:loc>https://devibaisuperspecialityhospital.com/assets/insurance/aarogyasri.png</image:loc>
       <image:title>Rajiv Aarogyasri Healthcare Scheme at Devibai Hospital Nirmal</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://devibaihospital.com/insurance</loc>
+    <loc>https://devibaisuperspecialityhospital.com/insurance</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/facilities</loc>
+    <loc>https://devibaisuperspecialityhospital.com/facilities</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/gallery</loc>
+    <loc>https://devibaisuperspecialityhospital.com/gallery</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -71,111 +71,111 @@
 
   <!-- Specialist Doctors Directory & Profiles -->
   <url>
-    <loc>https://devibaihospital.com/doctors</loc>
+    <loc>https://devibaisuperspecialityhospital.com/doctors</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/doctors/dr-k-chandrika</loc>
+    <loc>https://devibaisuperspecialityhospital.com/doctors/dr-k-chandrika</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://devibaihospital.com/assets/doctors/dr-k-chandrika.jpg</image:loc>
+      <image:loc>https://devibaisuperspecialityhospital.com/assets/doctors/dr-k-chandrika.jpg</image:loc>
       <image:title>Dr. K. Chandrika - Best Fertility Specialist and Gynecologist Nirmal</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://devibaihospital.com/doctors/dr-k-avinash-kasamwar</loc>
+    <loc>https://devibaisuperspecialityhospital.com/doctors/dr-k-avinash-kasamwar</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://devibaihospital.com/assets/doctors/dr-k-avinash-kasamwar.jpg</image:loc>
+      <image:loc>https://devibaisuperspecialityhospital.com/assets/doctors/dr-k-avinash-kasamwar.jpg</image:loc>
       <image:title>Dr. K. Avinash Kasamwar - General and Laparoscopic Surgeon Nirmal</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://devibaihospital.com/doctors/dr-prashant-kumar-waghmare</loc>
+    <loc>https://devibaisuperspecialityhospital.com/doctors/dr-prashant-kumar-waghmare</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://devibaihospital.com/assets/doctors/dr-prashant-kumar-waghmare.jpg</image:loc>
+      <image:loc>https://devibaisuperspecialityhospital.com/assets/doctors/dr-prashant-kumar-waghmare.jpg</image:loc>
       <image:title>Dr. Prashant Kumar Waghmare - Consultant Physician and Diabetologist Nirmal</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://devibaihospital.com/doctors/dr-sudheer-kumar-g</loc>
+    <loc>https://devibaisuperspecialityhospital.com/doctors/dr-sudheer-kumar-g</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://devibaihospital.com/assets/doctors/dr-sudheer-kumar-g.jpg</image:loc>
+      <image:loc>https://devibaisuperspecialityhospital.com/assets/doctors/dr-sudheer-kumar-g.jpg</image:loc>
       <image:title>Dr. Sudheer Kumar G - Pediatrician and Neonatologist Nirmal</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://devibaihospital.com/doctors/dr-k-ravichandra</loc>
+    <loc>https://devibaisuperspecialityhospital.com/doctors/dr-k-ravichandra</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://devibaihospital.com/assets/doctors/dr-k-ravichandra.jpg</image:loc>
+      <image:loc>https://devibaisuperspecialityhospital.com/assets/doctors/dr-k-ravichandra.jpg</image:loc>
       <image:title>Dr. K. Ravichandra - Consultant Urologist Nirmal</image:title>
     </image:image>
   </url>
 
   <!-- Clinical Specialities -->
   <url>
-    <loc>https://devibaihospital.com/specialities</loc>
+    <loc>https://devibaisuperspecialityhospital.com/specialities</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/specialities/fertility-ivf</loc>
+    <loc>https://devibaisuperspecialityhospital.com/specialities/fertility-ivf</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://devibaihospital.com/assets/facilities/fertility-ivf-centre.jpg</image:loc>
+      <image:loc>https://devibaisuperspecialityhospital.com/assets/facilities/fertility-ivf-centre.jpg</image:loc>
       <image:title>Best Fertility Hospital and IVF Centre in Nirmal - Dr Chandrika Fertility Centre</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://devibaihospital.com/specialities/obstetrics-gynecology</loc>
+    <loc>https://devibaisuperspecialityhospital.com/specialities/obstetrics-gynecology</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/specialities/general-medicine</loc>
+    <loc>https://devibaisuperspecialityhospital.com/specialities/general-medicine</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/specialities/pediatrics-neonatology</loc>
+    <loc>https://devibaisuperspecialityhospital.com/specialities/pediatrics-neonatology</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/specialities/general-surgery</loc>
+    <loc>https://devibaisuperspecialityhospital.com/specialities/general-surgery</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/specialities/laparoscopic-surgery</loc>
+    <loc>https://devibaisuperspecialityhospital.com/specialities/laparoscopic-surgery</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/specialities/urology</loc>
+    <loc>https://devibaisuperspecialityhospital.com/specialities/urology</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -183,53 +183,53 @@
 
   <!-- Healthcare Services -->
   <url>
-    <loc>https://devibaihospital.com/services</loc>
+    <loc>https://devibaisuperspecialityhospital.com/services</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/services/fertility</loc>
+    <loc>https://devibaisuperspecialityhospital.com/services/fertility</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://devibaihospital.com/assets/facilities/fertility-ivf-centre.jpg</image:loc>
+      <image:loc>https://devibaisuperspecialityhospital.com/assets/facilities/fertility-ivf-centre.jpg</image:loc>
       <image:title>Best Fertility Hospital and IVF Centre Services in Nirmal</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://devibaihospital.com/services/maternity</loc>
+    <loc>https://devibaisuperspecialityhospital.com/services/maternity</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/services/pediatric</loc>
+    <loc>https://devibaisuperspecialityhospital.com/services/pediatric</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/services/surgical</loc>
+    <loc>https://devibaisuperspecialityhospital.com/services/surgical</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/services/laparoscopic</loc>
+    <loc>https://devibaisuperspecialityhospital.com/services/laparoscopic</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/services/emergency</loc>
+    <loc>https://devibaisuperspecialityhospital.com/services/emergency</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/services/critical-care</loc>
+    <loc>https://devibaisuperspecialityhospital.com/services/critical-care</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -237,13 +237,13 @@
 
   <!-- Policies and Legal -->
   <url>
-    <loc>https://devibaihospital.com/privacy-policy</loc>
+    <loc>https://devibaisuperspecialityhospital.com/privacy-policy</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://devibaihospital.com/terms</loc>
+    <loc>https://devibaisuperspecialityhospital.com/terms</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

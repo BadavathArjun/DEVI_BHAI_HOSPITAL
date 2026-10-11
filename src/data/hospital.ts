@@ -1,7 +1,9 @@
 export const HOSPITAL_INFO = {
   name: "DEVIBAI SUPER SPECIALITY HOSPITAL",
   shortName: "Devibai Hospital",
+  website: "https://devibaisuperspecialityhospital.com",
   alternateNames: [
+    "DeviBai Hospital",
     "Devi Bai Hospital",
     "Devi Bai Super Speciality Hospital",
     "Devi Bai Super Specility Hospital Nirmal",

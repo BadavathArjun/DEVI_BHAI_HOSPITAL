@@ -16,7 +16,7 @@ export const ContactPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Contact Devi Bai Hospital Nirmal | Location, Phone & Directions"
+        title="Contact DeviBai Super Speciality Hospital | Location & Directions"
         description="Contact Devi Bai Super Speciality Hospital (Devibai Hospital) in Nirmal, Telangana. Located beside DS Mart, Mancherial Road. 24/7 Phone: 9092916222, WhatsApp: 9092915222."
         keywords="devi bai hospital contact number, devibai super speciality hospital nirmal phone, devi bhai hospital nirmal, hospital beside ds mart mancherial road nirmal, best hospital in nirmal phone"
         canonicalPath="/contact"

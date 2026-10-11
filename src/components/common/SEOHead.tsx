@@ -19,12 +19,12 @@ export interface SEOHeadProps {
 }
 
 const DEFAULT_DESCRIPTION =
-  "Devibai Super Speciality Hospital (Devi Bai Hospital) is the best hospital and top fertility & IVF centre in Nirmal, Telangana. 24/7 emergency care, maternity, laparoscopic surgery & ICU facilities beside DS Mart, Mancherial Road.";
+  "Visit the official website of DeviBai Super Speciality Hospital in Nirmal, Telangana. Explore hospital services, doctors, location and contact information.";
 
 const DEFAULT_KEYWORDS =
   "best fertility hospital in nirmal, best fertility center in nirmal, best hospital in nirmal, devi bai hospital, devi bai hospital nirmal, devi bai super specility hospital nirmal, devibai super speciality hospital nirmal, devi bhai hospital, devi bhai super speciality hospital, best ivf center in nirmal, fertility clinic in nirmal, test tube baby center nirmal, dr chandrika fertility centre nirmal, dr chandrika nirmal, multi speciality hospital in nirmal, maternity hospital nirmal, gynecologist nirmal dr chandrika, laparoscopic surgery nirmal, emergency hospital nirmal 24/7, aarogyasri hospital nirmal, hospital beside ds mart mancherial road nirmal";
 
-const BASE_URL = 'https://devibaihospital.com';
+const BASE_URL = 'https://devibaisuperspecialityhospital.com';
 const DEFAULT_IMAGE = `${BASE_URL}/assets/branding/homepage-hero.jpg`;
 
 /**
@@ -46,9 +46,10 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   useEffect(() => {
     // 1. Title
     const cleanTitle = title.trim();
-    const fullTitle = cleanTitle.includes('Devibai') || cleanTitle.includes('Devi Bai')
+    const isBrandPresent = /devi\s*b[ah]i/i.test(cleanTitle);
+    const fullTitle = isBrandPresent
       ? cleanTitle
-      : `${cleanTitle} | Devibai Super Speciality Hospital Nirmal`;
+      : `${cleanTitle} | DEVIBAI SUPER SPECIALITY HOSPITAL`;
     document.title = fullTitle;
 
     // Helper to find or create meta tag
@@ -142,10 +143,16 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         document.head.appendChild(scriptTag);
       }
 
+      // Clean each item to remove inner @context when wrapped in @graph
+      const sanitizedItems = schemaGraphItems.map((item) => {
+        const { '@context': _, ...rest } = item;
+        return rest;
+      });
+
       // Structure as Schema.org graph
       const graphData = {
         '@context': 'https://schema.org',
-        '@graph': schemaGraphItems
+        '@graph': sanitizedItems
       };
       scriptTag.text = JSON.stringify(graphData, null, 2);
     } else if (scriptTag) {

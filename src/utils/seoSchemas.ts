@@ -1,7 +1,33 @@
 import { Doctor, Speciality, HospitalService, FAQ } from '../types';
 import { HOSPITAL_INFO } from '../data/hospital';
 
-const BASE_URL = 'https://devibaihospital.com';
+const BASE_URL = 'https://devibaisuperspecialityhospital.com';
+
+/**
+ * Schema.org WebSite JSON-LD Schema for Google Search & Site Names
+ */
+export const generateWebSiteSchema = () => {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${BASE_URL}/#website`,
+    url: `${BASE_URL}/`,
+    name: 'DEVIBAI SUPER SPECIALITY HOSPITAL',
+    alternateName: [
+      'DeviBai Hospital',
+      'Devi Bai Hospital',
+      'Devibai Super Speciality Hospital',
+      'Devi Bhai Hospital',
+      'Devi Bai Super Speciality Hospital Nirmal'
+    ],
+    publisher: {
+      '@type': 'Hospital',
+      '@id': `${BASE_URL}/#hospital`,
+      name: HOSPITAL_INFO.name,
+      url: `${BASE_URL}/`
+    }
+  };
+};
 
 /**
  * Standard BreadcrumbList Schema for Google Search Rich Results

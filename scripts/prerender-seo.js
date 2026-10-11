@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const BASE_URL = 'https://devibaihospital.com';
+const BASE_URL = 'https://devibaisuperspecialityhospital.com';
 const DIST_DIR = path.resolve(__dirname, '../dist');
 const BASE_HTML_PATH = path.join(DIST_DIR, 'index.html');
 
@@ -18,7 +18,7 @@ const baseHtmlTemplate = fs.readFileSync(BASE_HTML_PATH, 'utf8');
 
 // Hospital Metadata
 const HOSPITAL_INFO = {
-  name: "Devibai Super Speciality Hospital",
+  name: "DEVIBAI SUPER SPECIALITY HOSPITAL",
   address: "Beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal – 504106, Telangana, India",
   phone: "+91 9092916222",
   emergencyPhone: "+91 9092916222",
@@ -29,26 +29,27 @@ const HOSPITAL_INFO = {
 const ROUTES = [
   {
     path: '/',
-    title: 'Devibai Super Speciality Hospital Nirmal | Best Hospital & Fertility Centre in Nirmal',
-    description: 'Devibai Super Speciality Hospital (Devi Bai Hospital) is the best hospital and top fertility & IVF centre in Nirmal, Telangana. 24/7 emergency care, maternity, laparoscopic surgery & ICU facilities beside DS Mart, Mancherial Road.',
-    keywords: 'best fertility hospital in nirmal, best fertility center in nirmal, best hospital in nirmal, devi bai hospital, devi bai hospital nirmal, devi bai super specility hospital nirmal, devibai super speciality hospital nirmal, devi bhai hospital, devi bhai super speciality hospital, best ivf center in nirmal, fertility clinic in nirmal, test tube baby center nirmal, dr chandrika fertility centre nirmal, dr chandrika nirmal, multi speciality hospital in nirmal, maternity hospital nirmal, gynecologist nirmal dr chandrika, laparoscopic surgery nirmal, emergency hospital nirmal 24/7, aarogyasri hospital nirmal, hospital beside ds mart mancherial road nirmal',
+    title: 'DEVIBAI SUPER SPECIALITY HOSPITAL | Nirmal, Telangana',
+    description: 'Visit the official website of DeviBai Super Speciality Hospital in Nirmal, Telangana. Explore hospital services, doctors, location and contact information.',
+    keywords: 'devi bai hospital, devibai super speciality hospital, devibai hospital nirmal, devi bai hospital nirmal, devi bhai hospital, hospital in nirmal, best hospital in nirmal, best fertility center in nirmal, dr chandrika fertility centre nirmal, maternity hospital nirmal, emergency hospital nirmal 24/7, laparoscopic surgery nirmal',
     image: `${BASE_URL}/assets/branding/homepage-hero.jpg`,
     schema: {
       '@type': 'WebSite',
       '@id': `${BASE_URL}/#website`,
-      url: BASE_URL,
-      name: 'Devibai Super Speciality Hospital',
+      url: `${BASE_URL}/`,
+      name: 'DEVIBAI SUPER SPECIALITY HOSPITAL',
       alternateName: [
+        'DeviBai Hospital',
         'Devi Bai Hospital',
-        'Devi Bai Super Speciality Hospital Nirmal',
+        'Devibai Super Speciality Hospital',
         'Devi Bhai Hospital',
-        'Best Hospital in Nirmal',
-        'Best Fertility Hospital in Nirmal'
+        'Devi Bai Super Speciality Hospital Nirmal'
       ],
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: `${BASE_URL}/doctors?search={search_term_string}`,
-        'query-input': 'required name=search_term_string'
+      publisher: {
+        '@type': 'Hospital',
+        '@id': `${BASE_URL}/#hospital`,
+        name: 'DEVIBAI SUPER SPECIALITY HOSPITAL',
+        url: `${BASE_URL}/`
       }
     }
   },
@@ -356,7 +357,7 @@ const ROUTES = [
   },
   {
     path: '/contact',
-    title: 'Contact Devi Bai Hospital Nirmal | Location, Phone & Directions',
+    title: 'Contact DeviBai Super Speciality Hospital | Location & Directions',
     description: 'Contact Devi Bai Super Speciality Hospital (Devibai Hospital) in Nirmal, Telangana. Located beside DS Mart, Mancherial Road. 24/7 Phone: 9092916222, WhatsApp: 9092915222.',
     keywords: 'devi bai hospital contact number, devibai super speciality hospital nirmal phone, devi bhai hospital nirmal, hospital beside ds mart mancherial road nirmal, best hospital in nirmal phone',
     breadcrumbs: [{ name: 'Contact & Directions' }]
@@ -462,13 +463,22 @@ for (const route of ROUTES) {
   }
 
   if (route.schema) {
-    graphItems.push(route.schema);
+    if (Array.isArray(route.schema)) {
+      graphItems.push(...route.schema);
+    } else {
+      graphItems.push(route.schema);
+    }
   }
 
   if (graphItems.length > 0) {
+    const sanitizedItems = graphItems.map(item => {
+      const { '@context': _, ...rest } = item;
+      return rest;
+    });
+
     const pageSchemaJson = JSON.stringify({
       '@context': 'https://schema.org',
-      '@graph': graphItems
+      '@graph': sanitizedItems
     }, null, 2);
 
     const schemaScriptTag = `\n    <!-- Page-Specific Structured Data JSON-LD -->\n    <script id="page-schema-ld-json" type="application/ld+json">\n${pageSchemaJson}\n    </script>\n  </head>`;
@@ -479,10 +489,19 @@ for (const route of ROUTES) {
   if (route.path === '/') {
     fs.writeFileSync(BASE_HTML_PATH, pageHtml, 'utf8');
   } else {
-    const routeDir = path.join(DIST_DIR, route.path.replace(/^\//, ''));
+    const cleanPath = route.path.replace(/^\//, '');
+    const routeDir = path.join(DIST_DIR, cleanPath);
     fs.mkdirSync(routeDir, { recursive: true });
     const targetFile = path.join(routeDir, 'index.html');
     fs.writeFileSync(targetFile, pageHtml, 'utf8');
+
+    // Also write clean-path.html (e.g. dist/contact.html) so static hosting directly resolves clean URLs without trailing slashes
+    const htmlFile = path.join(DIST_DIR, `${cleanPath}.html`);
+    const htmlDir = path.dirname(htmlFile);
+    if (!fs.existsSync(htmlDir)) {
+      fs.mkdirSync(htmlDir, { recursive: true });
+    }
+    fs.writeFileSync(htmlFile, pageHtml, 'utf8');
   }
 
   generatedCount++;
