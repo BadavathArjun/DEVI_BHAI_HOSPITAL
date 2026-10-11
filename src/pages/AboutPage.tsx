@@ -12,6 +12,7 @@ import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { ReviewsSection } from '../components/common/ReviewsSection';
 import { SEOHead } from '../components/common/SEOHead';
+import heroBannerImg from '../assets/hospital-building-banner.jpg';
 
 export const AboutPage: React.FC = () => {
   return (
@@ -28,9 +29,9 @@ export const AboutPage: React.FC = () => {
       <section className="bg-navy-950 text-white py-14 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/branding/homepage-hero.jpg"
-            alt="Devibai Hospital Facility"
-            className="w-full h-full object-cover opacity-25 filter blur-[1px]"
+            src={heroBannerImg}
+            alt="Devibai Super Speciality Hospital Building Campus"
+            className="w-full h-full object-cover opacity-35 filter"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-900/80"></div>
         </div>

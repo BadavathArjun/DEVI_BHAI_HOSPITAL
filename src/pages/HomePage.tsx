@@ -34,6 +34,7 @@ import { AppointmentForm } from '../components/forms/AppointmentForm';
 import { ReviewsSection } from '../components/common/ReviewsSection';
 import { MedicalDisclaimer } from '../components/common/MedicalDisclaimer';
 import { SEOHead } from '../components/common/SEOHead';
+import heroBannerImg from '../assets/hospital-building-banner.jpg';
 
 export const HomePage: React.FC = () => {
   return (
@@ -45,60 +46,63 @@ export const HomePage: React.FC = () => {
       />
 
       {/* ==================================================
-          SECTION 3 — HERO
+          SECTION 3 — HERO BACKGROUND BANNER
           ================================================== */}
-      <section className="relative bg-navy-950 text-white overflow-hidden py-16 sm:py-24 lg:py-32">
-        {/* Background Image with Medical Gradient Overlay */}
+      <section className="relative min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] flex items-center overflow-hidden py-12 sm:py-16 lg:py-20 bg-slate-900">
+        {/* Full-Bleed Hospital Exterior Background Banner */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/branding/homepage-hero.jpg"
-            alt="Devibai Super Speciality & Critical Care Centre and Dr. Chandrika Fertility Centre Building"
-            className="w-full h-full object-cover object-[55%_center] sm:object-[60%_center] lg:object-[65%_center]"
+            src={heroBannerImg}
+            alt="Devibai Super Speciality & Critical Care Centre and Dr. Chandrika Fertility Centre Building Campus"
+            className="w-full h-full object-cover object-[center_35%] sm:object-[center_30%] lg:object-[center_center]"
+            loading="eager"
+            fetchPriority="high"
           />
-          {/* Multi-layer gradient: high contrast on left for readability, soft transparency on right to showcase modern hospital facade & pharmacy */}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/85 to-navy-950/35 lg:from-navy-950/95 lg:via-navy-950/70 lg:via-45% lg:to-navy-950/15"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-950/70 via-transparent to-navy-950/80"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(#0d9488_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none"></div>
+          {/* Natural lighting scrim: Keeps building & sky daytime-bright, adds subtle left shading for card contrast */}
+          <div className="absolute inset-0 bg-navy-950/20 sm:bg-navy-950/15 backdrop-brightness-[0.94]"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950/80 via-navy-950/40 to-transparent sm:via-35%"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-black/15"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-6">
+        {/* Hero Content with Frosted Glassmorphism Panel */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-xl lg:max-w-2xl bg-navy-950/85 sm:bg-navy-950/80 backdrop-blur-md p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl border border-white/20 shadow-2xl space-y-5 text-white">
             {/* Top Tagline Badge */}
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/40 text-teal-300 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-sm">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/40 text-teal-300 text-xs sm:text-sm font-semibold tracking-wide">
               <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
               <span>24/7 Emergency • Pharmacy • Laboratory • ICU Services</span>
             </div>
 
             {/* Hospital Main Title */}
             <div>
-              <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white tracking-tight leading-[1.1]">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight leading-[1.1]">
                 DEVIBAI <span className="text-teal-400">SUPER SPECIALITY</span> HOSPITAL
               </h1>
-              <p className="mt-2.5 sm:mt-3 text-lg sm:text-2xl text-teal-200 font-medium font-heading">
+              <p className="mt-2 text-base sm:text-xl text-teal-200 font-medium font-heading">
                 "{HOSPITAL_INFO.tagline}"
               </p>
             </div>
 
             {/* Supporting Text */}
-            <p className="text-sm sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal">
+            <p className="text-xs sm:text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
               Comprehensive medical, surgical, maternity, fertility, pediatric and emergency healthcare under one roof in Nirmal, Telangana.
             </p>
 
             {/* Action Buttons */}
-            <div className="pt-2 flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4 items-stretch xs:items-center">
+            <div className="pt-1 flex flex-col xs:flex-row flex-wrap gap-2.5 sm:gap-3.5 items-stretch xs:items-center">
               <Link
                 to="/appointment"
                 id="hero-book-appointment-btn"
-                className="btn-teal text-sm sm:text-base py-3 sm:py-3.5 px-5 sm:px-6 font-bold shadow-lg shadow-teal-900/30 w-full xs:w-auto text-center justify-center"
+                className="btn-teal text-xs sm:text-sm py-3 px-5 font-bold shadow-lg shadow-teal-900/30 w-full xs:w-auto text-center justify-center"
               >
-                <Calendar className="w-5 h-5 mr-2" />
+                <Calendar className="w-4 h-4 mr-2" />
                 <span>BOOK AN APPOINTMENT</span>
               </Link>
 
               <a
                 href={HOSPITAL_INFO.links.callPrimary}
                 id="hero-call-now-btn"
-                className="btn-outline border-white/40 text-white hover:bg-white/10 hover:border-white text-sm sm:text-base py-3 sm:py-3.5 px-5 sm:px-6 font-semibold w-full xs:w-auto text-center justify-center"
+                className="btn-outline border-white/40 text-white hover:bg-white/10 hover:border-white text-xs sm:text-sm py-3 px-5 font-semibold w-full xs:w-auto text-center justify-center"
               >
                 <Phone className="w-4 h-4 mr-2 text-teal-300" />
                 <span>CALL NOW</span>
@@ -109,7 +113,7 @@ export const HomePage: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-whatsapp-btn"
-                className="inline-flex items-center justify-center px-5 py-3 sm:py-3.5 rounded-lg font-semibold text-white bg-emerald-600 hover:bg-emerald-700 transition-all duration-200 text-sm sm:text-base shadow-sm min-h-[44px] w-full xs:w-auto text-center"
+                className="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold text-white bg-emerald-600 hover:bg-emerald-700 transition-all duration-200 text-xs sm:text-sm shadow-sm min-h-[44px] w-full xs:w-auto text-center"
               >
                 <MessageSquare className="w-4 h-4 mr-2" />
                 <span>WHATSAPP US</span>
@@ -117,22 +121,22 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* Hero Social Media Links */}
-            <div className="pt-2 flex flex-wrap items-center gap-3">
-              <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-200 flex items-center">
-                <span className="w-2 h-2 rounded-full bg-teal-400 mr-2 animate-pulse"></span>
+            <div className="pt-2 flex flex-wrap items-center gap-2.5 border-t border-white/15">
+              <span className="text-xs font-semibold tracking-wide text-slate-300 flex items-center">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-400 mr-1.5 animate-pulse"></span>
                 Follow Us:
               </span>
-              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+              <div className="flex flex-wrap items-center gap-2">
                 <a
                   href={HOSPITAL_INFO.links.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   id="hero-instagram-btn"
                   aria-label="Follow Dr. Chandrika on Instagram"
-                  className="group inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-white/10 hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] text-white border border-white/20 hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 active:scale-95"
+                  className="group inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] text-white border border-white/20 transition-all duration-300 text-xs font-medium"
                 >
-                  <InstagramIcon className="w-4 h-4 text-pink-300 group-hover:text-white transition-colors" />
-                  <span className="text-xs sm:text-sm font-semibold">Instagram</span>
+                  <InstagramIcon className="w-3.5 h-3.5 text-pink-300 group-hover:text-white transition-colors" />
+                  <span>Instagram</span>
                 </a>
 
                 <a
@@ -141,10 +145,10 @@ export const HomePage: React.FC = () => {
                   rel="noopener noreferrer"
                   id="hero-youtube-btn"
                   aria-label="Watch Devibai Hospital on YouTube"
-                  className="group inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-white/10 hover:bg-[#FF0000] text-white border border-white/20 hover:border-[#FF0000] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 active:scale-95"
+                  className="group inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#FF0000] text-white border border-white/20 transition-all duration-300 text-xs font-medium"
                 >
-                  <YoutubeIcon className="w-4 h-4 text-red-400 group-hover:text-white transition-colors" />
-                  <span className="text-xs sm:text-sm font-semibold">YouTube</span>
+                  <YoutubeIcon className="w-3.5 h-3.5 text-red-400 group-hover:text-white transition-colors" />
+                  <span>YouTube</span>
                 </a>
 
                 <a
@@ -153,23 +157,23 @@ export const HomePage: React.FC = () => {
                   rel="noopener noreferrer"
                   id="hero-facebook-btn"
                   aria-label="Follow Devibai Hospital on Facebook"
-                  className="group inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-white/10 hover:bg-[#1877F2] text-white border border-white/20 hover:border-[#1877F2] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 active:scale-95"
+                  className="group inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#1877F2] text-white border border-white/20 transition-all duration-300 text-xs font-medium"
                 >
-                  <FacebookIcon className="w-4 h-4 text-blue-400 group-hover:text-white transition-colors" />
-                  <span className="text-xs sm:text-sm font-semibold">Facebook</span>
+                  <FacebookIcon className="w-3.5 h-3.5 text-blue-400 group-hover:text-white transition-colors" />
+                  <span>Facebook</span>
                 </a>
               </div>
             </div>
 
-            {/* Secondary Highlight Bar */}
-            <div className="pt-3 flex items-center space-x-6 text-xs sm:text-sm text-slate-300">
-              <div className="flex items-center space-x-2">
-                <AlertTriangle className="w-4 h-4 text-emergency-500 flex-shrink-0" />
-                <span className="font-semibold text-white">24/7 Emergency & Critical Care</span>
+            {/* Emergency & Address Bar */}
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-slate-300 border-t border-white/10">
+              <div className="flex items-center space-x-1.5 text-red-300 font-semibold">
+                <AlertTriangle className="w-3.5 h-3.5 text-emergency-500 flex-shrink-0" />
+                <span>24/7 Critical Care & Emergency</span>
               </div>
-              <div className="hidden sm:flex items-center space-x-2 text-slate-300">
-                <MapPin className="w-4 h-4 text-teal-400 flex-shrink-0" />
-                <span>Beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal</span>
+              <div className="hidden sm:flex items-center space-x-1.5 text-slate-300">
+                <MapPin className="w-3.5 h-3.5 text-teal-400 flex-shrink-0" />
+                <span>Beside DS Mart, Mancherial Road, Nirmal</span>
               </div>
             </div>
           </div>
