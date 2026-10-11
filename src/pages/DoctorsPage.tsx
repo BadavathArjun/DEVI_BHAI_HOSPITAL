@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Filter, Stethoscope } from 'lucide-react';
-import { DOCTORS } from '../data/doctors';
+import { doctorService } from '../services/doctorService';
+import { Doctor } from '../types';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { DoctorCard } from '../components/cards/DoctorCard';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { SEOHead } from '../components/common/SEOHead';
 
 export const DoctorsPage: React.FC = () => {
+  const [doctors, setDoctors] = useState<Doctor[]>(() => doctorService.getActiveDoctors());
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSpeciality, setSelectedSpeciality] = useState('All');
+
+  useEffect(() => {
+    const unsubscribe = doctorService.onUpdate(() => {
+      setDoctors(doctorService.getActiveDoctors());
+    });
+    return unsubscribe;
+  }, []);
 
   const specialitiesList = [
     'All',
@@ -19,7 +28,7 @@ export const DoctorsPage: React.FC = () => {
     'Urology'
   ];
 
-  const filteredDoctors = DOCTORS.filter((doc) => {
+  const filteredDoctors = doctors.filter((doc) => {
     const matchesSearch =
       doc.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       doc.specialization.toLowerCase().includes(searchTerm.toLowerCase()) ||

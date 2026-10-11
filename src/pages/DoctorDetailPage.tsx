@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { 
   Award, 
@@ -8,7 +8,7 @@ import {
   Clock,
   ArrowRight 
 } from 'lucide-react';
-import { DOCTORS } from '../data/doctors';
+import { doctorService } from '../services/doctorService';
 import { SPECIALITIES } from '../data/specialities';
 import { HOSPITAL_INFO } from '../data/hospital';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
@@ -16,7 +16,19 @@ import { SEOHead } from '../components/common/SEOHead';
 
 export const DoctorDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const doctor = DOCTORS.find((d) => d.slug === slug);
+  const [doctor, setDoctor] = useState(() => (slug ? doctorService.getDoctorBySlug(slug) : undefined));
+
+  useEffect(() => {
+    if (slug) {
+      setDoctor(doctorService.getDoctorBySlug(slug));
+    }
+    const unsubscribe = doctorService.onUpdate(() => {
+      if (slug) {
+        setDoctor(doctorService.getDoctorBySlug(slug));
+      }
+    });
+    return unsubscribe;
+  }, [slug]);
 
   if (!doctor) {
     return <Navigate to="/doctors" replace />;

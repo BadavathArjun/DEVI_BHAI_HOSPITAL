@@ -6,7 +6,7 @@ import {
   AlertCircle, 
   MessageSquare
 } from 'lucide-react';
-import { DOCTORS } from '../../data/doctors';
+import { doctorService } from '../../services/doctorService';
 import { appointmentService } from '../../services/appointmentService';
 import { AppointmentRequest } from '../../types';
 
@@ -74,7 +74,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
       setSubmittedAppointment(res.data);
       // Auto-open WhatsApp with appointment details to official number 9092915222
       const docName = res.data.preferredDoctor
-        ? (DOCTORS.find(d => d.slug === res.data?.preferredDoctor)?.name || res.data.preferredDoctor)
+        ? (doctorService.getDoctorBySlug(res.data.preferredDoctor)?.name || res.data.preferredDoctor)
         : undefined;
 
       const lines = [
@@ -148,7 +148,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
             )}
             {submittedAppointment.preferredDoctor && (
               <div>
-                <strong>Preferred Doctor:</strong> {DOCTORS.find(d => d.slug === submittedAppointment.preferredDoctor)?.name || submittedAppointment.preferredDoctor}
+                <strong>Preferred Doctor:</strong> {doctorService.getDoctorBySlug(submittedAppointment.preferredDoctor)?.name || submittedAppointment.preferredDoctor}
               </div>
             )}
           </div>

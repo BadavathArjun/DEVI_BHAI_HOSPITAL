@@ -73,6 +73,17 @@ export const appointmentService = {
     } catch {
       return false;
     }
+  },
+
+  deleteAppointment(id: string): boolean {
+    try {
+      const list = this.getStoredAppointments();
+      const updated = list.filter(item => item.id !== id);
+      localStorage.setItem(APPOINTMENTS_STORAGE_KEY, JSON.stringify(updated));
+      return true;
+    } catch {
+      return false;
+    }
   }
 };
 
@@ -115,6 +126,18 @@ export const contactService = {
       return stored ? JSON.parse(stored) : [];
     } catch {
       return [];
+    }
+  },
+
+  deleteMessage(id: string): boolean {
+    try {
+      const stored = localStorage.getItem(MESSAGES_STORAGE_KEY);
+      const list: ContactMessage[] = stored ? JSON.parse(stored) : [];
+      const updated = list.filter(m => m.id !== id);
+      localStorage.setItem(MESSAGES_STORAGE_KEY, JSON.stringify(updated));
+      return true;
+    } catch {
+      return false;
     }
   }
 };

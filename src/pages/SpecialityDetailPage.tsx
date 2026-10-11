@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { CheckCircle2, Calendar, Phone, ArrowRight, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { SPECIALITIES } from '../data/specialities';
-import { DOCTORS } from '../data/doctors';
+import { doctorService } from '../services/doctorService';
 import { HOSPITAL_INFO } from '../data/hospital';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { DoctorCard } from '../components/cards/DoctorCard';
@@ -11,13 +11,20 @@ import { SEOHead } from '../components/common/SEOHead';
 
 export const SpecialityDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const [doctorsList, setDoctorsList] = useState(() => doctorService.getDoctors());
+
+  useEffect(() => {
+    const unsubscribe = doctorService.onUpdate((docs) => setDoctorsList(docs));
+    return unsubscribe;
+  }, []);
+
   const speciality = SPECIALITIES.find((s) => s.slug === slug);
 
   if (!speciality) {
     return <Navigate to="/specialities" replace />;
   }
 
-  const assignedDoctors = DOCTORS.filter((d) =>
+  const assignedDoctors = doctorsList.filter((d) =>
     speciality.doctorIds.includes(d.id)
   );
 
