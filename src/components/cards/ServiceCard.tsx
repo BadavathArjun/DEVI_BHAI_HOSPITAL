@@ -18,12 +18,18 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     >
       {/* Optional image header */}
       <div className="relative h-44 overflow-hidden bg-slate-100">
-        <img
-          src={service.image}
-          alt={`${service.title} - Devibai Super Speciality Hospital Nirmal`}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          loading="lazy"
-        />
+        <picture>
+          <source srcSet={service.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+          <img
+            src={service.image}
+            alt={`${service.title} - Devibai Super Speciality Hospital Nirmal`}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="350"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/20 to-transparent"></div>
         <div className="absolute bottom-3 left-4 right-4">
           <span className="inline-block bg-teal-600/90 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full mb-1">

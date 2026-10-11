@@ -12,16 +12,22 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
     <div className="medical-card overflow-hidden flex flex-col group h-full">
       {/* Photo with subtle zoom hover */}
       <div className="relative aspect-[4/3] sm:aspect-[1/1] overflow-hidden bg-slate-100 border-b border-slate-100">
-        <img
-          src={doctor.photo}
-          alt={`${doctor.name} - ${doctor.specialization} at Devibai Hospital Nirmal`}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
-          loading="lazy"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.src = '/assets/branding/db-logo.jpg';
-          }}
-        />
+        <picture>
+          <source srcSet={doctor.photo.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+          <img
+            src={doctor.photo}
+            alt={`${doctor.name} - ${doctor.specialization} at Devibai Hospital Nirmal`}
+            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+            decoding="async"
+            width="400"
+            height="400"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = '/assets/branding/db-logo.jpg';
+            }}
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
           <span className="text-white text-xs font-semibold flex items-center">
             View Complete Profile <ArrowRight className="w-3.5 h-3.5 ml-1" />

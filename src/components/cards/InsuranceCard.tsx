@@ -19,16 +19,22 @@ export const InsuranceCard: React.FC<InsuranceCardProps> = ({ provider }) => {
       <div>
         {/* Logo Container */}
         <div className="h-20 sm:h-24 w-full bg-white rounded-lg p-2 flex items-center justify-center border border-slate-200/70 shadow-sm overflow-hidden mb-3 sm:mb-4">
-          <img
-            src={provider.logo}
-            alt={`${provider.name} Logo`}
-            className={`max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200 ${provider.id === 'galaxy' ? 'rounded' : ''}`}
-            loading="lazy"
-            onError={(e) => {
-              const target = e.target as HTMLElement;
-              target.style.display = 'none';
-            }}
-          />
+          <picture>
+            <source srcSet={provider.logo.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+            <img
+              src={provider.logo}
+              alt={`${provider.name} Logo`}
+              className={`max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200 ${provider.id === 'galaxy' ? 'rounded' : ''}`}
+              loading="lazy"
+              decoding="async"
+              width="180"
+              height="80"
+              onError={(e) => {
+                const target = e.target as HTMLElement;
+                target.style.display = 'none';
+              }}
+            />
+          </picture>
         </div>
 
         {/* Title & Type Badge */}

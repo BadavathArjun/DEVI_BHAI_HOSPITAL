@@ -10,12 +10,18 @@ export const FacilityCard: React.FC<FacilityCardProps> = ({ facility }) => {
   return (
     <div className="medical-card overflow-hidden flex flex-col group hover:-translate-y-1 transition-all duration-300">
       <div className="relative h-48 overflow-hidden bg-slate-100">
-        <img
-          src={facility.image}
-          alt={`${facility.title} - Devibai Super Speciality Hospital Nirmal`}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          loading="lazy"
-        />
+        <picture>
+          <source srcSet={facility.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+          <img
+            src={facility.image}
+            alt={`${facility.title} - Devibai Super Speciality Hospital Nirmal`}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="350"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent"></div>
         {facility.badge && (
           <div className="absolute top-3 right-3 bg-teal-700/90 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full backdrop-blur-sm shadow-sm">

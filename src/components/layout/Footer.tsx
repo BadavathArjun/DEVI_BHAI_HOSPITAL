@@ -16,11 +16,18 @@ export const Footer: React.FC = () => {
               className="inline-block bg-white px-3.5 py-2 rounded-xl shadow-md border border-slate-100/10 group hover:opacity-95 transition-opacity"
               aria-label="Devibai Super Speciality Hospital Homepage"
             >
-              <img
-                src="/assets/branding/hospital-logo.png"
-                alt="Devibai Super Speciality Hospital"
-                className="h-11 sm:h-12 w-auto object-contain"
-              />
+              <picture>
+                <source srcSet="/assets/branding/hospital-logo.webp" type="image/webp" />
+                <img
+                  src="/assets/branding/hospital-logo.png"
+                  alt="Devibai Super Speciality Hospital"
+                  width="200"
+                  height="48"
+                  className="h-11 sm:h-12 w-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
             </Link>
 
             <p className="text-sm text-slate-300 italic">

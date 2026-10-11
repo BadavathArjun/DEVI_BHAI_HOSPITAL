@@ -68,11 +68,18 @@ export const Navbar: React.FC = () => {
             className="flex items-center group focus-visible:ring-2 focus-visible:ring-teal-600 rounded-lg py-0.5"
             aria-label="Devibai Super Speciality Hospital Homepage"
           >
-            <img
-              src="/assets/branding/hospital-logo.png"
-              alt="Devibai Super Speciality Hospital"
-              className="h-10 xs:h-11 sm:h-12 md:h-14 w-auto max-w-[160px] xs:max-w-[200px] sm:max-w-none object-contain transition-transform duration-200 group-hover:scale-[1.02]"
-            />
+            <picture>
+              <source srcSet="/assets/branding/hospital-logo.webp" type="image/webp" />
+              <img
+                src="/assets/branding/hospital-logo.png"
+                alt="Devibai Super Speciality Hospital"
+                width="220"
+                height="56"
+                className="h-10 xs:h-11 sm:h-12 md:h-14 w-auto max-w-[160px] xs:max-w-[200px] sm:max-w-none object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+                loading="eager"
+                decoding="sync"
+              />
+            </picture>
           </Link>
 
           {/* Desktop Navigation Links */}

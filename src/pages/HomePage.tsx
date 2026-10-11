@@ -22,20 +22,19 @@ import { SPECIALITIES } from '../data/specialities';
 import { FACILITIES } from '../data/facilities';
 import { INSURANCE_PROVIDERS, INSURANCE_DISCLAIMER, INSURANCE_COMING_SOON } from '../data/insurance';
 import { FAQS } from '../data/faqs';
-import { galleryService } from '../services/galleryService';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { DoctorCard } from '../components/cards/DoctorCard';
 import { SpecialityCard } from '../components/cards/SpecialityCard';
 import { FacilityCard } from '../components/cards/FacilityCard';
 import { InsuranceCard } from '../components/cards/InsuranceCard';
-import { GalleryGrid } from '../components/gallery/GalleryGrid';
 import { FAQAccordion } from '../components/common/FAQAccordion';
 import { AppointmentForm } from '../components/forms/AppointmentForm';
 import { ReviewsSection } from '../components/common/ReviewsSection';
 import { MedicalDisclaimer } from '../components/common/MedicalDisclaimer';
 import { SEOHead } from '../components/common/SEOHead';
 import { generateFaqSchema } from '../utils/seoSchemas';
-import heroBannerImg from '../assets/homepage-hero.jpg';
+
+const HomeGallerySection = React.lazy(() => import('../components/home/HomeGallerySection'));
 
 export const HomePage: React.FC = () => {
   return (
@@ -54,13 +53,19 @@ export const HomePage: React.FC = () => {
       <section className="relative bg-navy-950 text-white overflow-hidden py-16 sm:py-24 lg:py-32">
         {/* Background Image with Medical Gradient Overlay */}
         <div className="absolute inset-0 z-0">
-          <img
-            src={heroBannerImg}
-            alt="Devibai Super Speciality Hospital Facility"
-            className="w-full h-full object-cover object-[75%_center] md:object-[80%_center] lg:object-[85%_center]"
-            loading="eager"
-            fetchPriority="high"
-          />
+          <picture>
+            <source srcSet="/assets/branding/homepage-hero.webp" type="image/webp" />
+            <img
+              src="/assets/branding/homepage-hero.jpg"
+              alt="Devibai Super Speciality Hospital Facility"
+              className="w-full h-full object-cover object-[75%_center] md:object-[80%_center] lg:object-[85%_center]"
+              loading="eager"
+              fetchPriority="high"
+              decoding="sync"
+              width="1920"
+              height="1080"
+            />
+          </picture>
           {/* Multi-layer gradient: high contrast on left for readability, soft transparency on right to showcase hospital, ambulance & doctor */}
           <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/85 to-navy-950/40 lg:from-navy-950/95 lg:via-navy-950/75 lg:via-45% lg:to-navy-950/15"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-navy-950/70 via-transparent to-navy-950/80"></div>
@@ -235,12 +240,18 @@ export const HomePage: React.FC = () => {
               className="block relative focus:outline-none focus:ring-4 focus:ring-teal-400/40 rounded-2xl sm:rounded-3xl overflow-hidden"
               title="Dr. Chandrika's Fertility (IVF) Laparoscopic Centre - Devibai Super Speciality Hospital Nirmal"
             >
-              <img
-                src="/assets/branding/fertility-centre-banner.png"
-                alt="Dr. Chandrika's Fertility (IVF) Laparoscopic Centre - సంతాన సాఫల్య కేంద్రం"
-                className="w-full h-auto object-cover block group-hover:scale-[1.01] transition-transform duration-500 rounded-2xl sm:rounded-3xl"
-                loading="eager"
-              />
+              <picture>
+                <source srcSet="/assets/branding/fertility-centre-banner.webp" type="image/webp" />
+                <img
+                  src="/assets/branding/fertility-centre-banner.png"
+                  alt="Dr. Chandrika's Fertility (IVF) Laparoscopic Centre - సంతాన సాఫల్య కేంద్రం"
+                  className="w-full h-auto object-cover block group-hover:scale-[1.01] transition-transform duration-500 rounded-2xl sm:rounded-3xl"
+                  loading="lazy"
+                  decoding="async"
+                  width="1200"
+                  height="400"
+                />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl sm:rounded-3xl" />
               <div className="absolute bottom-3 right-3 sm:bottom-5 sm:right-6 opacity-90 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
                 <span className="inline-flex items-center space-x-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-teal-900/90 hover:bg-teal-900 text-white text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm border border-teal-400/30">
@@ -469,11 +480,18 @@ export const HomePage: React.FC = () => {
             {/* Left: Hospital Image / Visual */}
             <div className="relative group">
               <div className="rounded-2xl overflow-hidden shadow-medical border border-slate-200 bg-white">
-                <img
-                  src="/assets/branding/about-hospital.jpg"
-                  alt="Devibai Super Speciality Hospital Clinical Departments & Facilities"
-                  className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                />
+                <picture>
+                  <source srcSet="/assets/branding/about-hospital.webp" type="image/webp" />
+                  <img
+                    src="/assets/branding/about-hospital.jpg"
+                    alt="Devibai Super Speciality Hospital Clinical Departments & Facilities"
+                    className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
+                    width="800"
+                    height="600"
+                  />
+                </picture>
               </div>
               <div className="absolute bottom-2 right-2 sm:-bottom-6 sm:-right-6 bg-navy-900 text-white p-3.5 sm:p-5 rounded-xl shadow-xl border border-navy-700 max-w-[210px] sm:max-w-[240px]">
                 <div className="text-[10px] sm:text-xs text-teal-300 uppercase font-semibold">Location</div>
@@ -950,12 +968,18 @@ export const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="medical-card overflow-hidden border-navy-200/80 flex flex-col group hover:-translate-y-1 transition-all duration-300">
               <div className="h-48 sm:h-56 overflow-hidden bg-slate-100 relative">
-                <img
-                  src="/assets/facilities/pharmacy-24-7.jpg"
-                  alt="24/7 In-House Pharmacy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
+                <picture>
+                  <source srcSet="/assets/facilities/pharmacy-24-7.webp" type="image/webp" />
+                  <img
+                    src="/assets/facilities/pharmacy-24-7.jpg"
+                    alt="24/7 In-House Pharmacy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="400"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent"></div>
                 <div className="absolute top-3 right-3 bg-navy-900/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
                   Round-the-Clock
@@ -986,12 +1010,18 @@ export const HomePage: React.FC = () => {
 
             <div className="medical-card overflow-hidden border-teal-200/80 flex flex-col group hover:-translate-y-1 transition-all duration-300">
               <div className="h-48 sm:h-56 overflow-hidden bg-slate-100 relative">
-                <img
-                  src="/assets/facilities/diagnostic-laboratory-24-7.jpg"
-                  alt="24/7 Diagnostic Laboratory"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
+                <picture>
+                  <source srcSet="/assets/facilities/diagnostic-laboratory-24-7.webp" type="image/webp" />
+                  <img
+                    src="/assets/facilities/diagnostic-laboratory-24-7.jpg"
+                    alt="24/7 Diagnostic Laboratory"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="400"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent"></div>
                 <div className="absolute top-3 right-3 bg-teal-800/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
                   Fast & Accurate
@@ -1089,28 +1119,11 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ==================================================
-          SECTION 17 — GALLERY
+          SECTION 17 — GALLERY (Lazy Loaded)
           ================================================== */}
-      {galleryService.getGalleryItems().length > 0 && (
-        <section className="py-16 sm:py-24 bg-slate-50 border-y border-slate-200/80">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              badge="Hospital Photos"
-              badgeVariant="teal"
-              title="Hospital Gallery"
-              subtitle="Official imagery of Devibai Super Speciality Hospital, specialist doctors, and clinical care units."
-            />
-
-            <GalleryGrid items={galleryService.getGalleryItems().slice(0, 8)} showCategoryFilter={false} />
-
-            <div className="mt-10 text-center">
-              <Link to="/gallery" className="btn-teal text-sm py-3 px-6">
-                Explore Full Filterable Gallery
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
+      <React.Suspense fallback={null}>
+        <HomeGallerySection />
+      </React.Suspense>
 
       {/* ==================================================
           SECTION 17.5 — PATIENT REVIEWS & GOOGLE RATINGS
