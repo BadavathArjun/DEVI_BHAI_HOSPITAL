@@ -43,4 +43,9 @@ console.log('11. Sitemap URL count check:', (sitemap.match(/<loc>/g) || []).leng
 const robots = fs.readFileSync(path.join(__dirname, '../public/robots.txt'), 'utf8');
 console.log('12. Robots.txt disallow check:', robots.includes('Disallow: /admin/'));
 
+// Favicon check
+const faviconExists = fs.existsSync(path.join(__dirname, '../public/favicon.svg')) && fs.existsSync(path.join(__dirname, '../dist/favicon.svg'));
+const faviconTagCheck = distHtml.includes('rel="icon" type="image/svg+xml" href="/favicon.svg"');
+console.log('13. Favicon SVG check (file & head link):', faviconExists && faviconTagCheck);
+
 console.log('\n--- ALL ADVANCED SEO VERIFICATIONS PASSED ---');
