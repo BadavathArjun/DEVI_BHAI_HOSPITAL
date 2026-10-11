@@ -30,13 +30,26 @@ export const SpecialityDetailPage: React.FC = () => {
   );
 
   const isEmergency = speciality.id === 'emergency-critical-care';
+  const isFertility = speciality.id === 'fertility-ivf';
+
+  const pageTitle = isFertility
+    ? "Best Fertility Hospital & Centre in Nirmal | IVF Clinic | Devibai Hospital"
+    : `${speciality.title} in Nirmal | Devibai Super Speciality Hospital`;
+
+  const pageDescription = isFertility
+    ? "Looking for the best fertility hospital or center in Nirmal? Consult Dr. K. Chandrika (Diploma in ART Germany) at Devibai Super Speciality Hospital for IVF, IUI, PCOD & reproductive care."
+    : `${speciality.shortDesc} Expert clinical consultation and treatments at Devibai Super Speciality Hospital in Nirmal, Telangana.`;
+
+  const pageKeywords = isFertility
+    ? "best fertility hospital in nirmal, best fertility center in nirmal, best ivf center in nirmal, fertility clinic in nirmal, test tube baby center nirmal, dr chandrika fertility nirmal, devi bai hospital fertility, iui treatment nirmal, pcod treatment nirmal"
+    : `${speciality.title} Nirmal, ${speciality.title} hospital Nirmal, best ${speciality.title.toLowerCase()} Nirmal, ${speciality.treatments.slice(0, 5).join(', ')}, Devibai hospital`;
 
   return (
     <div>
       <SEOHead
-        title={`${speciality.title} in Nirmal | Devibai Super Speciality Hospital`}
-        description={`${speciality.shortDesc} Expert clinical consultation and treatments at Devibai Super Speciality Hospital in Nirmal, Telangana.`}
-        keywords={`${speciality.title} Nirmal, ${speciality.title} hospital Nirmal, best ${speciality.title.toLowerCase()} Nirmal, ${speciality.treatments.slice(0, 5).join(', ')}, Devibai hospital`}
+        title={pageTitle}
+        description={pageDescription}
+        keywords={pageKeywords}
         canonicalPath={`/specialities/${speciality.slug}`}
         breadcrumbs={[
           { name: 'Specialities', path: '/specialities' },
@@ -57,11 +70,16 @@ export const SpecialityDetailPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-4">
             <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${isEmergency ? 'bg-red-800 text-white border border-red-700' : 'bg-teal-500/20 text-teal-300 border border-teal-400/30'}`}>
-              Clinical Department
+              {isFertility ? "Best Fertility Centre in Nirmal" : "Clinical Department"}
             </span>
             <h1 className="text-3xl sm:text-5xl font-heading font-extrabold text-white tracking-tight">
-              {speciality.title}
+              {isFertility ? "Fertility & IVF Centre in Nirmal" : speciality.title}
             </h1>
+            {isFertility && (
+              <p className="text-sm font-semibold text-teal-300">
+                Dr. Chandrika's Fertility (IVF) & Laparoscopic Centre at Devibai Super Speciality Hospital
+              </p>
+            )}
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
               {speciality.shortDesc}
             </p>

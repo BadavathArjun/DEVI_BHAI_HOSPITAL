@@ -2,6 +2,42 @@ import { FAQ } from '../types';
 
 export const FAQS: FAQ[] = [
   {
+    id: "best-fertility-hospital-nirmal",
+    category: "Fertility",
+    question: "Which is the best fertility hospital or center in Nirmal?",
+    answer: "Devibai Super Speciality Hospital (Devi Bai Hospital) is widely recognized as the best fertility hospital and premier IVF centre in Nirmal. Led by Dr. K. Chandrika (MBBS, DNB OBGY Fernandez Hospital, Fellow in Infertility IMA, Diploma in ART Germany), the centre provides comprehensive reproductive care including In Vitro Fertilization (IVF), Intra Uterine Insemination (IUI), Ovulation Induction (OI), PCOD/PCOS treatments, follicular monitoring ultrasound, and personalized guidance for couples aspiring to parenthood."
+  },
+  {
+    id: "best-hospital-in-nirmal",
+    category: "General",
+    question: "Which is the best hospital in Nirmal?",
+    answer: "Devibai Super Speciality Hospital (also known as Devi Bai Super Speciality Hospital) is widely trusted as the best hospital in Nirmal, Telangana. Located beside DS Mart on Mancherial Road, Shastri Nagar, the hospital houses multi-speciality clinical departments under one roof: 24/7 Emergency & Trauma Centre, Smart ICU with ventilators, advanced Laparoscopic Surgery, Obstetrics & Gynecology, Pediatrics & Neonatology, General Medicine & Diabetology, Urology, 24/7 in-house pharmacy, and automated laboratory."
+  },
+  {
+    id: "devi-bai-hospital-location",
+    category: "Contact",
+    question: "Where is Devi Bai Super Speciality Hospital located in Nirmal?",
+    answer: "Devi Bai Super Speciality Hospital (Devibai Hospital) is conveniently located beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal – 504106, Telangana, India. The hospital provides easy access for patients across Nirmal town, Bhainsa, Khanapur, Mudhole, Adilabad, and Nizamabad with direct 24/7 emergency phone assistance at +91 9092916222."
+  },
+  {
+    id: "fertility-treatments-offered",
+    category: "Fertility",
+    question: "What fertility and test-tube baby treatments are available at Devi Bai Hospital in Nirmal?",
+    answer: "At Dr. Chandrika's Fertility (IVF) & Laparoscopic Centre at Devi Bai Hospital Nirmal, treatments include: Ovulation Induction (OI), Intra Uterine Insemination (IUI), In Vitro Fertilization (IVF) protocols, advanced PCOD / PCOS management, endocrine and hormonal imbalance therapies, high-resolution follicular tracking, semen analysis, and fertility-enhancing laparoscopic surgeries."
+  },
+  {
+    id: "best-gynecologist-fertility-doctor",
+    category: "Doctors",
+    question: "Who is the best fertility specialist and gynecologist in Nirmal?",
+    answer: "Dr. K. Chandrika is the leading consultant gynecologist, obstetrician, and fertility specialist in Nirmal. She completed MBBS, DNB in Obstetrics & Gynecology from the renowned Fernandez Hospital, a Fellowship in Infertility from IMA, and an international Diploma in ART from Germany, specializing in treating complex infertility and high-risk pregnancies."
+  },
+  {
+    id: "why-devi-bai-hospital",
+    category: "General",
+    question: "Why is Devi Bai Super Speciality Hospital the top choice in Nirmal?",
+    answer: "Families choose Devi Bai Hospital because of its dedicated super-specialist doctors, 24/7 emergency and critical care readiness, modern Smart ICU with mechanical ventilators, cashless Rajiv Aarogyasri health scheme support, in-house 24/7 pharmacy and laboratory, and ethical patient-centered medical approach."
+  },
+  {
     id: "services-overview",
     category: "General",
     question: "What services does Devibai Super Speciality Hospital provide?",
@@ -12,18 +48,6 @@ export const FAQS: FAQ[] = [
     category: "Emergency",
     question: "Is emergency care available 24/7?",
     answer: "Yes. Our Emergency Department and Critical Care (Smart ICU) unit operate 24 hours a day, 7 days a week, 365 days a year for trauma, accidents, poisoning, respiratory failure, cardiac crises, and acute medical emergencies. You can reach the emergency desk immediately at 9092916222."
-  },
-  {
-    id: "fertility-ivf-available",
-    category: "Fertility",
-    question: "Does the hospital provide fertility and IVF services?",
-    answer: "Yes. The hospital houses 'Dr. Chandrika's Fertility (IVF) & Laparoscopic Centre', led by Dr. K. Chandrika (MBBS, DNB OBGY Fernandez, Fellow in Infertility IMA, Diploma in ART Germany), offering specialized fertility diagnosis and assisted reproduction."
-  },
-  {
-    id: "fertility-treatments",
-    category: "Fertility",
-    question: "What specific fertility treatments are available?",
-    answer: "As listed in hospital materials, treatments include Ovulation Induction (OI), Intra Uterine Insemination (IUI), In Vitro Fertilization (IVF), Treatment for PCOD, and Hormonal Imbalance management."
   },
   {
     id: "maternity-services",
@@ -60,11 +84,5 @@ export const FAQS: FAQ[] = [
     category: "Appointments",
     question: "How can I book an appointment?",
     answer: "You can submit an online appointment request through our website appointment form, call our hospital reception at 9092916222, or message us directly on WhatsApp at 9092915222. Our hospital team will review your request and contact you to confirm doctor availability."
-  },
-  {
-    id: "contact-location",
-    category: "Contact",
-    question: "Where is the hospital located?",
-    answer: "The hospital is located beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal – 504106, Telangana, India. Directions and contact buttons are readily accessible on our Contact page."
   }
 ];

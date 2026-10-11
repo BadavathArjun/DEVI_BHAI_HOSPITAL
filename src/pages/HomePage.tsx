@@ -41,9 +41,9 @@ export const HomePage: React.FC = () => {
   return (
     <div className="space-y-0">
       <SEOHead
-        title="Devibai Super Speciality Hospital | Multi-Speciality Hospital in Nirmal, Telangana"
-        description="Devibai Super Speciality Hospital in Nirmal provides 24/7 emergency care, fertility & IVF center, maternity, pediatrics, general & laparoscopic surgery, and Smart ICU facilities."
-        keywords="Devibai Super Speciality Hospital, Hospital in Nirmal, Best Hospital in Nirmal, Hospital in Shastri Nagar Nirmal, Beside DS Mart Mancherial Road Nirmal, IVF Doctor Nirmal Dr Chandrika, 24/7 Emergency hospital Nirmal, Laparoscopic surgery Nirmal, Pediatric hospital Nirmal, Aarogyasri hospital Nirmal, Super speciality hospital Nirmal Telangana"
+        title="Devibai Super Speciality Hospital Nirmal | Best Hospital & Fertility Centre in Nirmal"
+        description="Devibai Super Speciality Hospital (Devi Bai Hospital) is the best hospital and top fertility & IVF centre in Nirmal, Telangana. 24/7 emergency care, maternity, laparoscopic surgery & ICU facilities beside DS Mart, Mancherial Road."
+        keywords="best fertility hospital in nirmal, best fertility center in nirmal, best hospital in nirmal, devi bai hospital, devi bai hospital nirmal, devi bai super specility hospital nirmal, devibai super speciality hospital nirmal, devi bhai hospital, devi bhai super speciality hospital, best ivf center in nirmal, fertility clinic in nirmal, test tube baby center nirmal, dr chandrika fertility centre nirmal, dr chandrika nirmal, multi speciality hospital in nirmal, maternity hospital nirmal, gynecologist nirmal, emergency hospital nirmal 24/7, laparoscopic surgery nirmal, aarogyasri hospital nirmal"
         canonicalPath="/"
         schema={generateFaqSchema(FAQS)}
       />
@@ -72,7 +72,7 @@ export const HomePage: React.FC = () => {
             {/* Top Tagline Badge */}
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/40 text-teal-300 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-              <span>24/7 Emergency • Pharmacy • Laboratory • ICU Services</span>
+              <span>Best Multi-Speciality Hospital & Fertility Centre in Nirmal • 24/7 Emergency</span>
             </div>
 
             {/* Hospital Main Title */}
@@ -80,14 +80,17 @@ export const HomePage: React.FC = () => {
               <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white tracking-tight leading-[1.1]">
                 DEVIBAI <span className="text-teal-400">SUPER SPECIALITY</span> HOSPITAL
               </h1>
-              <p className="mt-2.5 sm:mt-3 text-lg sm:text-2xl text-teal-200 font-medium font-heading">
+              <p className="mt-2 text-xs sm:text-sm md:text-base font-semibold text-teal-300 uppercase tracking-wider">
+                Devi Bai Hospital Nirmal • Premier Healthcare & Dr. Chandrika's Fertility (IVF) Centre
+              </p>
+              <p className="mt-2 sm:mt-2.5 text-lg sm:text-2xl text-white/95 font-medium font-heading">
                 "{HOSPITAL_INFO.tagline}"
               </p>
             </div>
 
             {/* Supporting Text */}
             <p className="text-sm sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal">
-              Comprehensive medical, surgical, maternity, fertility, pediatric and emergency healthcare under one roof in Nirmal, Telangana.
+              Trusted as the best hospital and leading fertility & IVF center in Nirmal, Telangana. Providing multi-speciality medical, surgical, maternity, pediatrics and 24/7 emergency care under one roof.
             </p>
 
             {/* Action Buttons */}
@@ -246,6 +249,124 @@ export const HomePage: React.FC = () => {
                 </span>
               </div>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION 4.6 — NIRMAL'S #1 RANKED HOSPITAL & FERTILITY CENTRE SPOTLIGHT
+          ================================================== */}
+      <section className="py-12 sm:py-16 bg-gradient-to-b from-white via-teal-50/20 to-slate-50 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+            <span className="badge-teal mb-3 inline-flex items-center space-x-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-teal-600" />
+              <span>Nirmal's Premier Healthcare Destination</span>
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-navy-900 tracking-tight">
+              Best Fertility Hospital & Multi-Speciality Centre in Nirmal
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+              Devibai Super Speciality Hospital (Devi Bai Hospital) is widely recognized as the premier hospital in Nirmal, combining advanced reproductive technology, 24/7 critical care, and expert surgical specialities under one roof beside DS Mart on Mancherial Road.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Spotlight 1: Best Fertility Center in Nirmal */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md border border-teal-100 hover:border-teal-300 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <HeartPulse className="w-6 h-6" />
+                </div>
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-teal-100/70 text-teal-800 text-[11px] font-bold uppercase tracking-wider mb-2">
+                  #1 Fertility & IVF Center
+                </div>
+                <h3 className="font-heading font-bold text-lg text-navy-900 mb-2">
+                  Best Fertility Hospital in Nirmal
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Led by <strong>Dr. K. Chandrika</strong> (Diploma in ART Germany, DNB Fernandez Hospital), offering IVF, IUI, ovulation induction, and PCOD care with advanced follicular ultrasound monitoring.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-100">
+                <Link to="/services/fertility" className="text-xs font-bold text-teal-700 hover:text-teal-900 inline-flex items-center">
+                  <span>Explore Fertility Services</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Spotlight 2: Best Hospital in Nirmal */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md border border-navy-100 hover:border-navy-300 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-navy-50 text-navy-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Activity className="w-6 h-6" />
+                </div>
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-navy-100/70 text-navy-800 text-[11px] font-bold uppercase tracking-wider mb-2">
+                  Multi-Speciality Care
+                </div>
+                <h3 className="font-heading font-bold text-lg text-navy-900 mb-2">
+                  Best Hospital in Nirmal
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Comprehensive departments under one roof: General Medicine, Diabetology, Maternity, Pediatrics, Neonatology (SNCU), Laparoscopy & Urology.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-100">
+                <Link to="/specialities" className="text-xs font-bold text-navy-800 hover:text-teal-700 inline-flex items-center">
+                  <span>View All Specialities</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Spotlight 3: 24/7 Emergency & ICU */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md border border-red-100 hover:border-red-300 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-red-50 text-emergency-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <AlertTriangle className="w-6 h-6" />
+                </div>
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-red-100/70 text-red-800 text-[11px] font-bold uppercase tracking-wider mb-2">
+                  24/7 Critical Care
+                </div>
+                <h3 className="font-heading font-bold text-lg text-navy-900 mb-2">
+                  24/7 Emergency & Smart ICU
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Accident trauma resuscitation, poisoning protocols, heart attack, stroke, continuous mechanical ventilators, and 24/7 round-the-clock pharmacy and lab.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-100">
+                <Link to="/emergency" className="text-xs font-bold text-emergency-600 hover:text-emergency-700 inline-flex items-center">
+                  <span>Emergency Helpline Info</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Spotlight 4: Devi Bai Hospital Location & Trust */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md border border-emerald-100 hover:border-emerald-300 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100/70 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-2">
+                  Prime Landmark
+                </div>
+                <h3 className="font-heading font-bold text-lg text-navy-900 mb-2">
+                  Devi Bai Hospital Nirmal
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Located beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal. Rajiv Aarogyasri cashless care supported for families across Nirmal, Bhainsa, Khanapur & Adilabad.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-100">
+                <Link to="/contact" className="text-xs font-bold text-emerald-700 hover:text-emerald-900 inline-flex items-center">
+                  <span>Directions & Phone</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

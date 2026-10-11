@@ -57,7 +57,9 @@ export const generatePhysicianSchema = (doctor: Doctor) => {
       '@type': 'Hospital',
       '@id': `${BASE_URL}/#hospital`,
       name: HOSPITAL_INFO.name,
+      alternateName: HOSPITAL_INFO.alternateNames,
       url: BASE_URL,
+      telephone: HOSPITAL_INFO.phones.primaryFormatted,
       address: {
         '@type': 'PostalAddress',
         streetAddress: HOSPITAL_INFO.address.line1,
@@ -97,6 +99,8 @@ export const generateSpecialitySchema = (speciality: Speciality, doctors: Doctor
       '@type': 'Hospital',
       '@id': `${BASE_URL}/#hospital`,
       name: HOSPITAL_INFO.name,
+      alternateName: HOSPITAL_INFO.alternateNames,
+      telephone: HOSPITAL_INFO.phones.primaryFormatted,
       url: BASE_URL
     },
     offers: speciality.treatments.map((treatment) => ({
@@ -138,6 +142,8 @@ export const generateServiceSchema = (service: HospitalService) => {
       '@type': 'Hospital',
       '@id': `${BASE_URL}/#hospital`,
       name: HOSPITAL_INFO.name,
+      alternateName: HOSPITAL_INFO.alternateNames,
+      telephone: HOSPITAL_INFO.phones.primaryFormatted,
       url: BASE_URL
     },
     serviceOutput: service.features,

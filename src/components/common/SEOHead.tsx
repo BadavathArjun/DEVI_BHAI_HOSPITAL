@@ -19,10 +19,10 @@ export interface SEOHeadProps {
 }
 
 const DEFAULT_DESCRIPTION =
-  "Devibai Super Speciality Hospital in Nirmal, Telangana provides 24/7 emergency care, fertility & IVF center, maternity, pediatrics, general & laparoscopic surgery, and Smart ICU facilities.";
+  "Devibai Super Speciality Hospital (Devi Bai Hospital) is the best hospital and top fertility & IVF centre in Nirmal, Telangana. 24/7 emergency care, maternity, laparoscopic surgery & ICU facilities beside DS Mart, Mancherial Road.";
 
 const DEFAULT_KEYWORDS =
-  "Devibai Super Speciality Hospital, Hospital in Nirmal, Best Hospital in Nirmal, Hospital in Shastri Nagar Nirmal, Beside DS Mart Mancherial Road Nirmal, Nirmal hospital, Fertility hospital Nirmal, IVF hospital Nirmal, Dr Chandrika Nirmal, Gynecologist Nirmal, Maternity hospital Nirmal, Pediatric hospital Nirmal, Emergency hospital Nirmal 24/7, Laparoscopic surgery Nirmal, Urology Nirmal, Aarogyasri hospital Nirmal";
+  "best fertility hospital in nirmal, best fertility center in nirmal, best hospital in nirmal, devi bai hospital, devi bai hospital nirmal, devi bai super specility hospital nirmal, devibai super speciality hospital nirmal, devi bhai hospital, devi bhai super speciality hospital, best ivf center in nirmal, fertility clinic in nirmal, test tube baby center nirmal, dr chandrika fertility centre nirmal, dr chandrika nirmal, multi speciality hospital in nirmal, maternity hospital nirmal, gynecologist nirmal dr chandrika, laparoscopic surgery nirmal, emergency hospital nirmal 24/7, aarogyasri hospital nirmal, hospital beside ds mart mancherial road nirmal";
 
 const BASE_URL = 'https://devibaihospital.com';
 const DEFAULT_IMAGE = `${BASE_URL}/assets/branding/homepage-hero.jpg`;
@@ -46,7 +46,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   useEffect(() => {
     // 1. Title
     const cleanTitle = title.trim();
-    const fullTitle = cleanTitle.includes('Devibai')
+    const fullTitle = cleanTitle.includes('Devibai') || cleanTitle.includes('Devi Bai')
       ? cleanTitle
       : `${cleanTitle} | Devibai Super Speciality Hospital Nirmal`;
     document.title = fullTitle;

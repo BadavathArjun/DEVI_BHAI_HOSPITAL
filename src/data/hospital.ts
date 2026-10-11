@@ -1,6 +1,17 @@
 export const HOSPITAL_INFO = {
   name: "DEVIBAI SUPER SPECIALITY HOSPITAL",
   shortName: "Devibai Hospital",
+  alternateNames: [
+    "Devi Bai Hospital",
+    "Devi Bai Super Speciality Hospital",
+    "Devi Bai Super Specility Hospital Nirmal",
+    "Devi Bhai Hospital",
+    "Devi Bhai Super Speciality Hospital",
+    "Devibai Hospital Nirmal",
+    "Best Hospital in Nirmal",
+    "Best Fertility Hospital in Nirmal",
+    "Dr. Chandrika's Fertility Centre Nirmal"
+  ],
   tagline: "Advanced Healthcare. Compassionate Care.",
   supportingTagline: "Comprehensive Healthcare • Compassionate Care • Trusted by Families",
   emergencyHighlight: "24/7 Emergency • Pharmacy • Laboratory • ICU Services",

@@ -18,9 +18,9 @@ export const AboutPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="About Us | Devibai Super Speciality Hospital Nirmal"
-        description="Learn about Devibai Super Speciality Hospital in Nirmal, Telangana. Multi-speciality medical, surgical, maternity, pediatric, and 24/7 critical care services."
-        keywords="About Devibai hospital, Devibai Super Speciality Hospital Nirmal, best healthcare Nirmal, Dr Chandrika hospital, hospital near DS Mart Nirmal"
+        title="About Devi Bai Hospital Nirmal | Best Hospital in Nirmal"
+        description="Devibai Super Speciality Hospital (Devi Bai Hospital) is the best hospital and top fertility & IVF centre in Nirmal, Telangana. Multi-speciality clinical excellence, 24/7 emergency & Smart ICU."
+        keywords="about devi bai hospital, devibai super speciality hospital nirmal, best hospital in nirmal, best fertility center in nirmal, devi bhai hospital nirmal, hospital beside ds mart nirmal"
         canonicalPath="/about"
         image="/assets/branding/about-hospital.jpg"
         breadcrumbs={[{ name: 'About Hospital' }]}

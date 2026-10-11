@@ -44,9 +44,9 @@ export const DoctorsPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Our Doctors & Specialists | Devibai Super Speciality Hospital Nirmal"
-        description="Meet the consultant physicians, laparoscopic surgeons, pediatricians, obstetricians and urologists at Devibai Super Speciality Hospital in Nirmal, Telangana."
-        keywords="Doctors in Nirmal, Best Gynecologist in Nirmal, Pediatrician Nirmal, General Surgeon Nirmal, Laparoscopic Surgeon Nirmal, Diabetologist Nirmal, Urologist Nirmal, Devibai hospital doctors, doctor consultation Nirmal"
+        title="Best Doctors in Nirmal | Devibai Super Speciality Hospital"
+        description="Consult the best doctors in Nirmal at Devibai Super Speciality Hospital (Devi Bai Hospital). Featuring top fertility specialist & gynecologist Dr. K. Chandrika, surgeon Dr. K. Avinash, and pediatrician Dr. Sudheer Kumar."
+        keywords="best doctors in nirmal, best gynecologist in nirmal, best fertility doctor in nirmal, devi bai hospital doctors, dr chandrika nirmal, best surgeon nirmal, pediatric doctor nirmal"
         canonicalPath="/doctors"
         breadcrumbs={[{ name: 'Doctors & Specialists' }]}
       />

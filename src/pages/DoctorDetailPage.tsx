@@ -40,12 +40,25 @@ export const DoctorDetailPage: React.FC = () => {
     sp.doctorIds.includes(doctor.id)
   );
 
+  const isDrChandrika = doctor.id === 'dr-k-chandrika';
+  const pageTitle = isDrChandrika
+    ? "Dr. K. Chandrika | Best Fertility Specialist & Gynecologist in Nirmal | Devibai Hospital"
+    : `${doctor.name} - ${doctor.specialization} | Devibai Hospital Nirmal`;
+
+  const pageDescription = isDrChandrika
+    ? "Consult Dr. K. Chandrika (Diploma in ART Germany, DNB Fernandez, Fellow in Infertility), leading fertility specialist and gynecologist in Nirmal at Devibai Super Speciality Hospital (Devi Bai Hospital)."
+    : `Consult ${doctor.name} (${doctor.qualifications}) at Devibai Super Speciality Hospital, Nirmal. Specializing in ${doctor.specialization}. Book appointment today.`;
+
+  const pageKeywords = isDrChandrika
+    ? "best fertility doctor in nirmal, best gynecologist in nirmal, dr chandrika nirmal, best fertility center in nirmal, devi bai hospital gynecologist, ivf doctor nirmal, test tube baby doctor nirmal"
+    : `${doctor.name}, ${doctor.name} Nirmal, ${doctor.specialization} Nirmal, best doctor in Nirmal, consult ${doctor.name}, Devibai hospital doctors`;
+
   return (
     <div>
       <SEOHead
-        title={`${doctor.name} - ${doctor.specialization} | Devibai Hospital Nirmal`}
-        description={`Consult ${doctor.name} (${doctor.qualifications}) at Devibai Super Speciality Hospital, Nirmal. Specializing in ${doctor.specialization}. Book appointment today.`}
-        keywords={`${doctor.name}, ${doctor.name} Nirmal, ${doctor.specialization} Nirmal, best doctor in Nirmal, consult ${doctor.name}, Devibai hospital doctors`}
+        title={pageTitle}
+        description={pageDescription}
+        keywords={pageKeywords}
         canonicalPath={`/doctors/${doctor.slug}`}
         image={doctor.photo}
         type="profile"

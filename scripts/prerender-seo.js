@@ -29,15 +29,22 @@ const HOSPITAL_INFO = {
 const ROUTES = [
   {
     path: '/',
-    title: 'Devibai Super Speciality Hospital | Best Multi-Speciality Hospital in Nirmal, Telangana',
-    description: 'Devibai Super Speciality Hospital in Nirmal provides 24/7 emergency care, fertility & IVF center, maternity, pediatrics, general & laparoscopic surgery, and Smart ICU facilities.',
-    keywords: 'Devibai Super Speciality Hospital, Best Hospital in Nirmal, Hospital in Shastri Nagar Nirmal, Beside DS Mart Mancherial Road Nirmal, IVF Doctor Nirmal Dr Chandrika, 24/7 Emergency hospital Nirmal, Laparoscopic surgery Nirmal, Pediatric hospital Nirmal, Aarogyasri hospital Nirmal, Super speciality hospital Nirmal Telangana',
+    title: 'Devibai Super Speciality Hospital Nirmal | Best Hospital & Fertility Centre in Nirmal',
+    description: 'Devibai Super Speciality Hospital (Devi Bai Hospital) is the best hospital and top fertility & IVF centre in Nirmal, Telangana. 24/7 emergency care, maternity, laparoscopic surgery & ICU facilities beside DS Mart, Mancherial Road.',
+    keywords: 'best fertility hospital in nirmal, best fertility center in nirmal, best hospital in nirmal, devi bai hospital, devi bai hospital nirmal, devi bai super specility hospital nirmal, devibai super speciality hospital nirmal, devi bhai hospital, devi bhai super speciality hospital, best ivf center in nirmal, fertility clinic in nirmal, test tube baby center nirmal, dr chandrika fertility centre nirmal, dr chandrika nirmal, multi speciality hospital in nirmal, maternity hospital nirmal, gynecologist nirmal dr chandrika, laparoscopic surgery nirmal, emergency hospital nirmal 24/7, aarogyasri hospital nirmal, hospital beside ds mart mancherial road nirmal',
     image: `${BASE_URL}/assets/branding/homepage-hero.jpg`,
     schema: {
       '@type': 'WebSite',
       '@id': `${BASE_URL}/#website`,
       url: BASE_URL,
       name: 'Devibai Super Speciality Hospital',
+      alternateName: [
+        'Devi Bai Hospital',
+        'Devi Bai Super Speciality Hospital Nirmal',
+        'Devi Bhai Hospital',
+        'Best Hospital in Nirmal',
+        'Best Fertility Hospital in Nirmal'
+      ],
       potentialAction: {
         '@type': 'SearchAction',
         target: `${BASE_URL}/doctors?search={search_term_string}`,
@@ -47,25 +54,25 @@ const ROUTES = [
   },
   {
     path: '/about',
-    title: 'About Us | Devibai Super Speciality Hospital Nirmal',
-    description: 'Learn about Devibai Super Speciality Hospital in Nirmal, Telangana. Multi-speciality medical, surgical, maternity, pediatric, and 24/7 critical care services.',
-    keywords: 'About Devibai hospital, Devibai Super Speciality Hospital Nirmal, best healthcare Nirmal, Dr Chandrika hospital, hospital near DS Mart Nirmal',
+    title: 'About Devi Bai Hospital Nirmal | Best Hospital in Nirmal',
+    description: 'Devibai Super Speciality Hospital (Devi Bai Hospital) is the best hospital and top fertility & IVF centre in Nirmal, Telangana. Multi-speciality clinical excellence, 24/7 emergency & Smart ICU.',
+    keywords: 'about devi bai hospital, devibai super speciality hospital nirmal, best hospital in nirmal, best fertility center in nirmal, devi bhai hospital nirmal, hospital beside ds mart nirmal',
     image: `${BASE_URL}/assets/branding/about-hospital.jpg`,
     breadcrumbs: [{ name: 'About Hospital' }]
   },
   {
     path: '/doctors',
-    title: 'Our Doctors & Specialists | Devibai Super Speciality Hospital Nirmal',
-    description: 'Meet the consultant physicians, laparoscopic surgeons, pediatricians, obstetricians and urologists at Devibai Super Speciality Hospital in Nirmal, Telangana.',
-    keywords: 'Doctors in Nirmal, Best Gynecologist in Nirmal, Pediatrician Nirmal, General Surgeon Nirmal, Laparoscopic Surgeon Nirmal, Diabetologist Nirmal, Urologist Nirmal, Devibai hospital doctors, doctor consultation Nirmal',
+    title: 'Best Doctors in Nirmal | Devibai Super Speciality Hospital',
+    description: 'Consult the best doctors in Nirmal at Devibai Super Speciality Hospital (Devi Bai Hospital). Featuring top fertility specialist & gynecologist Dr. K. Chandrika, surgeon Dr. K. Avinash, and pediatrician Dr. Sudheer Kumar.',
+    keywords: 'best doctors in nirmal, best gynecologist in nirmal, best fertility doctor in nirmal, devi bai hospital doctors, dr chandrika nirmal, best surgeon nirmal, pediatric doctor nirmal',
     image: `${BASE_URL}/assets/branding/homepage-hero.jpg`,
     breadcrumbs: [{ name: 'Doctors & Specialists' }]
   },
   {
     path: '/doctors/dr-k-chandrika',
-    title: 'Dr. K. Chandrika - Obstetrics & Gynecology, Fertility & IVF | Devibai Hospital Nirmal',
-    description: 'Consult Dr. K. Chandrika (MBBS, DNB OBGY Fernandez, Fellow in Infertility, Diploma in ART Germany) at Devibai Super Speciality Hospital Nirmal for high-risk pregnancy and IVF.',
-    keywords: 'Dr K Chandrika, Dr Chandrika Nirmal, Gynecologist Nirmal, IVF doctor Nirmal, fertility specialist Nirmal, normal delivery doctor Nirmal, PCOD treatment Nirmal',
+    title: 'Dr. K. Chandrika | Best Fertility Specialist & Gynecologist in Nirmal | Devibai Hospital',
+    description: 'Consult Dr. K. Chandrika (Diploma in ART Germany, DNB Fernandez, Fellow in Infertility), leading fertility specialist and gynecologist in Nirmal at Devibai Super Speciality Hospital (Devi Bai Hospital).',
+    keywords: 'best fertility doctor in nirmal, best gynecologist in nirmal, dr chandrika nirmal, best fertility center in nirmal, devi bai hospital gynecologist, ivf doctor nirmal, test tube baby doctor nirmal',
     image: `${BASE_URL}/assets/doctors/dr-k-chandrika.jpg`,
     type: 'profile',
     breadcrumbs: [{ name: 'Doctors', path: '/doctors' }, { name: 'Dr. K. Chandrika' }],
@@ -76,7 +83,7 @@ const ROUTES = [
       alternateName: 'డా॥ కె. చంద్రిక',
       jobTitle: 'Consultant Obstetrician, Gynecologist & Fertility Specialist',
       medicalSpecialty: 'Obstetrics & Gynecology, Fertility & IVF',
-      description: 'Specialist in Obstetrics & Gynecology with advanced training in Reproductive Medicine and Assisted Reproductive Technologies (ART, Germany). Leads Dr. Chandrika\'s Fertility (IVF) & Laparoscopic Centre.',
+      description: 'Nirmal\'s premier specialist in Obstetrics & Gynecology with advanced training in Reproductive Medicine and Assisted Reproductive Technologies (ART, Germany). Leads Dr. Chandrika\'s Fertility (IVF) & Laparoscopic Centre at Devibai Super Speciality Hospital.',
       image: `${BASE_URL}/assets/doctors/dr-k-chandrika.jpg`,
       telephone: '+919092916222',
       url: `${BASE_URL}/doctors/dr-k-chandrika`
@@ -168,21 +175,21 @@ const ROUTES = [
   },
   {
     path: '/specialities',
-    title: 'Medical Specialities & Departments | Devibai Super Speciality Hospital Nirmal',
-    description: 'Explore clinical specialities at Devibai Hospital Nirmal: Fertility & IVF, Obstetrics, Pediatrics, Surgery, Laparoscopy, Urology, Medicine, and Emergency.',
-    keywords: 'Hospital specialities Nirmal, IVF clinic Nirmal, Gynecology Nirmal, Pediatric care Nirmal, Surgery hospital Nirmal, Laparoscopy Nirmal, Urology Nirmal, Devibai hospital departments',
+    title: 'Specialities | Best Hospital & Fertility Centre in Nirmal | Devibai Hospital',
+    description: 'Explore medical and surgical specialities at Devibai Super Speciality Hospital (Devi Bai Hospital) Nirmal: Best Fertility & IVF Centre, Maternity, Laparoscopic Surgery, Pediatrics & 24/7 Emergency.',
+    keywords: 'best hospital in nirmal, best fertility hospital in nirmal, devi bai hospital specialities, ivf clinic nirmal, laparoscopic surgery nirmal, maternity hospital nirmal, devi bhai hospital nirmal',
     breadcrumbs: [{ name: 'Specialities' }]
   },
   {
     path: '/specialities/fertility-ivf',
-    title: 'Fertility & IVF Centre in Nirmal | Dr. Chandrika Fertility Centre',
-    description: 'Comprehensive fertility assessments, ovulation induction, IUI, and IVF treatment protocols at Devibai Super Speciality Hospital in Nirmal, Telangana.',
-    keywords: 'IVF Centre Nirmal, Fertility hospital Nirmal, Dr Chandrika IVF, IUI treatment Nirmal, Infertility clinic Nirmal, Test tube baby Nirmal, PCOD treatment Nirmal',
+    title: 'Best Fertility Hospital & Centre in Nirmal | IVF Clinic | Devibai Hospital',
+    description: 'Looking for the best fertility hospital or center in Nirmal? Consult Dr. K. Chandrika (Diploma in ART Germany) at Devibai Super Speciality Hospital for IVF, IUI, PCOD & reproductive care.',
+    keywords: 'best fertility hospital in nirmal, best fertility center in nirmal, best ivf center in nirmal, fertility clinic in nirmal, test tube baby center nirmal, dr chandrika fertility nirmal, devi bai hospital fertility, iui treatment nirmal, pcod treatment nirmal',
     image: `${BASE_URL}/assets/facilities/fertility-ivf-centre.jpg`,
     breadcrumbs: [{ name: 'Specialities', path: '/specialities' }, { name: 'Fertility & IVF' }],
     schema: {
       '@type': 'MedicalWebPage',
-      name: 'Fertility & IVF Department - Devibai Super Speciality Hospital',
+      name: 'Best Fertility Hospital & IVF Centre in Nirmal - Dr. Chandrika Fertility Centre',
       specialty: 'Reproductive Medicine / Infertility',
       url: `${BASE_URL}/specialities/fertility-ivf`
     }
@@ -247,9 +254,9 @@ const ROUTES = [
   },
   {
     path: '/services/fertility',
-    title: 'Fertility & IVF Services in Nirmal | Devibai Super Speciality Hospital',
-    description: 'Individualized fertility assessments, ovulation induction (OI), IUI, and IVF care under specialist guidance at Devibai Hospital Nirmal.',
-    keywords: 'Fertility services Nirmal, IVF procedure Nirmal, IUI procedure Nirmal, Ovulation induction Nirmal, Infertility consultation Nirmal',
+    title: 'Best Fertility Hospital & Centre in Nirmal | Devibai Hospital',
+    description: 'Recognized as the best fertility hospital and top IVF center in Nirmal. Comprehensive fertility tests, IUI, IVF, and PCOD care under Dr. K. Chandrika at Devi Bai Hospital.',
+    keywords: 'best fertility hospital in nirmal, best fertility center in nirmal, fertility clinic in nirmal, best ivf center in nirmal, devi bai hospital fertility, dr chandrika fertility nirmal, test tube baby center nirmal',
     image: `${BASE_URL}/assets/facilities/fertility-ivf-centre.jpg`,
     breadcrumbs: [{ name: 'Services', path: '/services' }, { name: 'Fertility & IVF' }]
   },
@@ -349,22 +356,22 @@ const ROUTES = [
   },
   {
     path: '/contact',
-    title: 'Contact & Hospital Directions | Devibai Super Speciality Hospital Nirmal',
-    description: 'Contact Devibai Super Speciality Hospital in Nirmal, Telangana. Call 9092916222, WhatsApp 9092915222, address beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal.',
-    keywords: 'Devibai hospital contact number, Devibai hospital phone number, hospital in Nirmal phone, hospital address beside DS Mart Mancherial Road, emergency hospital Nirmal contact 9092916222',
+    title: 'Contact Devi Bai Hospital Nirmal | Location, Phone & Directions',
+    description: 'Contact Devi Bai Super Speciality Hospital (Devibai Hospital) in Nirmal, Telangana. Located beside DS Mart, Mancherial Road. 24/7 Phone: 9092916222, WhatsApp: 9092915222.',
+    keywords: 'devi bai hospital contact number, devibai super speciality hospital nirmal phone, devi bhai hospital nirmal, hospital beside ds mart mancherial road nirmal, best hospital in nirmal phone',
     breadcrumbs: [{ name: 'Contact & Directions' }]
   },
   {
     path: '/emergency',
-    title: '24/7 Emergency & Critical Care Hospital in Nirmal | Devibai Hospital',
-    description: '24/7 Emergency Care in Nirmal. Call 9092916222 for accident trauma, poisoning resuscitation, heart attack, stroke, acute pediatric crises, and Smart ICU ventilator support.',
-    keywords: '24/7 Emergency hospital Nirmal, emergency hospital near me, ambulance Nirmal, trauma hospital Nirmal, ICU ventilator Nirmal, heart attack emergency Nirmal, poisoning hospital Nirmal, Devibai emergency 9092916222',
+    title: '24/7 Emergency Hospital in Nirmal | Devi Bai Super Speciality Hospital',
+    description: 'Devibai Super Speciality Hospital (Devi Bai Hospital) provides 24/7 emergency & critical care in Nirmal. Immediate trauma care, poisoning resuscitation, ICU ventilators & ambulance. Call 9092916222.',
+    keywords: 'best hospital in nirmal, 24/7 emergency hospital nirmal, devi bai hospital emergency, devi bai super specility hospital nirmal, trauma hospital nirmal, icu ventilator nirmal, devi bhai hospital nirmal',
     image: `${BASE_URL}/assets/facilities/emergency-trauma-care.jpg`,
     breadcrumbs: [{ name: '24/7 Emergency & Critical Care' }],
     schema: {
       '@type': 'EmergencyService',
       '@id': `${BASE_URL}/emergency#service`,
-      name: '24/7 Emergency Department - Devibai Super Speciality Hospital',
+      name: '24/7 Emergency Department - Devi Bai Super Speciality Hospital',
       telephone: '+919092916222',
       url: `${BASE_URL}/emergency`
     }

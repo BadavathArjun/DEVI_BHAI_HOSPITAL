@@ -25,9 +25,9 @@ export const EmergencyPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="24/7 Emergency & Critical Care Hospital in Nirmal | Devibai Hospital"
-        description="24/7 Emergency Care in Nirmal. Call 9092916222 for accident trauma, poisoning resuscitation, heart attack, stroke, acute pediatric crises, and Smart ICU ventilator support."
-        keywords="24/7 Emergency hospital Nirmal, emergency hospital near me, ambulance Nirmal, trauma hospital Nirmal, ICU ventilator Nirmal, heart attack emergency Nirmal, poisoning hospital Nirmal, Devibai emergency 9092916222"
+        title="24/7 Emergency Hospital in Nirmal | Devi Bai Super Speciality Hospital"
+        description="Devibai Super Speciality Hospital (Devi Bai Hospital) provides 24/7 emergency & critical care in Nirmal. Immediate trauma care, poisoning resuscitation, ICU ventilators & ambulance. Call 9092916222."
+        keywords="best hospital in nirmal, 24/7 emergency hospital nirmal, devi bai hospital emergency, devi bai super specility hospital nirmal, trauma hospital nirmal, icu ventilator nirmal, devi bhai hospital nirmal"
         canonicalPath="/emergency"
         image="/assets/facilities/emergency-trauma-care.jpg"
         breadcrumbs={[{ name: '24/7 Emergency & Critical Care' }]}

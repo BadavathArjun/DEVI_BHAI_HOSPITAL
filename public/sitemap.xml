@@ -79,11 +79,11 @@
   <url>
     <loc>https://devibaihospital.com/doctors/dr-k-chandrika</loc>
     <lastmod>2026-10-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
     <image:image>
       <image:loc>https://devibaihospital.com/assets/doctors/dr-k-chandrika.jpg</image:loc>
-      <image:title>Dr. K. Chandrika - Gynecologist and IVF Specialist Nirmal</image:title>
+      <image:title>Dr. K. Chandrika - Best Fertility Specialist and Gynecologist Nirmal</image:title>
     </image:image>
   </url>
   <url>
@@ -132,13 +132,17 @@
     <loc>https://devibaihospital.com/specialities</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devibaihospital.com/specialities/fertility-ivf</loc>
     <lastmod>2026-10-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://devibaihospital.com/assets/facilities/fertility-ivf-centre.jpg</image:loc>
+      <image:title>Best Fertility Hospital and IVF Centre in Nirmal - Dr Chandrika Fertility Centre</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://devibaihospital.com/specialities/obstetrics-gynecology</loc>
@@ -187,8 +191,12 @@
   <url>
     <loc>https://devibaihospital.com/services/fertility</loc>
     <lastmod>2026-10-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://devibaihospital.com/assets/facilities/fertility-ivf-centre.jpg</image:loc>
+      <image:title>Best Fertility Hospital and IVF Centre Services in Nirmal</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://devibaihospital.com/services/maternity</loc>

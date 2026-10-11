@@ -17,13 +17,26 @@ export const ServiceDetailPage: React.FC = () => {
   }
 
   const isEmergency = service.id === 'emergency' || service.id === 'critical-care';
+  const isFertility = service.id === 'fertility';
+
+  const pageTitle = isFertility
+    ? "Best Fertility Hospital & Centre in Nirmal | Devibai Hospital"
+    : `${service.title} in Nirmal | Devibai Super Speciality Hospital`;
+
+  const pageDescription = isFertility
+    ? "Recognized as the best fertility hospital and top IVF center in Nirmal. Comprehensive fertility tests, IUI, IVF, and PCOD care under Dr. K. Chandrika at Devi Bai Hospital."
+    : `${service.shortDesc} Compassionate clinical service at Devibai Super Speciality Hospital Nirmal, Telangana.`;
+
+  const pageKeywords = isFertility
+    ? "best fertility hospital in nirmal, best fertility center in nirmal, fertility clinic in nirmal, best ivf center in nirmal, devi bai hospital fertility, dr chandrika fertility nirmal, test tube baby center nirmal"
+    : `${service.title} Nirmal, ${service.category} Nirmal, ${service.features.slice(0, 4).join(', ')}, Devibai hospital services`;
 
   return (
     <div>
       <SEOHead
-        title={`${service.title} in Nirmal | Devibai Super Speciality Hospital`}
-        description={`${service.shortDesc} Compassionate clinical service at Devibai Super Speciality Hospital Nirmal, Telangana.`}
-        keywords={`${service.title} Nirmal, ${service.category} Nirmal, ${service.features.slice(0, 4).join(', ')}, Devibai hospital services`}
+        title={pageTitle}
+        description={pageDescription}
+        keywords={pageKeywords}
         canonicalPath={`/services/${service.slug}`}
         image={service.image}
         breadcrumbs={[
@@ -45,11 +58,16 @@ export const ServiceDetailPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-4">
             <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${isEmergency ? 'bg-red-800 text-white' : 'bg-teal-500/20 text-teal-300'}`}>
-              {service.category}
+              {isFertility ? "Best Fertility Center in Nirmal" : service.category}
             </span>
             <h1 className="text-3xl sm:text-5xl font-heading font-extrabold text-white tracking-tight">
-              {service.title}
+              {isFertility ? "Best Fertility & IVF Services in Nirmal" : service.title}
             </h1>
+            {isFertility && (
+              <p className="text-sm font-semibold text-teal-300">
+                Dr. Chandrika's Fertility (IVF) & Laparoscopic Centre at Devi Bai Super Speciality Hospital Nirmal
+              </p>
+            )}
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
               {service.shortDesc}
             </p>

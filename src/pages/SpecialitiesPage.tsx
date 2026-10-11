@@ -9,9 +9,9 @@ export const SpecialitiesPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Medical Specialities & Departments | Devibai Super Speciality Hospital Nirmal"
-        description="Explore the clinical specialities at Devibai Hospital Nirmal: Fertility & IVF, Obstetrics & Gynecology, Pediatrics, General Surgery, Laparoscopic Surgery, Urology, General Medicine, and 24/7 Emergency."
-        keywords="Hospital specialities Nirmal, IVF clinic Nirmal, Gynecology Nirmal, Pediatric care Nirmal, Surgery hospital Nirmal, Laparoscopy Nirmal, Urology Nirmal, Devibai hospital departments"
+        title="Specialities | Best Hospital & Fertility Centre in Nirmal | Devibai Hospital"
+        description="Explore medical and surgical specialities at Devibai Super Speciality Hospital (Devi Bai Hospital) Nirmal: Best Fertility & IVF Centre, Maternity, Laparoscopic Surgery, Pediatrics & 24/7 Emergency."
+        keywords="best hospital in nirmal, best fertility hospital in nirmal, devi bai hospital specialities, ivf clinic nirmal, laparoscopic surgery nirmal, maternity hospital nirmal, devi bhai hospital nirmal"
         canonicalPath="/specialities"
         breadcrumbs={[{ name: 'Specialities' }]}
       />
