@@ -51,11 +51,11 @@ export const HomePage: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="/assets/branding/homepage-hero.jpg"
-            alt="Devibai Super Speciality Hospital Facility"
-            className="w-full h-full object-cover object-[75%_center] md:object-[80%_center] lg:object-[85%_center]"
+            alt="Devibai Super Speciality & Critical Care Centre and Dr. Chandrika Fertility Centre Building"
+            className="w-full h-full object-cover object-[55%_center] sm:object-[60%_center] lg:object-[65%_center]"
           />
-          {/* Multi-layer gradient: high contrast on left for readability, soft transparency on right to showcase hospital, ambulance & doctor */}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/85 to-navy-950/40 lg:from-navy-950/95 lg:via-navy-950/75 lg:via-45% lg:to-navy-950/15"></div>
+          {/* Multi-layer gradient: high contrast on left for readability, soft transparency on right to showcase modern hospital facade & pharmacy */}
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/85 to-navy-950/35 lg:from-navy-950/95 lg:via-navy-950/70 lg:via-45% lg:to-navy-950/15"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-navy-950/70 via-transparent to-navy-950/80"></div>
           <div className="absolute inset-0 bg-[radial-gradient(#0d9488_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none"></div>
         </div>
