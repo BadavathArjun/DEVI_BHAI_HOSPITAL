@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, User, ArrowRight, Award } from 'lucide-react';
+import { Calendar, ArrowRight, Award } from 'lucide-react';
 import { Doctor } from '../../types';
 
 interface DoctorCardProps {
@@ -14,7 +14,7 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
       <div className="relative aspect-[4/3] sm:aspect-[1/1] overflow-hidden bg-slate-100 border-b border-slate-100">
         <img
           src={doctor.photo}
-          alt={`Portrait of ${doctor.name}`}
+          alt={`${doctor.name} - ${doctor.specialization} at Devibai Hospital Nirmal`}
           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
           onError={(e) => {

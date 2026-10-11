@@ -16,9 +16,11 @@ export const GalleryPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Hospital Photo Gallery | Devibai Super Speciality Hospital"
-        description="Official gallery of Devibai Super Speciality Hospital in Nirmal: comprehensive photo archive of clinical facilities, modular operating theatres, IVF & fertility centre, state doctor awards, and community healthcare initiatives."
+        title="Hospital Photo Gallery | Devibai Super Speciality Hospital Nirmal"
+        description="Official gallery of Devibai Super Speciality Hospital in Nirmal: comprehensive photo archive of clinical facilities, modular operating theatres, IVF & fertility centre, and team."
+        keywords="Devibai hospital photos, hospital pictures Nirmal, fertility centre photo gallery, operation theatre pictures Nirmal, medical facilities photos"
         canonicalPath="/gallery"
+        breadcrumbs={[{ name: 'Hospital Gallery' }]}
       />
 
       <Breadcrumbs items={[{ name: 'Hospital Gallery' }]} />

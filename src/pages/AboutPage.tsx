@@ -20,7 +20,10 @@ export const AboutPage: React.FC = () => {
       <SEOHead
         title="About Us | Devibai Super Speciality Hospital Nirmal"
         description="Learn about Devibai Super Speciality Hospital in Nirmal, Telangana. Multi-speciality medical, surgical, maternity, pediatric, and 24/7 critical care services."
+        keywords="About Devibai hospital, Devibai Super Speciality Hospital Nirmal, best healthcare Nirmal, Dr Chandrika hospital, hospital near DS Mart Nirmal"
         canonicalPath="/about"
+        image="/assets/branding/about-hospital.jpg"
+        breadcrumbs={[{ name: 'About Hospital' }]}
       />
 
       <Breadcrumbs items={[{ name: 'About Hospital' }]} />

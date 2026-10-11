@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Calendar, Menu, X, AlertCircle } from 'lucide-react';
+import { Phone, Calendar, Menu, X } from 'lucide-react';
 import { HOSPITAL_INFO } from '../../data/hospital';
 
 export const Navbar: React.FC = () => {

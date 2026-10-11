@@ -20,7 +20,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
       <div className="relative h-44 overflow-hidden bg-slate-100">
         <img
           src={service.image}
-          alt={service.title}
+          alt={`${service.title} - Devibai Super Speciality Hospital Nirmal`}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
         />

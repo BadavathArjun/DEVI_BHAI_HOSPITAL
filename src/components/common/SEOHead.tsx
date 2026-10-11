@@ -1,44 +1,166 @@
 import React, { useEffect } from 'react';
+import { generateBreadcrumbSchema } from '../../utils/seoSchemas';
 
-interface SEOHeadProps {
-  title: string;
-  description?: string;
-  canonicalPath?: string;
+export interface BreadcrumbItem {
+  name: string;
+  path?: string;
 }
 
+export interface SEOHeadProps {
+  title: string;
+  description?: string;
+  keywords?: string;
+  canonicalPath?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'profile';
+  noindex?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
+  schema?: Record<string, any> | Record<string, any>[];
+}
+
+const DEFAULT_DESCRIPTION =
+  "Devibai Super Speciality Hospital in Nirmal, Telangana provides 24/7 emergency care, fertility & IVF center, maternity, pediatrics, general & laparoscopic surgery, and Smart ICU facilities.";
+
+const DEFAULT_KEYWORDS =
+  "Devibai Super Speciality Hospital, Hospital in Nirmal, Best Hospital in Nirmal, Hospital in Shastri Nagar Nirmal, Beside DS Mart Mancherial Road Nirmal, Nirmal hospital, Fertility hospital Nirmal, IVF hospital Nirmal, Dr Chandrika Nirmal, Gynecologist Nirmal, Maternity hospital Nirmal, Pediatric hospital Nirmal, Emergency hospital Nirmal 24/7, Laparoscopic surgery Nirmal, Urology Nirmal, Aarogyasri hospital Nirmal";
+
+const BASE_URL = 'https://devibaihospital.com';
+const DEFAULT_IMAGE = `${BASE_URL}/assets/branding/homepage-hero.jpg`;
+
+/**
+ * Advanced SEO Head Component
+ * Dynamically updates document title, primary meta tags, Open Graph, Twitter Cards,
+ * local geo tags, and injects Schema.org JSON-LD structured data into document.head.
+ */
 export const SEOHead: React.FC<SEOHeadProps> = ({
   title,
-  description = "Devibai Super Speciality Hospital in Nirmal, Telangana provides fertility & IVF, maternity, pediatric, surgical, laparoscopic, urology, emergency and critical care services.",
-  canonicalPath
+  description = DEFAULT_DESCRIPTION,
+  keywords = DEFAULT_KEYWORDS,
+  canonicalPath,
+  image = DEFAULT_IMAGE,
+  type = 'website',
+  noindex = false,
+  breadcrumbs,
+  schema
 }) => {
   useEffect(() => {
-    // Update document title
-    const fullTitle = title.includes('Devibai') 
-      ? title 
-      : `${title} | Devibai Super Speciality Hospital Nirmal`;
+    // 1. Title
+    const cleanTitle = title.trim();
+    const fullTitle = cleanTitle.includes('Devibai')
+      ? cleanTitle
+      : `${cleanTitle} | Devibai Super Speciality Hospital Nirmal`;
     document.title = fullTitle;
 
-    // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', description);
+    // Helper to find or create meta tag
+    const setMetaTag = (attribute: 'name' | 'property', attrValue: string, content: string) => {
+      let meta = document.querySelector<HTMLMetaElement>(`meta[${attribute}="${attrValue}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute(attribute, attrValue);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    };
+
+    // 2. Primary Meta Tags
+    setMetaTag('name', 'description', description);
+    setMetaTag('name', 'keywords', keywords);
+    setMetaTag(
+      'name',
+      'robots',
+      noindex
+        ? 'noindex, nofollow'
+        : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+    );
+    setMetaTag('name', 'author', 'Devibai Super Speciality Hospital');
+
+    // 3. Canonical URL
+    const canonicalUrl = canonicalPath
+      ? `${BASE_URL}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`}`
+      : `${BASE_URL}/`;
+    
+    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', canonicalUrl);
+
+    // 4. Local SEO Geo Tags
+    setMetaTag('name', 'geo.region', 'IN-TG');
+    setMetaTag('name', 'geo.placename', 'Nirmal, Telangana, India');
+    setMetaTag('name', 'geo.position', '19.0968;78.3444');
+    setMetaTag('name', 'ICBM', '19.0968, 78.3444');
+
+    // 5. OpenGraph Tags
+    const fullImageUrl = image.startsWith('http')
+      ? image
+      : `${BASE_URL}${image.startsWith('/') ? image : `/${image}`}`;
+
+    setMetaTag('property', 'og:title', fullTitle);
+    setMetaTag('property', 'og:description', description);
+    setMetaTag('property', 'og:url', canonicalUrl);
+    setMetaTag('property', 'og:type', type);
+    setMetaTag('property', 'og:image', fullImageUrl);
+    setMetaTag('property', 'og:site_name', 'Devibai Super Speciality Hospital');
+    setMetaTag('property', 'og:locale', 'en_IN');
+
+    // 6. Twitter Card Tags
+    setMetaTag('property', 'twitter:card', 'summary_large_image');
+    setMetaTag('property', 'twitter:url', canonicalUrl);
+    setMetaTag('property', 'twitter:title', fullTitle);
+    setMetaTag('property', 'twitter:description', description);
+    setMetaTag('property', 'twitter:image', fullImageUrl);
+
+    // 7. Dynamic JSON-LD Structured Data Injection
+    const schemaGraphItems: Record<string, any>[] = [];
+
+    // Auto-generate BreadcrumbList if breadcrumbs provided
+    if (breadcrumbs && breadcrumbs.length > 0) {
+      schemaGraphItems.push(generateBreadcrumbSchema(breadcrumbs));
     }
 
-    // Update OpenGraph title and description
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', fullTitle);
-
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', description);
-
-    // Update canonical if given
-    if (canonicalPath) {
-      const canonical = document.querySelector('link[rel="canonical"]');
-      if (canonical) {
-        canonical.setAttribute('href', `https://devibaihospital.com${canonicalPath}`);
+    // Add custom schema(s) if provided
+    if (schema) {
+      if (Array.isArray(schema)) {
+        schemaGraphItems.push(...schema);
+      } else {
+        schemaGraphItems.push(schema);
       }
     }
-  }, [title, description, canonicalPath]);
+
+    // Inject into dedicated script tag if there are items to render
+    const scriptId = 'page-schema-ld-json';
+    let scriptTag = document.getElementById(scriptId) as HTMLScriptElement | null;
+
+    if (schemaGraphItems.length > 0) {
+      if (!scriptTag) {
+        scriptTag = document.createElement('script');
+        scriptTag.id = scriptId;
+        scriptTag.type = 'application/ld+json';
+        document.head.appendChild(scriptTag);
+      }
+
+      // Structure as Schema.org graph
+      const graphData = {
+        '@context': 'https://schema.org',
+        '@graph': schemaGraphItems
+      };
+      scriptTag.text = JSON.stringify(graphData, null, 2);
+    } else if (scriptTag) {
+      // Remove stale schema script if this page has none
+      scriptTag.remove();
+    }
+
+    return () => {
+      // Clean up page schema on component unmount to prevent leaks
+      const currentScript = document.getElementById(scriptId);
+      if (currentScript) {
+        currentScript.remove();
+      }
+    };
+  }, [title, description, keywords, canonicalPath, image, type, noindex, breadcrumbs, schema]);
 
   return null;
 };

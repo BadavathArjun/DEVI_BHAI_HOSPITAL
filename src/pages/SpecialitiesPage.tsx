@@ -9,9 +9,11 @@ export const SpecialitiesPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Medical Specialities & Departments | Devibai Super Speciality Hospital"
-        description="Explore the clinical specialities at Devibai Hospital Nirmal: Fertility & IVF, Obstetrics & Gynecology, Pediatrics, General Surgery, Laparoscopy, Urology, Medicine, and Emergency."
+        title="Medical Specialities & Departments | Devibai Super Speciality Hospital Nirmal"
+        description="Explore the clinical specialities at Devibai Hospital Nirmal: Fertility & IVF, Obstetrics & Gynecology, Pediatrics, General Surgery, Laparoscopic Surgery, Urology, General Medicine, and 24/7 Emergency."
+        keywords="Hospital specialities Nirmal, IVF clinic Nirmal, Gynecology Nirmal, Pediatric care Nirmal, Surgery hospital Nirmal, Laparoscopy Nirmal, Urology Nirmal, Devibai hospital departments"
         canonicalPath="/specialities"
+        breadcrumbs={[{ name: 'Specialities' }]}
       />
 
       <Breadcrumbs items={[{ name: 'Specialities' }]} />

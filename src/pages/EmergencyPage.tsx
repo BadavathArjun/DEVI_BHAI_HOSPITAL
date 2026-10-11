@@ -1,18 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  PhoneCall, 
-  AlertTriangle, 
-  Clock, 
-  MapPin, 
-  Activity, 
-  ShieldAlert, 
-  ArrowRight,
-  HeartPulse
-} from 'lucide-react';
+import { PhoneCall, MapPin } from 'lucide-react';
 import { HOSPITAL_INFO } from '../data/hospital';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { SEOHead } from '../components/common/SEOHead';
+import { generateEmergencySchema } from '../utils/seoSchemas';
 
 export const EmergencyPage: React.FC = () => {
   const emergencyConditions = [
@@ -33,9 +25,13 @@ export const EmergencyPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="24/7 Emergency & Critical Care | Devibai Super Speciality Hospital Nirmal"
-        description="24/7 Emergency Care in Nirmal. Call 9092916222 for accident trauma, poisoning, cardiac arrest, heart attack, stroke, respiratory failure, and Smart ICU ventilator support."
+        title="24/7 Emergency & Critical Care Hospital in Nirmal | Devibai Hospital"
+        description="24/7 Emergency Care in Nirmal. Call 9092916222 for accident trauma, poisoning resuscitation, heart attack, stroke, acute pediatric crises, and Smart ICU ventilator support."
+        keywords="24/7 Emergency hospital Nirmal, emergency hospital near me, ambulance Nirmal, trauma hospital Nirmal, ICU ventilator Nirmal, heart attack emergency Nirmal, poisoning hospital Nirmal, Devibai emergency 9092916222"
         canonicalPath="/emergency"
+        image="/assets/facilities/emergency-trauma-care.jpg"
+        breadcrumbs={[{ name: '24/7 Emergency & Critical Care' }]}
+        schema={generateEmergencySchema()}
       />
 
       <Breadcrumbs items={[{ name: '24/7 Emergency & Critical Care' }]} />

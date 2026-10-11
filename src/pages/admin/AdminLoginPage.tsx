@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Lock, ShieldCheck, AlertCircle, ArrowLeft } from 'lucide-react';
+import { Lock, AlertCircle, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEOHead } from '../../components/common/SEOHead';
 
@@ -25,7 +25,7 @@ export const AdminLoginPage: React.FC = () => {
 
   return (
     <div className="min-h-[70vh] py-16 bg-slate-100 flex items-center justify-center">
-      <SEOHead title="Staff Login | Devibai Hospital Portal" />
+      <SEOHead title="Staff Login | Devibai Hospital Portal" noindex={true} />
       <div className="max-w-md w-full mx-4">
         <div className="medical-card p-8 border border-slate-200 shadow-xl bg-white space-y-6">
           <div className="text-center space-y-2">

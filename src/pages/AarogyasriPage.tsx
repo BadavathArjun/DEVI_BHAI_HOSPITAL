@@ -1,19 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ShieldCheck, CheckCircle2, Phone, MessageSquare, Info, FileCheck } from 'lucide-react';
 import { HOSPITAL_INFO } from '../data/hospital';
 import { INSURANCE_DISCLAIMER } from '../data/insurance';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { ContactForm } from '../components/forms/ContactForm';
 import { SEOHead } from '../components/common/SEOHead';
+import { generateAarogyasriSchema } from '../utils/seoSchemas';
 
 export const AarogyasriPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Rajiv Aarogyasri Healthcare Services | Devibai Super Speciality Hospital"
-        description="Rajiv Aarogyasri healthcare scheme services at Devibai Super Speciality Hospital in Nirmal, Telangana. Assistance desk, eligibility inquiries, and hospital coordination."
+        title="Rajiv Aarogyasri Healthcare Scheme in Nirmal | Devibai Hospital"
+        description="Rajiv Aarogyasri healthcare scheme services at Devibai Super Speciality Hospital in Nirmal, Telangana. Cashless treatment assistance, EHS eligibility, and hospital coordination."
+        keywords="Aarogyasri hospital Nirmal, Rajiv Aarogyasri Telangana, EHS cashless hospital Nirmal, free treatment hospital Nirmal, Aarogyasri empanelled hospital Nirmal, Devibai Aarogyasri desk"
         canonicalPath="/arogyasri"
+        image="/assets/insurance/aarogyasri.png"
+        breadcrumbs={[
+          { name: 'Insurance', path: '/insurance' },
+          { name: 'Rajiv Aarogyasri' }
+        ]}
+        schema={generateAarogyasriSchema()}
       />
 
       <Breadcrumbs

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { CheckCircle2, Calendar, Phone, ArrowRight, ShieldCheck, AlertTriangle } from 'lucide-react';
+import { CheckCircle2, Calendar, Phone, AlertTriangle } from 'lucide-react';
 import { SPECIALITIES } from '../data/specialities';
 import { doctorService } from '../services/doctorService';
 import { HOSPITAL_INFO } from '../data/hospital';
@@ -8,6 +8,7 @@ import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { DoctorCard } from '../components/cards/DoctorCard';
 import { AppointmentForm } from '../components/forms/AppointmentForm';
 import { SEOHead } from '../components/common/SEOHead';
+import { generateSpecialitySchema } from '../utils/seoSchemas';
 
 export const SpecialityDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -33,9 +34,15 @@ export const SpecialityDetailPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title={`${speciality.title} Department | Devibai Super Speciality Hospital`}
-        description={speciality.shortDesc}
+        title={`${speciality.title} in Nirmal | Devibai Super Speciality Hospital`}
+        description={`${speciality.shortDesc} Expert clinical consultation and treatments at Devibai Super Speciality Hospital in Nirmal, Telangana.`}
+        keywords={`${speciality.title} Nirmal, ${speciality.title} hospital Nirmal, best ${speciality.title.toLowerCase()} Nirmal, ${speciality.treatments.slice(0, 5).join(', ')}, Devibai hospital`}
         canonicalPath={`/specialities/${speciality.slug}`}
+        breadcrumbs={[
+          { name: 'Specialities', path: '/specialities' },
+          { name: speciality.title }
+        ]}
+        schema={generateSpecialitySchema(speciality, assignedDoctors)}
       />
 
       <Breadcrumbs

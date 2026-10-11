@@ -12,9 +12,11 @@ export const FacilitiesPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Hospital Facilities & Infrastructure | Devibai Super Speciality Hospital"
+        title="Hospital Facilities & Infrastructure | Devibai Super Speciality Hospital Nirmal"
         description="Explore the infrastructure at Devibai Hospital Nirmal: 24/7 Emergency Room, Smart ICU, Round-the-Clock Pharmacy, Diagnostic Laboratory, Operation Theatres, and Maternal suites."
+        keywords="Hospital facilities Nirmal, ICU Nirmal, 24/7 Pharmacy Nirmal, diagnostic laboratory Nirmal, operation theatre Nirmal, hospital infrastructure Nirmal"
         canonicalPath="/facilities"
+        breadcrumbs={[{ name: 'Facilities' }]}
       />
 
       <Breadcrumbs items={[{ name: 'Facilities' }]} />

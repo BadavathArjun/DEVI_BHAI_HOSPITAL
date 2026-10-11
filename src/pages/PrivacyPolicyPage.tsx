@@ -7,9 +7,10 @@ export const PrivacyPolicyPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Privacy Policy | Devibai Super Speciality Hospital"
+        title="Privacy Policy | Devibai Super Speciality Hospital Nirmal"
         description="Privacy policy and patient health information handling protocols for Devibai Super Speciality Hospital in Nirmal, Telangana."
         canonicalPath="/privacy-policy"
+        breadcrumbs={[{ name: 'Privacy Policy' }]}
       />
 
       <Breadcrumbs items={[{ name: 'Privacy Policy' }]} />

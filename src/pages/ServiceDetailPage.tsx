@@ -1,11 +1,12 @@
 import React from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
-import { CheckCircle2, Phone, Calendar, ArrowRight, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { useParams, Navigate } from 'react-router-dom';
+import { CheckCircle2, Phone, Calendar, AlertTriangle } from 'lucide-react';
 import { SERVICES } from '../data/services';
 import { HOSPITAL_INFO } from '../data/hospital';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { AppointmentForm } from '../components/forms/AppointmentForm';
 import { SEOHead } from '../components/common/SEOHead';
+import { generateServiceSchema } from '../utils/seoSchemas';
 
 export const ServiceDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -20,9 +21,16 @@ export const ServiceDetailPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title={`${service.title} | Devibai Super Speciality Hospital`}
-        description={service.shortDesc}
+        title={`${service.title} in Nirmal | Devibai Super Speciality Hospital`}
+        description={`${service.shortDesc} Compassionate clinical service at Devibai Super Speciality Hospital Nirmal, Telangana.`}
+        keywords={`${service.title} Nirmal, ${service.category} Nirmal, ${service.features.slice(0, 4).join(', ')}, Devibai hospital services`}
         canonicalPath={`/services/${service.slug}`}
+        image={service.image}
+        breadcrumbs={[
+          { name: 'Services', path: '/services' },
+          { name: service.title }
+        ]}
+        schema={generateServiceSchema(service)}
       />
 
       <Breadcrumbs

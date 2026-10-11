@@ -1,0 +1,25 @@
+{
+  "name": "Devibai Super Speciality Hospital",
+  "short_name": "Devibai Hospital",
+  "description": "Multi-Speciality Hospital in Nirmal, Telangana providing 24/7 emergency care, fertility & IVF center, maternity, pediatrics, general & laparoscopic surgery, and ICU facilities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A2540",
+  "theme_color": "#0D9488",
+  "orientation": "portrait-primary",
+  "categories": ["medical", "health", "lifestyle"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/branding/hospital-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

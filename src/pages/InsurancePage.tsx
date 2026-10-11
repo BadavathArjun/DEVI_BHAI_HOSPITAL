@@ -13,9 +13,11 @@ export const InsurancePage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Insurance & Healthcare Schemes | Devibai Super Speciality Hospital"
-        description="Information on health insurance, TPAs, and government schemes empaneled at Devibai Hospital in Nirmal, including Rajiv Aarogyasri and Telangana EHS."
+        title="Insurance & Healthcare Schemes | Devibai Super Speciality Hospital Nirmal"
+        description="Information on health insurance, cashless TPAs, and government schemes supported at Devibai Hospital in Nirmal, including Rajiv Aarogyasri and Telangana EHS."
+        keywords="Health insurance hospital Nirmal, cashless hospital Nirmal, ICICI Lombard Nirmal, Star Health Nirmal, Aditya Birla Health Nirmal, mediclaim hospital Nirmal, Aarogyasri insurance Nirmal"
         canonicalPath="/insurance"
+        breadcrumbs={[{ name: 'Insurance & Healthcare Schemes' }]}
       />
 
       <Breadcrumbs items={[{ name: 'Insurance & Healthcare Schemes' }]} />

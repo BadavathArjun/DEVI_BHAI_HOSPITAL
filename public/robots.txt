@@ -1,6 +1,28 @@
 User-agent: *
 Allow: /
+Allow: /assets/
+Allow: /photos/
 Disallow: /admin/
+Disallow: /admin/*
 Disallow: /api/
+Disallow: /404
 
+# Specialized search engine bots
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /admin/*
+
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /photos/
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /admin/*
+
+# Canonical Host & Sitemap Location
+Host: https://devibaihospital.com
 Sitemap: https://devibaihospital.com/sitemap.xml

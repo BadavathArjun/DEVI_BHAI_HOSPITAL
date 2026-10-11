@@ -12,7 +12,7 @@ export const FacilityCard: React.FC<FacilityCardProps> = ({ facility }) => {
       <div className="relative h-48 overflow-hidden bg-slate-100">
         <img
           src={facility.image}
-          alt={facility.title}
+          alt={`${facility.title} - Devibai Super Speciality Hospital Nirmal`}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
         />

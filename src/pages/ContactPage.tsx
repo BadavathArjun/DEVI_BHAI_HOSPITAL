@@ -16,9 +16,11 @@ export const ContactPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Contact & Hospital Directions | Devibai Super Speciality Hospital"
-        description="Contact Devibai Super Speciality Hospital in Nirmal, Telangana. Call 9092916222, WhatsApp 9092915222, address and Google Maps directions."
+        title="Contact & Hospital Directions | Devibai Super Speciality Hospital Nirmal"
+        description="Contact Devibai Super Speciality Hospital in Nirmal, Telangana. Call 9092916222, WhatsApp 9092915222, address beside DS Mart, Mancherial Road, Shastri Nagar, Nirmal."
+        keywords="Devibai hospital contact number, Devibai hospital phone number, hospital in Nirmal phone, hospital address beside DS Mart Mancherial Road, emergency hospital Nirmal contact 9092916222"
         canonicalPath="/contact"
+        breadcrumbs={[{ name: 'Contact & Directions' }]}
       />
 
       <Breadcrumbs items={[{ name: 'Contact & Directions' }]} />

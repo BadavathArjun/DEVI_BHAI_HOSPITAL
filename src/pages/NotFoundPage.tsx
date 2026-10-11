@@ -11,6 +11,7 @@ export const NotFoundPage: React.FC = () => {
         title="Page Not Found (404) | Devibai Super Speciality Hospital"
         description="The requested page could not be found on Devibai Super Speciality Hospital website."
         canonicalPath="/404"
+        noindex={true}
       />
 
       <section className="min-h-[60vh] py-20 bg-slate-50 flex items-center justify-center">

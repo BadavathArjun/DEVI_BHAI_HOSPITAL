@@ -7,9 +7,10 @@ export const TermsPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Terms & Conditions | Devibai Super Speciality Hospital"
+        title="Terms & Conditions | Devibai Super Speciality Hospital Nirmal"
         description="Terms of website use, medical disclaimer, and emergency guidance for Devibai Super Speciality Hospital, Nirmal."
         canonicalPath="/terms"
+        breadcrumbs={[{ name: 'Terms & Conditions' }]}
       />
 
       <Breadcrumbs items={[{ name: 'Terms & Conditions' }]} />

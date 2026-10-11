@@ -9,9 +9,11 @@ export const ServicesPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Clinical Healthcare Services | Devibai Super Speciality Hospital"
+        title="Clinical Healthcare Services | Devibai Super Speciality Hospital Nirmal"
         description="Comprehensive healthcare services: Fertility & IVF, Maternal & Delivery Care, Pediatrics, Surgery, Laparoscopy, 24/7 Emergency, and Critical Care in Nirmal."
+        keywords="Hospital services Nirmal, IVF services Nirmal, Maternity delivery Nirmal, Pediatric ICU Nirmal, Laparoscopic surgery Nirmal, 24/7 emergency service Nirmal, Devibai hospital services"
         canonicalPath="/services"
+        breadcrumbs={[{ name: 'Clinical Services' }]}
       />
 
       <Breadcrumbs items={[{ name: 'Clinical Services' }]} />

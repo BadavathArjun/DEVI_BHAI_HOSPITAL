@@ -1,5 +1,5 @@
 import React from 'react';
-import { PhoneCall, AlertCircle } from 'lucide-react';
+import { PhoneCall } from 'lucide-react';
 import { HOSPITAL_INFO } from '../../data/hospital';
 
 export const EmergencyBar: React.FC = () => {

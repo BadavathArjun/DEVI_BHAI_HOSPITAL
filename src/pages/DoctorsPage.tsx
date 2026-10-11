@@ -44,9 +44,11 @@ export const DoctorsPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Our Doctors & Specialists | Devibai Super Speciality Hospital"
+        title="Our Doctors & Specialists | Devibai Super Speciality Hospital Nirmal"
         description="Meet the consultant physicians, laparoscopic surgeons, pediatricians, obstetricians and urologists at Devibai Super Speciality Hospital in Nirmal, Telangana."
+        keywords="Doctors in Nirmal, Best Gynecologist in Nirmal, Pediatrician Nirmal, General Surgeon Nirmal, Laparoscopic Surgeon Nirmal, Diabetologist Nirmal, Urologist Nirmal, Devibai hospital doctors, doctor consultation Nirmal"
         canonicalPath="/doctors"
+        breadcrumbs={[{ name: 'Doctors & Specialists' }]}
       />
 
       <Breadcrumbs items={[{ name: 'Doctors & Specialists' }]} />

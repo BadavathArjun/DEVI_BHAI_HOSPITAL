@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MessageSquare, Clock, MapPin, ShieldCheck, AlertCircle } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, AlertCircle } from 'lucide-react';
 import { HOSPITAL_INFO } from '../data/hospital';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { AppointmentForm } from '../components/forms/AppointmentForm';
@@ -10,9 +10,11 @@ export const AppointmentPage: React.FC = () => {
   return (
     <div>
       <SEOHead
-        title="Book an Appointment | Devibai Super Speciality Hospital"
+        title="Book Doctor Appointment Online | Devibai Super Speciality Hospital Nirmal"
         description="Request an appointment with our specialist doctors at Devibai Super Speciality Hospital, Nirmal. Consultations in fertility, maternity, pediatrics, surgery, medicine, and urology."
+        keywords="Book doctor appointment Nirmal, Devibai hospital appointment booking, OPD doctor Nirmal, doctor consultation Nirmal, consult Dr Chandrika Nirmal"
         canonicalPath="/appointment"
+        breadcrumbs={[{ name: 'Book Appointment' }]}
       />
 
       <Breadcrumbs items={[{ name: 'Book Appointment' }]} />

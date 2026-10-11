@@ -13,6 +13,7 @@ import { SPECIALITIES } from '../data/specialities';
 import { HOSPITAL_INFO } from '../data/hospital';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { SEOHead } from '../components/common/SEOHead';
+import { generatePhysicianSchema } from '../utils/seoSchemas';
 
 export const DoctorDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -43,8 +44,16 @@ export const DoctorDetailPage: React.FC = () => {
     <div>
       <SEOHead
         title={`${doctor.name} - ${doctor.specialization} | Devibai Hospital Nirmal`}
-        description={`Consult ${doctor.name} (${doctor.qualifications}) at Devibai Super Speciality Hospital, Nirmal. Specializing in ${doctor.specialization}.`}
+        description={`Consult ${doctor.name} (${doctor.qualifications}) at Devibai Super Speciality Hospital, Nirmal. Specializing in ${doctor.specialization}. Book appointment today.`}
+        keywords={`${doctor.name}, ${doctor.name} Nirmal, ${doctor.specialization} Nirmal, best doctor in Nirmal, consult ${doctor.name}, Devibai hospital doctors`}
         canonicalPath={`/doctors/${doctor.slug}`}
+        image={doctor.photo}
+        type="profile"
+        breadcrumbs={[
+          { name: 'Doctors', path: '/doctors' },
+          { name: doctor.name }
+        ]}
+        schema={generatePhysicianSchema(doctor)}
       />
 
       <Breadcrumbs

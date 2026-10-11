@@ -34,15 +34,18 @@ import { AppointmentForm } from '../components/forms/AppointmentForm';
 import { ReviewsSection } from '../components/common/ReviewsSection';
 import { MedicalDisclaimer } from '../components/common/MedicalDisclaimer';
 import { SEOHead } from '../components/common/SEOHead';
+import { generateFaqSchema } from '../utils/seoSchemas';
 import heroBannerImg from '../assets/homepage-hero.jpg';
 
 export const HomePage: React.FC = () => {
   return (
     <div className="space-y-0">
       <SEOHead
-        title="Devibai Super Speciality Hospital | Multi-Speciality Hospital in Nirmal"
-        description="Devibai Super Speciality Hospital in Nirmal, Telangana provides fertility & IVF, maternity, pediatric, surgical, laparoscopic, urology, emergency and critical care services."
+        title="Devibai Super Speciality Hospital | Multi-Speciality Hospital in Nirmal, Telangana"
+        description="Devibai Super Speciality Hospital in Nirmal provides 24/7 emergency care, fertility & IVF center, maternity, pediatrics, general & laparoscopic surgery, and Smart ICU facilities."
+        keywords="Devibai Super Speciality Hospital, Hospital in Nirmal, Best Hospital in Nirmal, Hospital in Shastri Nagar Nirmal, Beside DS Mart Mancherial Road Nirmal, IVF Doctor Nirmal Dr Chandrika, 24/7 Emergency hospital Nirmal, Laparoscopic surgery Nirmal, Pediatric hospital Nirmal, Aarogyasri hospital Nirmal, Super speciality hospital Nirmal Telangana"
         canonicalPath="/"
+        schema={generateFaqSchema(FAQS)}
       />
 
       {/* ==================================================

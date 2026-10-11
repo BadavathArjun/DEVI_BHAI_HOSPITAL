@@ -615,7 +615,7 @@ export const AdminDashboardPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-100 flex flex-col font-sans">
-      <SEOHead title="Executive Administration Portal | Devibai Super Speciality Hospital" />
+      <SEOHead title="Executive Administration Portal | Devibai Super Speciality Hospital" noindex={true} />
 
       {/* ==============================================================
           EXECUTIVE ADMIN TOP BAR
